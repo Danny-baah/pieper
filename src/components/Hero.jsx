@@ -56,11 +56,8 @@ export default function Hero() {
         <div className="hero-story-column">
           <TypewriterHeadline scene={activeScene} />
 
-          {/* Service Selectors (Inline, borderless, matching reference) */}
-          <ServiceSelectors
-            activeCategory={activeScene.serviceCategory}
-            onSelectService={handleSelectService}
-          />
+          {/* Contact Action CTA */}
+          <ServiceSelectors />
 
           {/* Progress Indicator (01 / 03 and 3 slim horizontal segments) */}
           <ProgressIndicator

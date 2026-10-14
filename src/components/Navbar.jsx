@@ -4,7 +4,7 @@ import { NAV_LINKS, COMPANY_INFO } from '../config/scenes';
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState('about');
+  const [activeSection, setActiveSection] = useState('#about');
 
   // Close drawer on escape key
   useEffect(() => {
@@ -23,8 +23,8 @@ export default function Navbar() {
     };
   }, [mobileMenuOpen]);
 
-  const handleNavClick = (href, label) => {
-    setActiveSection(label.toLowerCase());
+  const handleNavClick = (href) => {
+    setActiveSection(href);
     setMobileMenuOpen(false);
   };
 
@@ -49,13 +49,13 @@ export default function Navbar() {
         {/* Right-Aligned Navigation Links */}
         <div className="navbar-links-right">
           {NAV_LINKS.map((link) => {
-            const isActive = activeSection === link.label.toLowerCase();
+            const isActive = activeSection === link.href;
             return (
               <a
                 key={link.label}
                 href={link.href}
                 className={`nav-link ${isActive ? 'active' : ''}`}
-                onClick={() => handleNavClick(link.href, link.label)}
+                onClick={() => handleNavClick(link.href)}
               >
                 <span>{link.label}</span>
                 {isActive && <span className="nav-active-line" aria-hidden="true" />}
@@ -101,8 +101,8 @@ export default function Navbar() {
               <a
                 key={link.label}
                 href={link.href}
-                className={`mobile-nav-link ${activeSection === link.label.toLowerCase() ? 'active' : ''}`}
-                onClick={() => handleNavClick(link.href, link.label)}
+                className={`mobile-nav-link ${activeSection === link.href ? 'active' : ''}`}
+                onClick={() => handleNavClick(link.href)}
               >
                 <span>{link.label}</span>
                 <span className="mobile-link-arrow">→</span>

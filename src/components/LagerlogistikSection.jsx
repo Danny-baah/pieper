@@ -53,9 +53,9 @@ const LAGER_SERVICES = [
   {
     id: 'warehouse-service',
     number: '02',
-    title: 'Warehouse-Service',
+    title: 'Lagerservice',
     subtitle: 'Lagerhaltung & Bestandsorganisation',
-    description: 'Zuverlässige Lagerprozesse bilden die Grundlage einer funktionierenden Lieferkette. Unser Warehouse-Service unterstützt die strukturierte Lagerung und Organisation Ihrer Waren sowie effiziente Abläufe innerhalb der Logistik.',
+    description: 'Zuverlässige Lagerprozesse bilden die Grundlage einer funktionierenden Lieferkette. Unser Lagerservice unterstützt die strukturierte Lagerung und Organisation Ihrer Waren sowie effiziente Abläufe innerhalb der Logistik.',
     features: [
       'Moderne Hochregallager und flexible Blocklagerflächen',
       'Transparente Bestandsführung und sichere Lagerung',
@@ -69,7 +69,7 @@ const LAGER_SERVICES = [
     id: 'kommissionierung-versand',
     number: '03',
     title: 'Kommissionierung & Versand',
-    subtitle: 'Pick, Pack & Fulfillment',
+    subtitle: 'Kommissionierung & Verpackung',
     description: 'Von der Zusammenstellung der Waren bis zur Versandvorbereitung kommt es auf präzise Abläufe an. Wir unterstützen organisierte Kommissionierungs- und Versandprozesse für einen zuverlässigen Warenfluss.',
     features: [
       'Präzise Zusammenstellung nach Ihren Auftragsdaten',

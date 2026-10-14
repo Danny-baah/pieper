@@ -157,11 +157,11 @@ export default function PreviewLogin({ onLoginSuccess }) {
                 type={showPassword ? 'text' : 'password'}
                 value={password}
                 onChange={handlePasswordChange}
-                placeholder="Password"
+                placeholder="Passwort"
                 autoComplete="current-password"
                 autoFocus
                 disabled={isLoading}
-                aria-label="Password"
+                aria-label="Passwort"
                 aria-invalid={!!error}
                 aria-describedby={error ? 'preview-error-text' : undefined}
                 className="preview-password-field"

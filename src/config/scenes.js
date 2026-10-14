@@ -62,8 +62,8 @@ export const COMPANY_INFO = {
 };
 
 export const NAV_LINKS = [
-  { label: 'About', href: '#about', isActiveDefault: true },
-  { label: 'Services', href: '#services' },
+  { label: 'Über uns', href: '#about', isActiveDefault: true },
+  { label: 'Leistungen', href: '#services' },
   { label: 'Karriere', href: '#karriere' },
   { label: 'Kontakt', href: '#kontakt' },
 ];

@@ -159,7 +159,7 @@ export default function KarriereSection() {
                 </p>
                 <div className="karriere-quote-accent-line" aria-hidden="true" />
                 <div className="karriere-quote-values" aria-label="Unternehmenswerte">
-                  <span>TEAMWORK.</span>
+                  <span>TEAMGEIST.</span>
                   <span>VERANTWORTUNG.</span>
                   <span>GEMEINSAME ZUKUNFT.</span>
                 </div>

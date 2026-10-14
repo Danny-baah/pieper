@@ -17,11 +17,11 @@ export default function Footer() {
           1. TOP & MIDDLE BANNER: BRAND / FACILITY SUNSET & CONTACT COLUMNS
           ==================================================================== */}
       <div className="footer-top-container">
-        {/* Top-Right Facility Sunset Photo with Dark Angle Overlay */}
+        {/* Top-Right Office Desk & Dispatch Banner with Dark Angle Overlay */}
         <div className="footer-facility-banner-wrap" aria-hidden="true">
           <img 
-            src="./images/footer_facility_sunset.jpg" 
-            alt="Pieper Logistikzentrum und Fuhrpark bei Sonnenuntergang"
+            src="./images/footer_desk_notepad.jpg" 
+            alt="Pieper Disposition und Schreibtisch mit Notizblock"
             className="footer-facility-sunset-photo"
             loading="lazy"
             width="764"
@@ -219,7 +219,7 @@ export default function Footer() {
           <span className="footer-bottom-divider" aria-hidden="true" />
 
           <p className="footer-credit-text">
-            Webdesign by <strong className="footer-credit-brand">EmanCopys</strong>
+            Webdesign von <strong className="footer-credit-brand">EmanCopys</strong>
           </p>
 
           <span className="footer-bottom-divider" aria-hidden="true" />

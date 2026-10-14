@@ -72,12 +72,12 @@ export default function KontaktSection() {
             </div>
           </div>
 
-          {/* Right Column: Authentic Pieper Company Building Photo */}
+          {/* Right Column: Pieper Office Desk, Notepad & Pen */}
           <div className="kontakt-right-column">
             <div className="kontakt-building-frame">
               <img 
-                src="./images/kontakt_building.png" 
-                alt="PIEPER Internationale Transporte Firmenzentrale und Logistikzentrum"
+                src="./images/footer_desk_notepad.jpg" 
+                alt="PIEPER Internationale Transporte Schreibtisch mit Notizblock und Stift"
                 className="kontakt-building-photo"
                 loading="lazy"
                 width="634"

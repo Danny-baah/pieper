@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Hero from './components/Hero';
+import ServiceBridge from './components/ServiceBridge';
 import AboutSection from './components/AboutSection';
 import TransportlogistikSection from './components/TransportlogistikSection';
 import LagerlogistikSection from './components/LagerlogistikSection';
@@ -10,6 +11,7 @@ import PreviewLogin from './components/PreviewLogin';
 import { isPreviewAuthenticated, setPreviewAuthenticated } from './config/previewAuth';
 import { Lock } from 'lucide-react';
 import './App.css';
+import './styles/ServiceBridge.css';
 import './styles/About.css';
 import './styles/Transportlogistik.css';
 import './styles/Lagerlogistik.css';
@@ -27,7 +29,7 @@ function App() {
     if (isAuthenticated) {
       document.title = 'Pieper Internationale Transporte | Zuverlässige Transport- & Lagerlogistik';
     } else {
-      document.title = 'Preview';
+      document.title = 'Vorschau';
     }
   }, [isAuthenticated]);
 
@@ -87,6 +89,7 @@ function App() {
         Footer (Facility sunset banner, contact columns, Europe route map, feature badges, legal bar)
       */}
       <Hero />
+      <ServiceBridge />
       <AboutSection />
       <TransportlogistikSection />
       <LagerlogistikSection />

@@ -1,0 +1,133 @@
+/* ==========================================================================
+   SERVICE BRIDGE SECTION (SEPARATED FROM HERO WITH MARGINS & LEFT-ALIGNED)
+   Dark ribbon bar with margins from hero and sides, items aligned to the left
+   ========================================================================== */
+
+.pieper-service-bridge-section {
+  position: relative;
+  width: 100%;
+  background-color: #FCFAEE; /* Warm ivory page background creates clear separation from hero */
+  padding: clamp(24px, 3.5vw, 44px) clamp(1rem, 3.5vw, 3rem) clamp(12px, 1.8vw, 24px) clamp(1rem, 3.5vw, 3rem);
+  box-sizing: border-box;
+  z-index: 10;
+}
+
+/* Contained Dark Ribbon Bar with Left & Right Margins and Rounded Corners */
+.service-bridge-container {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  background-color: #061B18; /* Deep Forest dark ribbon */
+  border-radius: 14px;
+  border: 1px solid rgba(252, 250, 238, 0.1);
+  box-shadow: 
+    0 10px 30px rgba(6, 27, 24, 0.12),
+    0 2px 6px rgba(0, 0, 0, 0.08);
+  padding: clamp(24px, 3.2vw, 36px) clamp(24px, 4.5vw, 56px);
+  display: flex;
+  justify-content: flex-start; /* Aligned to the left */
+  align-items: center;
+  gap: clamp(36px, 6vw, 84px);
+  flex-wrap: wrap;
+  box-sizing: border-box;
+}
+
+/* Individual Item: No separate box around icon, sits directly inside dark ribbon */
+.service-ribbon-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: #FFFFFF;
+  cursor: pointer;
+  padding: 8px 12px;
+  box-sizing: border-box;
+  background: transparent;
+  border: none;
+  user-select: none;
+  /* Tactile "big small" bounce animation transition */
+  transition: 
+    transform 0.28s cubic-bezier(0.34, 1.56, 0.64, 1),
+    color 0.22s ease,
+    filter 0.25s ease;
+}
+
+/* "Big Small" Hover Micro-Interaction */
+.service-ribbon-item:hover {
+  transform: scale(1.12);
+  color: #BDF806;
+}
+
+.service-ribbon-item:active {
+  transform: scale(0.96);
+}
+
+.service-ribbon-item:focus-visible {
+  outline: 2px solid #BDF806;
+  outline-offset: 6px;
+  border-radius: 8px;
+}
+
+/* Enlarged Icon Wrap */
+.ribbon-item-icon-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #FCFAEE;
+  transition: transform 0.28s ease, color 0.25s ease, filter 0.25s ease;
+}
+
+.service-ribbon-item:hover .ribbon-item-icon-wrap {
+  color: #BDF806;
+  filter: drop-shadow(0 0 16px rgba(189, 248, 6, 0.5));
+}
+
+.ribbon-item-icon {
+  display: block;
+}
+
+/* Bold Uppercase Text Beneath Icon */
+.ribbon-item-title {
+  font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: clamp(14px, 1.25vw, 16px);
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  color: #FFFFFF;
+  margin-top: 14px;
+  line-height: 1.25;
+  text-align: center;
+  transition: color 0.22s ease;
+  white-space: nowrap;
+}
+
+.service-ribbon-item:hover .ribbon-item-title {
+  color: #BDF806;
+}
+
+/* Responsive adjustments for mobile and tablets */
+@media (max-width: 580px) {
+  .pieper-service-bridge-section {
+    padding: 16px 12px 8px 12px;
+  }
+
+  .service-bridge-container {
+    padding: 20px 16px;
+    gap: 20px;
+    justify-content: flex-start;
+  }
+
+  .service-ribbon-item {
+    padding: 6px 8px;
+  }
+
+  .ribbon-item-icon-wrap svg {
+    width: 48px;
+    height: 48px;
+  }
+
+  .ribbon-item-title {
+    font-size: 12px;
+    margin-top: 8px;
+  }
+}
