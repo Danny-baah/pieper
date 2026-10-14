@@ -1,0 +1,706 @@
+/* ==========================================================================
+   PIEPER INTERNATIONALE TRANSPORTE - HERO SECTION (RECREATED FROM REFERENCE)
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. HERO VIEWPORT & MAIN LAYOUT
+   -------------------------------------------------------------------------- */
+.pieper-hero-section {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  height: 100svh;
+  min-height: 640px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+  background-color: var(--color-deep-forest);
+  color: var(--color-warm-ivory);
+}
+
+/* --------------------------------------------------------------------------
+   2. UNIFIED CONTINUOUS VIDEO BACKGROUND & REFERENCE GRADIENT OVERLAY
+   -------------------------------------------------------------------------- */
+.hero-video-container {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.hero-video-continuous {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+}
+
+/* Subtle gradient matching reference: dark on left/bottom for text, clear on sky/truck */
+.hero-reference-gradient {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+  background: 
+    linear-gradient(90deg, rgba(6, 27, 24, 0.82) 0%, rgba(6, 27, 24, 0.60) 32%, rgba(6, 27, 24, 0.18) 60%, transparent 85%),
+    linear-gradient(180deg, rgba(6, 27, 24, 0.55) 0%, transparent 18%, transparent 60%, rgba(6, 27, 24, 0.75) 100%);
+}
+
+/* --------------------------------------------------------------------------
+   3. TOP CONTACT BAR
+   -------------------------------------------------------------------------- */
+.hero-header-wrapper {
+  position: relative;
+  z-index: 20;
+  width: 100%;
+}
+
+.contact-bar {
+  width: 100%;
+  height: 38px;
+  background-color: #061B18;
+  font-size: 0.8125rem;
+  letter-spacing: 0.25px;
+  color: rgba(252, 250, 238, 0.9);
+}
+
+.contact-bar-container {
+  max-width: 1440px;
+  height: 100%;
+  margin: 0 auto;
+  padding: 0 clamp(1.25rem, 4vw, 3.5rem);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.contact-bar-left,
+.contact-bar-right {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.contact-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.contact-icon {
+  color: var(--color-signature-lime);
+  flex-shrink: 0;
+}
+
+.contact-divider {
+  color: rgba(252, 250, 238, 0.35);
+}
+
+.contact-link {
+  color: rgba(252, 250, 238, 0.9);
+  transition: color var(--transition-fast);
+}
+
+.contact-link:hover {
+  color: var(--color-signature-lime);
+}
+
+/* --------------------------------------------------------------------------
+   4. NAVIGATION BAR (TRANSPARENT, CENTERED NAV ITEMS, NO BACKGROUND)
+   -------------------------------------------------------------------------- */
+.navbar {
+  width: 100%;
+  height: 82px;
+  background: transparent; /* No background per user request */
+  border: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+.navbar-container {
+  max-width: 1440px;
+  height: 100%;
+  margin: 0 auto;
+  padding: 0 clamp(1.25rem, 4vw, 3.5rem);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Brand Logo - Left (Clean on background, no box) */
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  flex: 0 0 auto;
+}
+
+.brand-logo-img {
+  height: 48px;
+  width: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.2));
+  transition: transform var(--transition-fast);
+}
+
+.brand-logo-img:hover {
+  transform: scale(1.02);
+}
+
+/* Right-Aligned Navigation Links */
+.navbar-links-right {
+  display: flex;
+  align-items: center;
+  gap: 2.75rem;
+}
+
+.nav-link {
+  position: relative;
+  font-family: var(--font-body);
+  font-size: 1.08rem;
+  font-weight: 600;
+  color: #ffffff; /* Clean white nav items */
+  padding: 0.35rem 0.25rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: color var(--transition-fast);
+}
+
+.nav-link:hover {
+  color: var(--color-signature-lime);
+}
+
+.nav-active-line {
+  position: absolute;
+  bottom: -4px;
+  width: 28px;
+  height: 3px;
+  background-color: var(--color-signature-lime);
+  border-radius: 9999px;
+  box-shadow: 0 0 8px rgba(189, 248, 6, 0.5);
+}
+
+/* Mobile Toggle Button */
+.mobile-toggle-btn {
+  display: none;
+  margin-left: auto;
+  color: #ffffff;
+  padding: 0.5rem;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(8px);
+}
+
+/* Mobile Drawer */
+.mobile-nav-drawer {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: min(85vw, 360px);
+  height: 100vh;
+  height: 100svh;
+  background: var(--color-deep-forest);
+  border-left: 1px solid rgba(252, 250, 238, 0.12);
+  z-index: 100;
+  transition: right 350ms cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: -10px 0 30px rgba(0, 0, 0, 0.6);
+}
+
+.mobile-nav-drawer.open {
+  right: 0;
+}
+
+.mobile-drawer-content {
+  padding: 2rem 1.75rem;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-between;
+}
+
+.mobile-drawer-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid rgba(252, 250, 238, 0.1);
+}
+
+.mobile-drawer-title {
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--color-warm-ivory);
+}
+
+.mobile-close-btn {
+  color: var(--color-ivory-80);
+  padding: 0.4rem;
+}
+
+.mobile-links-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.mobile-nav-link {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.125rem;
+  font-weight: 600;
+  padding: 0.85rem 1rem;
+  border-radius: 8px;
+  background: rgba(252, 250, 238, 0.05);
+  color: var(--color-warm-ivory);
+  transition: all var(--transition-fast);
+}
+
+.mobile-nav-link:hover,
+.mobile-nav-link.active {
+  background: var(--color-lime-15);
+  color: var(--color-signature-lime);
+}
+
+.mobile-link-arrow {
+  color: var(--color-signature-lime);
+}
+
+.mobile-drawer-footer {
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(252, 250, 238, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.mobile-footer-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--color-ivory-60);
+}
+
+.mobile-contact-pill {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-warm-ivory);
+  background: rgba(252, 250, 238, 0.06);
+  padding: 0.65rem 1rem;
+  border-radius: 6px;
+  border: 1px solid rgba(252, 250, 238, 0.12);
+  text-align: center;
+}
+
+.mobile-contact-pill.secondary {
+  color: var(--color-signature-lime);
+  border-color: rgba(189, 248, 6, 0.3);
+}
+
+.mobile-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(4px);
+  z-index: 99;
+}
+
+/* --------------------------------------------------------------------------
+   5. HERO MAIN CONTENT COLUMN (MATCHING REFERENCE DESIGN)
+   -------------------------------------------------------------------------- */
+.hero-reference-body {
+  position: relative;
+  z-index: 10;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  max-width: 1440px;
+  width: 100%;
+  margin: 0 auto;
+  padding: clamp(3.25rem, 6vh, 5rem) clamp(1.25rem, 4vw, 3.5rem) clamp(1.5rem, 3.5vh, 2.5rem);
+}
+
+.hero-story-column {
+  max-width: 680px;
+  display: flex;
+  flex-direction: column;
+}
+
+.hero-story-content {
+  display: flex;
+  flex-direction: column;
+  transition: opacity 200ms ease;
+}
+
+.hero-story-content.fade-out {
+  opacity: 0;
+}
+
+.hero-story-content.fade-in {
+  opacity: 1;
+}
+
+/* Clean White Overline (No border, no background, directly on footage) */
+.hero-clean-overline {
+  font-family: var(--font-body);
+  font-size: clamp(0.75rem, 0.95vw, 0.875rem);
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #ffffff;
+  margin-top: 1rem;
+  margin-bottom: 0.85rem;
+  opacity: 0.95;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Main Heading: 2 Lines */
+.hero-heading-wrapper {
+  min-height: clamp(5.5rem, 11vw, 9.5rem);
+  display: flex;
+  align-items: center;
+}
+
+.hero-heading {
+  font-family: var(--font-display);
+  font-size: clamp(2.85rem, 5.8vw, 5.25rem);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.025em;
+  color: #ffffff;
+  margin: 0;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.45);
+}
+
+.heading-line-1 {
+  display: inline-block;
+  color: #ffffff;
+}
+
+.heading-line-2 {
+  display: inline-block;
+}
+
+.heading-line2-prefix {
+  color: #ffffff;
+}
+
+.heading-highlight {
+  color: var(--color-signature-lime);
+  text-shadow: 0 0 35px rgba(189, 248, 6, 0.35);
+  margin-left: 0.1em;
+}
+
+.typewriter-caret {
+  display: inline-block;
+  color: #ffffff;
+  font-weight: 300;
+  margin-left: 4px;
+  animation: blinkCaret 0.8s infinite;
+}
+
+/* Signature Lime Accent Line under headline */
+.hero-lime-accent-line {
+  width: 42px;
+  height: 3.5px;
+  background-color: var(--color-signature-lime);
+  border-radius: 9999px;
+  margin: 1.15rem 0 1.25rem 0;
+  box-shadow: 0 0 10px rgba(189, 248, 6, 0.4);
+  opacity: 0;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: opacity 400ms ease, transform 400ms ease;
+}
+
+.hero-lime-accent-line.visible {
+  opacity: 1;
+  transform: scaleX(1);
+}
+
+/* Supporting Text */
+.hero-supporting-wrapper {
+  max-width: 540px;
+  min-height: 3.25rem;
+}
+
+.hero-supporting-text {
+  font-family: var(--font-body);
+  font-size: clamp(1rem, 1.25vw, 1.2rem);
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 400;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 500ms ease, transform 500ms ease;
+}
+
+.hero-supporting-text.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* --------------------------------------------------------------------------
+   6. BORDERLESS SERVICE SELECTORS & CONTACT ROW
+   -------------------------------------------------------------------------- */
+.reference-actions-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 2rem;
+}
+
+/* Contact CTA Button on its own row before service icons */
+.hero-contact-row {
+  margin-bottom: 1.6rem;
+}
+
+.hero-contact-action-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.65rem 1.45rem;
+  background-color: var(--color-signature-lime);
+  color: var(--color-deep-forest);
+  font-family: var(--font-body);
+  font-size: 0.9375rem;
+  font-weight: 700;
+  border-radius: 9999px;
+  text-decoration: none;
+  box-shadow: 0 4px 18px rgba(189, 248, 6, 0.35);
+  transition: all var(--transition-normal);
+  white-space: nowrap;
+}
+
+.hero-contact-action-btn:hover {
+  background-color: #d6ff33;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 25px rgba(189, 248, 6, 0.5);
+  color: var(--color-deep-forest);
+}
+
+.contact-btn-arrow {
+  color: var(--color-deep-forest);
+  transition: transform var(--transition-fast);
+}
+
+.hero-contact-action-btn:hover .contact-btn-arrow {
+  transform: translateX(3px);
+}
+
+.reference-service-selectors {
+  display: flex;
+  align-items: center;
+  gap: 2.75rem;
+}
+
+.reference-service-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 0;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.65);
+  transition: color var(--transition-fast);
+}
+
+.reference-service-btn:hover {
+  color: #ffffff;
+}
+
+.reference-service-btn.active {
+  color: #ffffff;
+}
+
+.reference-icon-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.reference-icon {
+  color: rgba(255, 255, 255, 0.65);
+  transition: color var(--transition-fast), transform var(--transition-fast);
+}
+
+.reference-service-btn.active .reference-icon {
+  color: var(--color-signature-lime);
+  filter: drop-shadow(0 0 10px rgba(189, 248, 6, 0.4));
+}
+
+.reference-service-btn:hover .reference-icon {
+  color: var(--color-signature-lime);
+}
+
+.service-active-underline {
+  width: 100%;
+  height: 2.5px;
+  background-color: var(--color-signature-lime);
+  border-radius: 9999px;
+  margin-top: 3px;
+  box-shadow: 0 0 8px rgba(189, 248, 6, 0.5);
+}
+
+.reference-service-label {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+/* --------------------------------------------------------------------------
+   7. PROGRESS INDICATOR ROW (01 / 03 & 3 SLIM SEGMENTS)
+   -------------------------------------------------------------------------- */
+.reference-progress-row {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  margin-top: 2.5rem;
+}
+
+.reference-scene-counter {
+  font-family: var(--font-display);
+  display: flex;
+  align-items: baseline;
+  gap: 0.25rem;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.85);
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+.counter-num {
+  font-size: 0.9375rem;
+}
+
+.counter-slash {
+  color: rgba(255, 255, 255, 0.4);
+  margin: 0 2px;
+}
+
+.reference-segments-track {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.reference-segment-btn {
+  padding: 0.25rem 0;
+  background: none;
+  cursor: pointer;
+  border: none;
+}
+
+.reference-segment-track {
+  width: 52px;
+  height: 3.5px;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.22);
+  overflow: hidden;
+  position: relative;
+  transition: background var(--transition-fast);
+}
+
+.reference-segment-btn:hover .reference-segment-track {
+  background: rgba(255, 255, 255, 0.35);
+}
+
+.reference-segment-fill {
+  height: 100%;
+  width: 0%;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.6);
+  transition: width 100ms linear;
+}
+
+.reference-segment-fill.active-fill {
+  background: var(--color-signature-lime);
+  box-shadow: 0 0 10px var(--color-signature-lime);
+}
+
+/* --------------------------------------------------------------------------
+   8. RESPONSIVE BREAKPOINTS
+   -------------------------------------------------------------------------- */
+@media (max-width: 1024px) {
+  .navbar-links-center {
+    gap: 1.75rem;
+  }
+  .navbar-right-placeholder {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .contact-bar {
+    height: auto;
+    padding: 0.45rem 0;
+  }
+  .contact-bar-right {
+    display: none;
+  }
+  .contact-bar-container {
+    justify-content: center;
+  }
+  .address-item .contact-text {
+    max-width: 200px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .navbar-links-right {
+    display: none;
+  }
+  .mobile-toggle-btn {
+    display: flex;
+  }
+  .brand-logo-img {
+    height: 38px;
+  }
+  .hero-reference-body {
+    align-items: flex-start;
+    padding-top: clamp(0.75rem, 2vh, 1.25rem);
+    padding-bottom: 1.5rem;
+  }
+  .hero-clean-overline {
+    margin-top: 0.25rem;
+    margin-bottom: 0.5rem;
+  }
+  .hero-heading {
+    font-size: 2.35rem;
+  }
+  .hero-heading-wrapper {
+    min-height: 4.85rem;
+  }
+  .hero-supporting-text {
+    font-size: 0.95rem;
+  }
+  .reference-actions-container {
+    margin-top: 1.5rem;
+  }
+  .hero-contact-row {
+    margin-bottom: 1.25rem;
+  }
+  .reference-service-selectors {
+    gap: 1.5rem;
+  }
+  .reference-progress-row {
+    margin-top: 1.5rem;
+  }
+  .reference-segment-track {
+    width: 40px;
+  }
+}

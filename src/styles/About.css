@@ -1,0 +1,538 @@
+/* ==========================================================================
+   PIEPER INTERNATIONALE TRANSPORTE - ABOUT SECTION (ÜBER UNS)
+   ========================================================================== */
+
+.pieper-about-section {
+  position: relative;
+  width: 100%;
+  background-color: var(--color-warm-ivory);
+  color: var(--color-deep-forest);
+  overflow: hidden;
+  z-index: 5;
+}
+
+/* --------------------------------------------------------------------------
+   1. FAINT WATERMARK MONOGRAM IN BACKGROUND
+   -------------------------------------------------------------------------- */
+.about-watermark-bg {
+  position: absolute;
+  top: -60px;
+  left: 32%;
+  width: 520px;
+  height: 520px;
+  color: rgba(6, 27, 24, 0.032);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.watermark-svg {
+  width: 100%;
+  height: 100%;
+  transform: rotate(-5deg);
+}
+
+/* --------------------------------------------------------------------------
+   2. MAIN CONTAINER & 2-COLUMN GRID
+   -------------------------------------------------------------------------- */
+.about-main-container {
+  position: relative;
+  z-index: 2;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: clamp(4.5rem, 7vw, 7rem) clamp(1.25rem, 4vw, 3.5rem);
+  display: grid;
+  grid-template-columns: 1.02fr 1.18fr;
+  gap: clamp(2.5rem, 5vw, 5rem);
+  align-items: center;
+}
+
+/* --------------------------------------------------------------------------
+   3. LEFT COLUMN: INTRODUCTION & TRUST POINTS
+   -------------------------------------------------------------------------- */
+.about-content-column {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Eyebrow with Lime Accent */
+.about-eyebrow-wrapper {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+}
+
+.about-eyebrow-line {
+  width: 32px;
+  height: 3px;
+  background-color: var(--color-signature-lime);
+  border-radius: 9999px;
+}
+
+.about-eyebrow-text {
+  font-family: var(--font-body);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--color-deep-forest);
+}
+
+/* Main Heading */
+.about-heading {
+  font-family: var(--font-display);
+  font-size: clamp(2.35rem, 4.2vw, 3.85rem);
+  font-weight: 800;
+  line-height: 1.08;
+  letter-spacing: -0.025em;
+  margin: 0 0 1.75rem 0;
+}
+
+.heading-line-dark {
+  color: #061B18;
+}
+
+.heading-highlight-lime {
+  color: #7bb500; /* High-contrast editorial lime tailored for warm ivory */
+  text-shadow: 0 0 1px rgba(0, 0, 0, 0.05);
+}
+
+/* Supporting Paragraph */
+.about-paragraph {
+  font-family: var(--font-body);
+  font-size: clamp(1rem, 1.15vw, 1.0625rem);
+  line-height: 1.72;
+  color: rgba(6, 27, 24, 0.76);
+  max-width: 540px;
+  margin: 0 0 2.5rem 0;
+}
+
+/* Trust & Value Points */
+.about-value-points {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr auto 1fr;
+  align-items: flex-start;
+  gap: 1.25rem;
+  margin-bottom: 2.75rem;
+}
+
+.value-point-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.value-icon-box {
+  margin-bottom: 0.75rem;
+  color: #7bb500;
+}
+
+.value-title {
+  font-family: var(--font-display);
+  font-size: 1.0625rem;
+  font-weight: 700;
+  color: #061B18;
+  margin: 0 0 0.35rem 0;
+}
+
+.value-desc {
+  font-family: var(--font-body);
+  font-size: 0.8125rem;
+  line-height: 1.45;
+  color: rgba(6, 27, 24, 0.65);
+  margin: 0;
+}
+
+.value-divider {
+  width: 1px;
+  height: 58px;
+  background-color: rgba(6, 27, 24, 0.12);
+  align-self: center;
+}
+
+/* CTA Button */
+.about-cta-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.about-cta-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.95rem 2.25rem;
+  background-color: #061B18;
+  color: #ffffff;
+  font-family: var(--font-body);
+  font-size: 0.9375rem;
+  font-weight: 700;
+  border-radius: 4px;
+  text-decoration: none;
+  box-shadow: 0 4px 18px rgba(6, 27, 24, 0.18);
+  transition: all var(--transition-normal);
+}
+
+.about-btn-arrow {
+  color: var(--color-signature-lime);
+  transition: transform var(--transition-fast);
+}
+
+.about-cta-button:hover {
+  background-color: var(--color-transport-teal);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(6, 27, 24, 0.28);
+}
+
+.about-cta-button:hover .about-btn-arrow {
+  transform: translateX(4px);
+}
+
+/* --------------------------------------------------------------------------
+   4. RIGHT COLUMN: EDITORIAL ASYMMETRIC TRUCK COLLAGE
+   -------------------------------------------------------------------------- */
+.about-collage-column {
+  position: relative;
+  width: 100%;
+}
+
+.about-collage-grid {
+  position: relative;
+  display: flex;
+  height: 560px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 24px 50px rgba(6, 27, 24, 0.14);
+}
+
+.collage-item {
+  position: relative;
+  overflow: hidden;
+  background-color: #061B18;
+}
+
+/* Main highway truck with dynamic forward-motion angled right cut */
+.collage-item-main {
+  flex: 1.28;
+  height: 100%;
+  clip-path: polygon(0 0, 100% 0, calc(100% - 48px) 100%, 0 100%);
+  z-index: 2;
+}
+
+/* Sub-column with 2 stacked images & matching parallel angled left cut */
+.collage-sub-column {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  height: 100%;
+  margin-left: -38px;
+  clip-path: polygon(48px 0, 100% 0, 100% 100%, 0 100%);
+  z-index: 2;
+}
+
+.collage-item-top {
+  flex: 1;
+  height: 50%;
+}
+
+.collage-item-bottom {
+  flex: 1.1;
+  height: 50%;
+}
+
+.collage-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 700ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.collage-item-main .collage-img {
+  object-position: center 30%;
+}
+
+.collage-item-top .collage-img {
+  object-position: center center;
+}
+
+.collage-item-bottom .collage-img {
+  object-position: center center;
+}
+
+.collage-item:hover .collage-img {
+  transform: scale(1.04);
+}
+
+/* Subtle angled green accent blade on the right edge matching reference */
+.collage-lime-blade {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 22px;
+  background: linear-gradient(135deg, rgba(3, 90, 82, 0.9) 0%, rgba(6, 27, 24, 0.95) 100%);
+  border-left: 2px solid var(--color-signature-lime);
+  clip-path: polygon(100% 0, 100% 100%, 0 100%, 65% 0);
+  pointer-events: none;
+  z-index: 3;
+}
+
+/* --------------------------------------------------------------------------
+   5. BOTTOM STATISTICS BAND
+   -------------------------------------------------------------------------- */
+.about-stats-band {
+  width: 100%;
+  background-color: #061B18;
+  color: #ffffff;
+  padding: 3rem clamp(1.25rem, 4vw, 3.5rem);
+  position: relative;
+  overflow: hidden;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Subtle dark gradient overlay on band */
+.stats-bg-overlay {
+  position: absolute;
+  inset: 0;
+  background: 
+    radial-gradient(circle at 12% 50%, rgba(3, 90, 82, 0.3) 0%, transparent 65%),
+    linear-gradient(180deg, rgba(6, 27, 24, 0.96) 0%, rgba(6, 27, 24, 0.99) 100%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Subtle "PIEPER" watermark across statistics band matching reference */
+.stats-watermark-text {
+  position: absolute;
+  right: 3%;
+  bottom: -28px;
+  font-family: var(--font-display);
+  font-size: clamp(5.5rem, 13vw, 11rem);
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  color: rgba(255, 255, 255, 0.024);
+  pointer-events: none;
+  user-select: none;
+  z-index: 1;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.stats-band-container {
+  position: relative;
+  z-index: 2;
+  max-width: 1440px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.1fr auto 1.05fr auto 1.25fr auto 1.2fr;
+  align-items: center;
+  gap: clamp(1rem, 2.5vw, 2.5rem);
+}
+
+.stat-block {
+  display: flex;
+  align-items: center;
+  gap: 1.15rem;
+}
+
+.stat-icon-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-signature-lime);
+  flex-shrink: 0;
+  filter: drop-shadow(0 0 10px rgba(189, 248, 6, 0.25));
+}
+
+.stat-text-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.stat-highlight-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.05rem, 1.2vw, 1.2rem);
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1.2;
+  margin-bottom: 0.2rem;
+  letter-spacing: -0.01em;
+}
+
+.stat-highlight-title.lime-accent {
+  color: var(--color-signature-lime);
+}
+
+.stat-subtitle {
+  font-family: var(--font-body);
+  font-size: 0.78125rem;
+  color: rgba(255, 255, 255, 0.68);
+  line-height: 1.4;
+}
+
+.stat-divider {
+  width: 1px;
+  height: 52px;
+  background-color: rgba(255, 255, 255, 0.12);
+}
+
+/* --------------------------------------------------------------------------
+   6. ENTRANCE ANIMATIONS (INTERSECTION OBSERVER)
+   -------------------------------------------------------------------------- */
+.pieper-about-section .about-content-column > * {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 600ms cubic-bezier(0.16, 1, 0.3, 1), transform 600ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.pieper-about-section .about-collage-grid {
+  opacity: 0;
+  transform: scale(0.96) translateY(20px);
+  transition: opacity 800ms cubic-bezier(0.16, 1, 0.3, 1) 150ms, transform 800ms cubic-bezier(0.16, 1, 0.3, 1) 150ms;
+}
+
+.pieper-about-section .stats-band-container {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 700ms cubic-bezier(0.16, 1, 0.3, 1) 250ms, transform 700ms cubic-bezier(0.16, 1, 0.3, 1) 250ms;
+}
+
+/* Revealed states */
+.pieper-about-section.is-revealed .about-eyebrow-wrapper {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 50ms;
+}
+
+.pieper-about-section.is-revealed .about-heading {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 150ms;
+}
+
+.pieper-about-section.is-revealed .about-paragraph {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 250ms;
+}
+
+.pieper-about-section.is-revealed .about-value-points {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 350ms;
+}
+
+.pieper-about-section.is-revealed .about-cta-wrapper {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 450ms;
+}
+
+.pieper-about-section.is-revealed .about-collage-grid {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+}
+
+.pieper-about-section.is-revealed .stats-band-container {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .pieper-about-section .about-content-column > *,
+  .pieper-about-section .about-collage-grid,
+  .pieper-about-section .stats-band-container {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   7. RESPONSIVE BREAKPOINTS
+   -------------------------------------------------------------------------- */
+@media (max-width: 1180px) {
+  .about-main-container {
+    grid-template-columns: 1fr;
+    gap: 3.5rem;
+    padding: 4rem clamp(1.25rem, 4vw, 2.5rem);
+  }
+
+  .about-collage-grid {
+    height: 480px;
+    clip-path: none;
+  }
+
+  .stats-band-container {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+
+  .stat-divider {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-main-container {
+    padding: 3.5rem 1.25rem;
+  }
+
+  .about-heading {
+    font-size: 2.15rem;
+  }
+
+  .about-paragraph {
+    font-size: 0.96875rem;
+    margin-bottom: 2rem;
+  }
+
+  .about-value-points {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin-bottom: 2.25rem;
+  }
+
+  .value-divider {
+    display: none;
+  }
+
+  .about-cta-button {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .about-collage-grid {
+    flex-direction: column;
+    height: auto;
+    gap: 8px;
+  }
+
+  .collage-item-main {
+    flex: none;
+    height: 280px;
+    clip-path: none;
+  }
+
+  .collage-sub-column {
+    flex: none;
+    flex-direction: row;
+    height: 180px;
+    margin-left: 0;
+    clip-path: none;
+  }
+
+  .collage-lime-blade {
+    display: none;
+  }
+
+  .about-stats-band {
+    padding: 2.5rem 1.25rem;
+  }
+
+  .stats-band-container {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+  }
+}

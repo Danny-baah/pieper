@@ -1,0 +1,478 @@
+/* ==========================================================================
+   PIEPER INTERNATIONALE TRANSPORTE - FOOTER (MATCHING REFERENCE EXACTLY)
+   ========================================================================== */
+
+.pieper-footer {
+  position: relative;
+  width: 100%;
+  background-color: #061B18;
+  color: #FCFAEE;
+  overflow: hidden;
+  z-index: 20;
+  border-top: 1px solid rgba(6, 27, 24, 0.2);
+}
+
+/* --------------------------------------------------------------------------
+   1. TOP & MIDDLE BANNER: BRAND / FACILITY SUNSET & CONTACT COLUMNS
+   -------------------------------------------------------------------------- */
+.footer-top-container {
+  position: relative;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: clamp(2.5rem, 4vw, 3.5rem) clamp(1.25rem, 4vw, 3.5rem) clamp(2rem, 3.5vw, 3rem);
+}
+
+/* Panoramic Facility Sunset Photo with Dark Angle Overlay in Top-Right */
+.footer-facility-banner-wrap {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 68%;
+  height: 235px;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.footer-facility-sunset-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: right top;
+  display: block;
+}
+
+.footer-facility-gradient-overlay {
+  position: absolute;
+  inset: 0;
+  background: 
+    linear-gradient(90deg, #061B18 0%, rgba(6, 27, 24, 0.85) 16%, rgba(6, 27, 24, 0.35) 45%, transparent 70%),
+    linear-gradient(180deg, transparent 40%, #061B18 100%);
+  pointer-events: none;
+}
+
+/* Main Content Grid (Brand Column on Left, 4 Contact Cols + Map on Right) */
+.footer-main-content-grid {
+  position: relative;
+  z-index: 3;
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: clamp(2rem, 3.5vw, 3.5rem);
+  align-items: stretch;
+}
+
+/* Left Column: Brand Logo, Description & Cursive Script */
+.footer-brand-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.footer-brand-header {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-brand-link {
+  display: inline-block;
+  margin-bottom: 1.15rem;
+}
+
+.footer-brand-logo {
+  height: 48px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+}
+
+.footer-brand-lime-line {
+  display: block;
+  width: 28px;
+  height: 3px;
+  background-color: var(--color-signature-lime);
+  border-radius: 9999px;
+  margin-bottom: 1rem;
+  box-shadow: 0 0 8px rgba(189, 248, 6, 0.45);
+}
+
+.footer-brand-description {
+  font-family: var(--font-body);
+  font-size: 0.8125rem;
+  line-height: 1.6;
+  color: rgba(252, 250, 238, 0.78);
+  margin: 0;
+  max-width: 260px;
+}
+
+/* Cursive Signature Script: "Mehr bewegen. Gemeinsam." */
+.footer-script-wrap {
+  margin-top: 2rem;
+}
+
+.footer-script-img {
+  width: 195px;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.3));
+}
+
+/* Right Columns Wrapper (4 Contact Columns + European Logistics Map) */
+.footer-contact-row-wrapper {
+  display: grid;
+  grid-template-columns: 1.15fr 0.95fr 1.1fr 1.05fr 185px;
+  gap: 1.25rem;
+  align-items: flex-start;
+  margin-top: 130px; /* Aligns neatly below the facility sunset horizon */
+}
+
+/* Individual Contact Column */
+.footer-contact-col {
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+  padding-right: 1.25rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-contact-col:last-of-type {
+  border-right: none;
+}
+
+/* Column Header (Lime Circle Icon + Title) */
+.footer-contact-col-header {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin-bottom: 0.95rem;
+}
+
+.footer-col-icon-circle {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1.5px solid var(--color-signature-lime);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-signature-lime);
+  background: rgba(189, 248, 6, 0.08);
+  box-shadow: 0 0 8px rgba(189, 248, 6, 0.25);
+  flex-shrink: 0;
+}
+
+.footer-col-title {
+  font-family: var(--font-display);
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+/* Column Body Typography */
+.footer-col-body {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-col-company {
+  font-family: var(--font-body);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.35;
+  margin: 0;
+}
+
+.footer-col-company-sub {
+  font-family: var(--font-body);
+  font-size: 0.78125rem;
+  font-weight: 600;
+  color: rgba(252, 250, 238, 0.88);
+  line-height: 1.35;
+  margin: 0 0 0.35rem 0;
+}
+
+.footer-col-street,
+.footer-col-city,
+.footer-col-country {
+  font-family: var(--font-body);
+  font-size: 0.78125rem;
+  color: rgba(252, 250, 238, 0.72);
+  line-height: 1.4;
+  margin: 0;
+}
+
+/* Clickable Phone & Email Links */
+.footer-col-link {
+  font-family: var(--font-body);
+  font-size: 0.84375rem;
+  font-weight: 700;
+  color: #ffffff;
+  text-decoration: none;
+  display: inline-block;
+  line-height: 1.3;
+  margin-bottom: 0.45rem;
+  word-break: break-all;
+  transition: color var(--transition-fast);
+}
+
+.footer-col-link:hover {
+  color: var(--color-signature-lime);
+}
+
+.footer-col-subtext {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  color: rgba(252, 250, 238, 0.62);
+  line-height: 1.45;
+  margin: 0;
+}
+
+/* Öffnungszeiten */
+.footer-hours-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0.55rem;
+}
+
+.footer-hours-group:last-of-type {
+  margin-bottom: 0;
+}
+
+.footer-hours-label {
+  font-family: var(--font-body);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.3;
+}
+
+.footer-hours-val {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  color: rgba(252, 250, 238, 0.65);
+  line-height: 1.4;
+}
+
+/* European Route Map Graphic */
+.footer-europe-map-col {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer-europe-map-img {
+  width: 100%;
+  max-width: 185px;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  border-radius: 6px;
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.25));
+}
+
+/* --------------------------------------------------------------------------
+   2. FEATURE BADGES BAR (FOUR ALIGNED COLUMNS WITH THIN DIVIDERS)
+   -------------------------------------------------------------------------- */
+.footer-features-bar {
+  width: 100%;
+  border-top: 1px solid rgba(189, 248, 6, 0.35); /* Characteristic lime divider */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  background-color: #061B18;
+  padding: 1.35rem clamp(1.25rem, 4vw, 3.5rem);
+}
+
+.footer-features-container {
+  max-width: 1440px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.footer-feature-item {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  flex: 1;
+  justify-content: center;
+}
+
+.footer-feature-item:first-of-type {
+  justify-content: flex-start;
+}
+
+.footer-feature-item:last-of-type {
+  justify-content: flex-end;
+}
+
+.footer-feature-icon-wrap {
+  display: flex;
+  align-items: center;
+  color: var(--color-signature-lime);
+  filter: drop-shadow(0 0 6px rgba(189, 248, 6, 0.3));
+  flex-shrink: 0;
+}
+
+.footer-feature-text {
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #ffffff;
+  line-height: 1.35;
+}
+
+.footer-feature-divider {
+  width: 1px;
+  height: 38px;
+  background-color: rgba(255, 255, 255, 0.12);
+  align-self: stretch;
+  margin: 0 1rem;
+}
+
+/* --------------------------------------------------------------------------
+   3. BOTTOM COPYRIGHT & LEGAL BAR
+   -------------------------------------------------------------------------- */
+.footer-bottom-bar {
+  width: 100%;
+  background-color: #03110f;
+  padding: 1.15rem clamp(1.25rem, 4vw, 3.5rem);
+}
+
+.footer-bottom-container {
+  max-width: 1440px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+.footer-copyright-text {
+  font-family: var(--font-body);
+  font-size: 0.78125rem;
+  color: rgba(252, 250, 238, 0.65);
+  margin: 0;
+}
+
+.footer-credit-text {
+  font-family: var(--font-body);
+  font-size: 0.78125rem;
+  color: rgba(252, 250, 238, 0.65);
+  margin: 0;
+}
+
+.footer-credit-brand {
+  color: #ffffff;
+  font-weight: 700;
+}
+
+.footer-bottom-divider {
+  width: 1px;
+  height: 16px;
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+.footer-legal-links {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.footer-legal-link {
+  font-family: var(--font-body);
+  font-size: 0.78125rem;
+  color: rgba(252, 250, 238, 0.75);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.footer-legal-link:hover {
+  color: var(--color-signature-lime);
+}
+
+.footer-legal-separator {
+  color: rgba(255, 255, 255, 0.2);
+  font-size: 0.75rem;
+}
+
+/* --------------------------------------------------------------------------
+   4. RESPONSIVE BREAKPOINTS
+   -------------------------------------------------------------------------- */
+@media (max-width: 1200px) {
+  .footer-main-content-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .footer-facility-banner-wrap {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    margin-bottom: 2rem;
+  }
+
+  .footer-contact-row-wrapper {
+    margin-top: 0;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  .footer-europe-map-col {
+    grid-column: span 3;
+    justify-content: flex-start;
+  }
+
+  .footer-features-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .footer-feature-item {
+    justify-content: flex-start !important;
+  }
+
+  .footer-feature-divider {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer-contact-row-wrapper {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .footer-contact-col {
+    border-right: none;
+    padding-right: 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding-bottom: 1.25rem;
+  }
+
+  .footer-contact-col:last-of-type {
+    border-bottom: none;
+  }
+
+  .footer-europe-map-col {
+    grid-column: auto;
+  }
+
+  .footer-features-container {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .footer-bottom-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 0.75rem;
+  }
+
+  .footer-bottom-divider {
+    display: none;
+  }
+}

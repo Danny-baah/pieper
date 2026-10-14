@@ -1,0 +1,714 @@
+/* ==========================================================================
+   PIEPER INTERNATIONALE TRANSPORTE - LAGERLOGISTIK SECTION
+   ========================================================================== */
+
+.pieper-lager-section {
+  position: relative;
+  width: 100%;
+  background-color: var(--color-warm-ivory-alt, #F4EFE6);
+  color: var(--color-deep-forest);
+  overflow: hidden;
+  z-index: 10;
+  border-top: 1px solid rgba(6, 27, 24, 0.06);
+}
+
+.lager-main-container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: clamp(4.5rem, 6.5vw, 6.5rem) clamp(1.25rem, 4vw, 3.5rem);
+  display: grid;
+  grid-template-columns: 0.95fr 1.18fr;
+  gap: clamp(2.5rem, 5vw, 5rem);
+  align-items: center;
+}
+
+/* --------------------------------------------------------------------------
+   1. LEFT VISUAL COLUMN: WAREHOUSE PHOTOGRAPHY & DECORATIVE PANELS
+   -------------------------------------------------------------------------- */
+.lager-visual-column {
+  position: relative;
+  width: 100%;
+}
+
+.lager-image-frame {
+  position: relative;
+  width: 100%;
+  height: 590px;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 24px 55px rgba(6, 27, 24, 0.14);
+  /* Editorial asymmetric diagonal cut matching reference */
+  clip-path: polygon(0 0, 96% 0, 100% 18%, 94% 28%, 100% 36%, 74% 100%, 0 100%);
+  background-color: #061B18;
+}
+
+.lager-forklift-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 35% center;
+  display: block;
+  transition: transform 700ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.lager-image-frame:hover .lager-forklift-photo {
+  transform: scale(1.03);
+}
+
+.lager-photo-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(6, 27, 24, 0.12) 0%, transparent 45%, rgba(6, 27, 24, 0.22) 100%);
+  pointer-events: none;
+}
+
+/* Upper-Left Decorative Dark Panel */
+.lager-upper-panel {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 175px;
+  background: #061B18;
+  padding: 1.75rem 1.5rem;
+  clip-path: polygon(0 0, 100% 0, 82% 100%, 0 100%);
+  z-index: 3;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  pointer-events: none;
+}
+
+.lager-panel-lime-line {
+  display: block;
+  width: 28px;
+  height: 3px;
+  background-color: var(--color-signature-lime);
+  border-radius: 9999px;
+  box-shadow: 0 0 8px rgba(189, 248, 6, 0.45);
+  margin-bottom: 1.25rem;
+}
+
+.lager-panel-words {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.lager-panel-words li {
+  font-family: var(--font-body);
+  font-size: 0.71875rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(252, 250, 238, 0.72);
+  line-height: 1.2;
+}
+
+/* Lower-Left Decorative Dark Panel */
+.lager-lower-panel {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 220px;
+  background: #061B18;
+  padding: 1.5rem 1.5rem 1.65rem;
+  clip-path: polygon(0 0, 78% 0, 100% 100%, 0 100%);
+  z-index: 3;
+  box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.35);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  pointer-events: none;
+}
+
+.lager-lower-lime-bar {
+  width: 3px;
+  height: 40px;
+  background-color: var(--color-signature-lime);
+  border-radius: 9999px;
+  box-shadow: 0 0 8px rgba(189, 248, 6, 0.4);
+  flex-shrink: 0;
+}
+
+.lager-lower-text-group {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.lager-lower-line {
+  font-family: var(--font-body);
+  font-size: 0.71875rem;
+  font-weight: 700;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+  color: rgba(252, 250, 238, 0.88);
+  line-height: 1.25;
+}
+
+/* --------------------------------------------------------------------------
+   2. RIGHT CONTENT COLUMN: HEADLINE, INTRO & 2×2 SERVICE CARDS
+   -------------------------------------------------------------------------- */
+.lager-content-column {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Eyebrow */
+.lager-eyebrow-wrapper {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.15rem;
+}
+
+.lager-eyebrow-line {
+  width: 32px;
+  height: 3px;
+  background-color: var(--color-signature-lime);
+  border-radius: 9999px;
+  box-shadow: 0 0 10px rgba(189, 248, 6, 0.45);
+}
+
+.lager-eyebrow-text {
+  font-family: var(--font-body);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--color-deep-forest);
+}
+
+/* Main Heading */
+.lager-heading {
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 4.4vw, 3.85rem);
+  font-weight: 800;
+  line-height: 1.08;
+  letter-spacing: -0.025em;
+  margin: 0 0 1.35rem 0;
+}
+
+.lager-heading-dark {
+  color: #061B18;
+}
+
+.lager-heading-lime {
+  color: #7bb500; /* High-contrast editorial lime tailored for warm ivory */
+  text-shadow: 0 0 1px rgba(0, 0, 0, 0.05);
+}
+
+/* Intro Paragraph */
+.lager-intro-paragraph {
+  font-family: var(--font-body);
+  font-size: clamp(0.96875rem, 1.1vw, 1.05rem);
+  line-height: 1.68;
+  color: rgba(6, 27, 24, 0.76);
+  margin: 0 0 2.25rem 0;
+  max-width: 540px;
+}
+
+/* 2×2 Services Grid */
+.lager-services-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+}
+
+/* Individual Service Card */
+.lager-service-card {
+  position: relative;
+  height: 145px;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: #061B18;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 12px 28px rgba(6, 27, 24, 0.12);
+  cursor: pointer;
+  transition: transform 300ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 300ms cubic-bezier(0.16, 1, 0.3, 1), border-color 250ms ease;
+  outline: none;
+}
+
+.lager-service-card:hover,
+.lager-service-card:focus-visible {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 40px rgba(6, 27, 24, 0.22);
+  border-color: rgba(189, 248, 6, 0.4);
+}
+
+/* Card Background Image Texture & Overlay */
+.lager-card-bg-box {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.lager-card-bg-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  transition: transform 600ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.lager-service-card:hover .lager-card-bg-img,
+.lager-service-card:focus-visible .lager-card-bg-img {
+  transform: scale(1.06);
+}
+
+.lager-card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(6, 27, 24, 0.88) 0%, rgba(6, 27, 24, 0.94) 100%);
+  pointer-events: none;
+  transition: opacity 300ms ease;
+}
+
+.lager-service-card:hover .lager-card-overlay {
+  opacity: 0.88;
+}
+
+/* Card Content Area */
+.lager-card-content {
+  position: relative;
+  z-index: 3;
+  height: 100%;
+  padding: 1.15rem 1.25rem 1.15rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Number Indicator Row */
+.lager-card-header-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.lager-card-number-line {
+  width: 18px;
+  height: 2px;
+  background-color: var(--color-signature-lime);
+  border-radius: 9999px;
+}
+
+.lager-card-number {
+  font-family: var(--font-display);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.75);
+  letter-spacing: 0.5px;
+}
+
+/* Lime Icon */
+.lager-card-icon-wrapper {
+  margin: 0.25rem 0;
+}
+
+.lager-card-icon {
+  color: var(--color-signature-lime);
+  filter: drop-shadow(0 0 8px rgba(189, 248, 6, 0.35));
+  transition: transform var(--transition-fast), filter var(--transition-fast);
+}
+
+.lager-service-card:hover .lager-card-icon,
+.lager-service-card:focus-visible .lager-card-icon {
+  transform: scale(1.08);
+  filter: drop-shadow(0 0 12px rgba(189, 248, 6, 0.55));
+}
+
+/* Bottom Row: Title + Circular Arrow Button */
+.lager-card-bottom-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 0.75rem;
+}
+
+.lager-card-title {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1.2;
+  margin: 0;
+  letter-spacing: -0.015em;
+  flex: 1;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+}
+
+.lager-card-action {
+  flex-shrink: 0;
+}
+
+.lager-circle-arrow-btn {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(255, 255, 255, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  background: rgba(6, 27, 24, 0.4);
+  transition: all 250ms ease;
+}
+
+.lager-arrow-icon {
+  transition: transform var(--transition-fast);
+}
+
+.lager-service-card:hover .lager-circle-arrow-btn,
+.lager-service-card:focus-visible .lager-circle-arrow-btn {
+  background: var(--color-signature-lime);
+  color: var(--color-deep-forest);
+  border-color: var(--color-signature-lime);
+  transform: scale(1.06) translateX(2px);
+  box-shadow: 0 0 12px rgba(189, 248, 6, 0.4);
+}
+
+/* --------------------------------------------------------------------------
+   3. ACCESSIBLE SERVICE DETAIL MODAL DIALOG
+   -------------------------------------------------------------------------- */
+.lager-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(6, 27, 24, 0.82);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.25rem;
+  animation: lagerModalFadeIn 250ms ease forwards;
+}
+
+.lager-modal-dialog {
+  position: relative;
+  width: 100%;
+  max-width: 640px;
+  max-height: min(90vh, 760px);
+  overflow-y: auto;
+  background-color: #ffffff;
+  color: var(--color-deep-forest);
+  border-radius: 12px;
+  box-shadow: 0 25px 65px rgba(0, 0, 0, 0.55);
+  border: 1px solid rgba(252, 250, 238, 0.25);
+  animation: lagerModalScaleIn 300ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.lager-modal-banner {
+  position: relative;
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+  background-color: #061B18;
+}
+
+.lager-modal-banner-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+.lager-modal-banner-gradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(6, 27, 24, 0.2) 0%, rgba(6, 27, 24, 0.75) 100%);
+  pointer-events: none;
+}
+
+.lager-modal-badge {
+  position: absolute;
+  bottom: 1.25rem;
+  left: 2rem;
+  width: 52px;
+  height: 52px;
+  border-radius: 10px;
+  background: #061B18;
+  border: 2px solid var(--color-signature-lime);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-signature-lime);
+  box-shadow: 0 8px 20px rgba(6, 27, 24, 0.4);
+  z-index: 2;
+}
+
+.lager-modal-close-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(6, 27, 24, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  z-index: 5;
+}
+
+.lager-modal-close-btn:hover {
+  background: var(--color-signature-lime);
+  color: var(--color-deep-forest);
+  border-color: var(--color-signature-lime);
+  transform: rotate(90deg);
+}
+
+.lager-modal-body {
+  padding: 2rem 2.25rem 2.25rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.lager-modal-category {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--color-transport-teal);
+  margin-bottom: 0.35rem;
+  display: block;
+}
+
+.lager-modal-title {
+  font-family: var(--font-display);
+  font-size: 1.85rem;
+  font-weight: 800;
+  color: #061B18;
+  line-height: 1.15;
+  margin: 0 0 0.75rem 0;
+  letter-spacing: -0.02em;
+}
+
+.lager-modal-lime-bar {
+  width: 36px;
+  height: 3.5px;
+  background-color: var(--color-signature-lime);
+  border-radius: 9999px;
+  margin-bottom: 1.25rem;
+}
+
+.lager-modal-description {
+  font-family: var(--font-body);
+  font-size: 1.025rem;
+  line-height: 1.68;
+  color: rgba(6, 27, 24, 0.82);
+  margin: 0 0 1.75rem 0;
+}
+
+/* Features checklist */
+.lager-modal-features {
+  margin-bottom: 2rem;
+  padding: 1.25rem 1.5rem;
+  background: rgba(6, 27, 24, 0.035);
+  border-radius: 8px;
+  border-left: 3px solid var(--color-signature-lime);
+}
+
+.lager-modal-features-heading {
+  font-family: var(--font-display);
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: #061B18;
+  margin: 0 0 0.85rem 0;
+}
+
+.lager-features-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.lager-feature-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: rgba(6, 27, 24, 0.78);
+}
+
+.lager-feature-icon {
+  color: #7bb500;
+  flex-shrink: 0;
+}
+
+/* Actions */
+.lager-modal-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.lager-modal-contact-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.9rem 1.75rem;
+  background-color: #061B18;
+  color: #ffffff;
+  font-family: var(--font-body);
+  font-size: 0.9375rem;
+  font-weight: 700;
+  border-radius: 6px;
+  text-decoration: none;
+  box-shadow: 0 4px 18px rgba(6, 27, 24, 0.2);
+  transition: all var(--transition-fast);
+}
+
+.lager-modal-contact-cta:hover {
+  background-color: var(--color-transport-teal);
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+.lager-modal-dismiss-btn {
+  padding: 0.9rem 1.5rem;
+  background: transparent;
+  border: 1px solid rgba(6, 27, 24, 0.2);
+  color: var(--color-deep-forest);
+  font-family: var(--font-body);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.lager-modal-dismiss-btn:hover {
+  background: rgba(6, 27, 24, 0.06);
+}
+
+/* Animations */
+@keyframes lagerModalFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes lagerModalScaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   4. RESPONSIVE BREAKPOINTS
+   -------------------------------------------------------------------------- */
+@media (max-width: 1180px) {
+  .lager-main-container {
+    grid-template-columns: 1fr;
+    gap: 3.5rem;
+    padding: 4rem clamp(1.25rem, 4vw, 2.5rem);
+  }
+
+  .lager-image-frame {
+    height: 480px;
+    clip-path: none;
+  }
+
+  .lager-services-grid {
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .lager-main-container {
+    padding: 3.5rem 1.25rem;
+  }
+
+  .lager-heading {
+    font-size: 2.15rem;
+  }
+
+  .lager-intro-paragraph {
+    font-size: 0.96875rem;
+    margin-bottom: 2rem;
+  }
+
+  .lager-image-frame {
+    height: 340px;
+  }
+
+  .lager-forklift-photo {
+    object-position: center center;
+  }
+
+  .lager-upper-panel {
+    width: 140px;
+    padding: 1.25rem 1rem;
+  }
+
+  .lager-panel-words li {
+    font-size: 0.65rem;
+  }
+
+  .lager-lower-panel {
+    width: 180px;
+    padding: 1rem;
+  }
+
+  .lager-lower-line {
+    font-size: 0.65rem;
+  }
+
+  .lager-services-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .lager-service-card {
+    height: 135px;
+  }
+
+  .lager-modal-body {
+    padding: 1.5rem 1.25rem;
+  }
+
+  .lager-modal-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .lager-modal-contact-cta {
+    justify-content: center;
+  }
+
+  .lager-modal-dismiss-btn {
+    text-align: center;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lager-forklift-photo,
+  .lager-card-bg-img,
+  .lager-modal-backdrop,
+  .lager-modal-dialog {
+    transition: none !important;
+    animation: none !important;
+  }
+}

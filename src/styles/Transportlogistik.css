@@ -1,0 +1,780 @@
+/* ==========================================================================
+   PIEPER INTERNATIONALE TRANSPORTE - REDESIGNED TRANSPORTLOGISTIK SECTION
+   ========================================================================== */
+
+.pieper-v2-transport-section {
+  position: relative;
+  width: 100%;
+  background-color: var(--color-warm-ivory);
+  color: var(--color-deep-forest);
+  overflow: hidden;
+  z-index: 10;
+}
+
+/* --------------------------------------------------------------------------
+   1. UPPER SECTION: ASYMMETRIC SPLIT COMPOSITION
+   -------------------------------------------------------------------------- */
+.v2-hero-split-stage {
+  position: relative;
+  width: 100%;
+  background-color: var(--color-warm-ivory);
+  overflow: hidden;
+}
+
+/* Faint Watermark '01' behind left content matching reference */
+.v2-hero-watermark {
+  position: absolute;
+  left: 32%;
+  top: 0;
+  font-family: var(--font-display);
+  font-size: clamp(9rem, 16vw, 15.5rem);
+  font-weight: 900;
+  color: rgba(6, 27, 24, 0.038);
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+  z-index: 1;
+}
+
+.v2-hero-container {
+  position: relative;
+  z-index: 2;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: clamp(3.5rem, 5vw, 5.5rem) clamp(1.25rem, 4vw, 3.5rem) clamp(7.5rem, 9.5vw, 10rem);
+  display: grid;
+  grid-template-columns: 1.05fr 1.15fr;
+  gap: clamp(2.5rem, 4.5vw, 5rem);
+  align-items: center;
+}
+
+/* Left Content Column */
+.v2-hero-content-col {
+  display: flex;
+  flex-direction: column;
+  max-width: 580px;
+}
+
+/* Eyebrow */
+.v2-eyebrow-wrapper {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+}
+
+.v2-eyebrow-line {
+  width: 32px;
+  height: 3px;
+  background-color: var(--color-signature-lime);
+  border-radius: 9999px;
+  box-shadow: 0 0 10px rgba(189, 248, 6, 0.45);
+}
+
+.v2-eyebrow-text {
+  font-family: var(--font-body);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--color-deep-forest);
+}
+
+/* Main Heading */
+.v2-heading {
+  font-family: var(--font-display);
+  font-size: clamp(2.65rem, 4.8vw, 4.35rem);
+  font-weight: 800;
+  line-height: 1.06;
+  letter-spacing: -0.025em;
+  margin: 0 0 1.5rem 0;
+}
+
+.v2-heading-dark {
+  color: #061B18;
+}
+
+.v2-heading-lime {
+  color: #7bb500; /* High-contrast editorial lime tailored for warm ivory */
+  text-shadow: 0 0 1px rgba(0, 0, 0, 0.05);
+}
+
+/* Supporting Copy */
+.v2-supporting-text {
+  font-family: var(--font-body);
+  font-size: clamp(1rem, 1.15vw, 1.0625rem);
+  line-height: 1.68;
+  color: rgba(6, 27, 24, 0.76);
+  margin: 0 0 2.25rem 0;
+  max-width: 520px;
+}
+
+/* Bottom Row: CTA Button + Vertical Divider + Brand Values List */
+.v2-action-brand-row {
+  display: flex;
+  align-items: center;
+  gap: 2.25rem;
+}
+
+.v2-cta-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.95rem 2rem;
+  background-color: #061B18;
+  color: #ffffff;
+  font-family: var(--font-body);
+  font-size: 0.9375rem;
+  font-weight: 700;
+  border-radius: 4px;
+  text-decoration: none;
+  box-shadow: 0 4px 18px rgba(6, 27, 24, 0.16);
+  transition: all var(--transition-normal);
+  white-space: nowrap;
+}
+
+.v2-btn-arrow {
+  color: var(--color-signature-lime);
+  transition: transform var(--transition-fast);
+}
+
+.v2-cta-button:hover {
+  background-color: var(--color-transport-teal);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(6, 27, 24, 0.28);
+}
+
+.v2-cta-button:hover .v2-btn-arrow {
+  transform: translateX(4px);
+}
+
+.v2-brand-divider {
+  width: 1px;
+  height: 88px;
+  background-color: rgba(6, 27, 24, 0.14);
+  flex-shrink: 0;
+}
+
+.v2-brand-values-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.v2-brand-value-item {
+  font-family: var(--font-body);
+  font-size: 0.71875rem;
+  font-weight: 700;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+  color: rgba(6, 27, 24, 0.52);
+  line-height: 1.25;
+}
+
+/* Right Column: Prominent Angled Truck Photograph */
+.v2-hero-image-col {
+  position: relative;
+  width: 100%;
+  height: 440px;
+}
+
+.v2-truck-frame {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 20px 45px rgba(6, 27, 24, 0.14);
+  clip-path: polygon(14% 0, 100% 0, 100% 100%, 0% 100%);
+  background-color: #061B18;
+}
+
+.v2-truck-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 30%;
+  display: block;
+  transition: transform 700ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.v2-truck-frame:hover .v2-truck-photo {
+  transform: scale(1.04);
+}
+
+.v2-truck-lighting-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, transparent 65%, rgba(6, 27, 24, 0.25) 100%);
+  pointer-events: none;
+}
+
+/* Far-right angled blade matching reference */
+.v2-far-right-blade {
+  position: absolute;
+  right: -8px;
+  top: 15%;
+  width: 8px;
+  height: 70%;
+  background-color: var(--color-signature-lime);
+  border-radius: 9999px;
+  transform: rotate(-5deg);
+  box-shadow: 0 0 15px rgba(189, 248, 6, 0.45);
+  pointer-events: none;
+  z-index: 3;
+}
+
+/* --------------------------------------------------------------------------
+   2. THREE COMPACT SERVICE CARDS (OVERLAPPING BOUNDARY)
+   -------------------------------------------------------------------------- */
+.v2-cards-section-wrapper {
+  position: relative;
+  z-index: 20;
+  margin-top: -95px; /* Overlap with upper composition */
+  padding: 0 clamp(1.25rem, 4vw, 3.5rem) clamp(4.5rem, 6.5vw, 6.5rem);
+  background-color: var(--color-warm-ivory);
+}
+
+.v2-cards-container {
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.v2-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(1.25rem, 2.5vw, 2.25rem);
+}
+
+/* Individual Card */
+.v2-service-card {
+  position: relative;
+  height: 250px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 18px 40px rgba(6, 27, 24, 0.14);
+  cursor: pointer;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  transition: transform 350ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 350ms cubic-bezier(0.16, 1, 0.3, 1), border-color 300ms ease;
+  outline: none;
+  background-color: #061B18;
+}
+
+/* Angled edges for Card 1 and Card 3 per reference */
+.v2-card-teil-komplett {
+  clip-path: polygon(14px 0, 100% 0, 100% 100%, 0 100%);
+}
+
+.v2-card-sonderloesungen {
+  clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 100%, 0 100%);
+}
+
+.v2-service-card:hover,
+.v2-service-card:focus-visible {
+  transform: translateY(-6px);
+  box-shadow: 0 26px 55px rgba(6, 27, 24, 0.24);
+  border-color: rgba(189, 248, 6, 0.45);
+}
+
+/* Card Background Photograph */
+.v2-card-bg-box {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.v2-card-bg-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  transition: transform 700ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.v2-service-card:hover .v2-card-bg-img,
+.v2-service-card:focus-visible .v2-card-bg-img {
+  transform: scale(1.06);
+}
+
+.v2-card-dark-gradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(6, 27, 24, 0.15) 0%, rgba(6, 27, 24, 0.7) 48%, rgba(6, 27, 24, 0.95) 86%, #061B18 100%);
+  pointer-events: none;
+  transition: opacity 300ms ease;
+}
+
+.v2-service-card:hover .v2-card-dark-gradient {
+  opacity: 0.92;
+}
+
+/* Top-Right Number Indicator (01 —, 02 —, 03 —) */
+.v2-card-index-indicator {
+  position: absolute;
+  top: 1.15rem;
+  right: 1.35rem;
+  font-family: var(--font-display);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.82);
+  letter-spacing: 1px;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+  pointer-events: none;
+}
+
+.v2-card-dash {
+  color: var(--color-signature-lime);
+}
+
+/* Card Foreground Content */
+.v2-card-foreground {
+  position: relative;
+  z-index: 3;
+  height: 100%;
+  padding: 1.5rem 1.65rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.v2-card-title-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.v2-card-icon-box {
+  margin-bottom: 0.65rem;
+}
+
+.v2-card-icon {
+  color: var(--color-signature-lime);
+  filter: drop-shadow(0 0 10px rgba(189, 248, 6, 0.35));
+  transition: transform var(--transition-fast);
+}
+
+.v2-service-card:hover .v2-card-icon,
+.v2-service-card:focus-visible .v2-card-icon {
+  transform: scale(1.08);
+}
+
+/* Card Title (Name Only) */
+.v2-card-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.2rem, 1.45vw, 1.38rem);
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1.2;
+  margin: 0 0 0.55rem 0;
+  letter-spacing: -0.015em;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.v2-card-accent-line {
+  width: 28px;
+  height: 3px;
+  background-color: var(--color-signature-lime);
+  border-radius: 9999px;
+  box-shadow: 0 0 8px rgba(189, 248, 6, 0.4);
+  transition: width 300ms ease;
+}
+
+.v2-service-card:hover .v2-card-accent-line,
+.v2-service-card:focus-visible .v2-card-accent-line {
+  width: 44px;
+}
+
+/* Lower Right Circular Arrow Button */
+.v2-card-action-box {
+  flex-shrink: 0;
+  margin-left: 1rem;
+}
+
+.v2-card-circle-btn {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(255, 255, 255, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  background: rgba(6, 27, 24, 0.4);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  transition: all 300ms ease;
+}
+
+.v2-card-arrow-icon {
+  transition: transform var(--transition-fast);
+}
+
+.v2-service-card:hover .v2-card-circle-btn,
+.v2-service-card:focus-visible .v2-card-circle-btn {
+  background: var(--color-signature-lime);
+  color: var(--color-deep-forest);
+  border-color: var(--color-signature-lime);
+  transform: scale(1.08) translateX(2px);
+  box-shadow: 0 0 15px rgba(189, 248, 6, 0.5);
+}
+
+/* --------------------------------------------------------------------------
+   3. INTERACTIVE SERVICE DETAIL MODAL
+   -------------------------------------------------------------------------- */
+.v2-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(6, 27, 24, 0.82);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.25rem;
+  animation: v2ModalFadeIn 250ms ease forwards;
+}
+
+.v2-modal-dialog {
+  position: relative;
+  width: 100%;
+  max-width: 640px;
+  max-height: min(90vh, 760px);
+  overflow-y: auto;
+  background-color: #ffffff;
+  color: var(--color-deep-forest);
+  border-radius: 12px;
+  box-shadow: 0 25px 65px rgba(0, 0, 0, 0.55);
+  border: 1px solid rgba(252, 250, 238, 0.25);
+  animation: v2ModalScaleIn 300ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Modal Hero Banner */
+.v2-modal-banner {
+  position: relative;
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+  background-color: #061B18;
+}
+
+.v2-modal-banner-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+.v2-modal-banner-gradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(6, 27, 24, 0.2) 0%, rgba(6, 27, 24, 0.75) 100%);
+  pointer-events: none;
+}
+
+.v2-modal-badge {
+  position: absolute;
+  bottom: 1.25rem;
+  left: 2rem;
+  width: 52px;
+  height: 52px;
+  border-radius: 10px;
+  background: #061B18;
+  border: 2px solid var(--color-signature-lime);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-signature-lime);
+  box-shadow: 0 8px 20px rgba(6, 27, 24, 0.4);
+  z-index: 2;
+}
+
+.v2-modal-close-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(6, 27, 24, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  z-index: 5;
+}
+
+.v2-modal-close-btn:hover {
+  background: var(--color-signature-lime);
+  color: var(--color-deep-forest);
+  border-color: var(--color-signature-lime);
+  transform: rotate(90deg);
+}
+
+/* Modal Content Body */
+.v2-modal-body {
+  padding: 2rem 2.25rem 2.25rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.v2-modal-category {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--color-transport-teal);
+  margin-bottom: 0.35rem;
+  display: block;
+}
+
+.v2-modal-title {
+  font-family: var(--font-display);
+  font-size: 1.85rem;
+  font-weight: 800;
+  color: #061B18;
+  line-height: 1.15;
+  margin: 0 0 0.75rem 0;
+  letter-spacing: -0.02em;
+}
+
+.v2-modal-lime-bar {
+  width: 36px;
+  height: 3.5px;
+  background-color: var(--color-signature-lime);
+  border-radius: 9999px;
+  margin-bottom: 1.25rem;
+}
+
+.v2-modal-description {
+  font-family: var(--font-body);
+  font-size: 1.025rem;
+  line-height: 1.68;
+  color: rgba(6, 27, 24, 0.82);
+  margin: 0 0 1.75rem 0;
+}
+
+/* Features checklist */
+.v2-modal-features {
+  margin-bottom: 2rem;
+  padding: 1.25rem 1.5rem;
+  background: rgba(6, 27, 24, 0.035);
+  border-radius: 8px;
+  border-left: 3px solid var(--color-signature-lime);
+}
+
+.v2-modal-features-heading {
+  font-family: var(--font-display);
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: #061B18;
+  margin: 0 0 0.85rem 0;
+}
+
+.v2-features-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.v2-feature-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: rgba(6, 27, 24, 0.78);
+}
+
+.v2-feature-icon {
+  color: #7bb500;
+  flex-shrink: 0;
+}
+
+/* Modal Actions */
+.v2-modal-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.v2-modal-contact-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.9rem 1.75rem;
+  background-color: #061B18;
+  color: #ffffff;
+  font-family: var(--font-body);
+  font-size: 0.9375rem;
+  font-weight: 700;
+  border-radius: 6px;
+  text-decoration: none;
+  box-shadow: 0 4px 18px rgba(6, 27, 24, 0.2);
+  transition: all var(--transition-fast);
+}
+
+.v2-modal-contact-cta:hover {
+  background-color: var(--color-transport-teal);
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+.v2-modal-dismiss-btn {
+  padding: 0.9rem 1.5rem;
+  background: transparent;
+  border: 1px solid rgba(6, 27, 24, 0.2);
+  color: var(--color-deep-forest);
+  font-family: var(--font-body);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.v2-modal-dismiss-btn:hover {
+  background: rgba(6, 27, 24, 0.06);
+}
+
+/* Modal Keyframe Animations */
+@keyframes v2ModalFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes v2ModalScaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   4. RESPONSIVE BREAKPOINTS
+   -------------------------------------------------------------------------- */
+@media (max-width: 1180px) {
+  .v2-hero-container {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    padding-bottom: 7.5rem;
+  }
+
+  .v2-hero-image-col {
+    height: 380px;
+  }
+
+  .v2-truck-frame {
+    clip-path: none;
+  }
+
+  .v2-far-right-blade {
+    display: none;
+  }
+
+  .v2-cards-section-wrapper {
+    margin-top: -60px;
+  }
+
+  .v2-cards-grid {
+    gap: 1.5rem;
+  }
+
+  .v2-card-teil-komplett,
+  .v2-card-sonderloesungen {
+    clip-path: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .v2-hero-container {
+    padding: 3.5rem 1.25rem 6.5rem;
+  }
+
+  .v2-heading {
+    font-size: 2.25rem;
+  }
+
+  .v2-hero-image-col {
+    height: 280px;
+  }
+
+  .v2-action-brand-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+  }
+
+  .v2-brand-divider {
+    display: none;
+  }
+
+  .v2-cta-button {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .v2-cards-section-wrapper {
+    margin-top: -45px;
+    padding: 0 1.25rem 3.5rem;
+  }
+
+  .v2-cards-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .v2-service-card {
+    height: 220px;
+  }
+
+  .v2-modal-body {
+    padding: 1.5rem 1.25rem;
+  }
+
+  .v2-modal-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .v2-modal-contact-cta {
+    justify-content: center;
+  }
+
+  .v2-modal-dismiss-btn {
+    text-align: center;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .v2-truck-photo,
+  .v2-card-bg-img,
+  .v2-modal-backdrop,
+  .v2-modal-dialog {
+    transition: none !important;
+    animation: none !important;
+  }
+}

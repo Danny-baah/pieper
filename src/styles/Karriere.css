@@ -1,0 +1,523 @@
+/* ==========================================================================
+   PIEPER INTERNATIONALE TRANSPORTE - KARRIERE SECTION
+   ========================================================================== */
+
+.pieper-karriere-section {
+  position: relative;
+  width: 100%;
+  background-color: var(--color-warm-ivory);
+  color: var(--color-deep-forest);
+  overflow: hidden;
+  z-index: 10;
+  border-top: 1px solid rgba(6, 27, 24, 0.06);
+}
+
+.karriere-main-container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: clamp(4.5rem, 6.5vw, 6.5rem) clamp(1.25rem, 4vw, 3.5rem);
+  display: flex;
+  flex-direction: column;
+  gap: clamp(3rem, 5vw, 4.5rem);
+}
+
+/* --------------------------------------------------------------------------
+   1. UPPER HERO SPLIT: INTRO & BENEFITS (LEFT) + ASYMMETRIC COLLAGE (RIGHT)
+   -------------------------------------------------------------------------- */
+.karriere-hero-split {
+  display: grid;
+  grid-template-columns: 1.05fr 1.12fr;
+  gap: clamp(2rem, 4vw, 4rem);
+  align-items: center;
+}
+
+/* Left Column */
+.karriere-left-column {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Eyebrow */
+.karriere-eyebrow-wrapper {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.15rem;
+}
+
+.karriere-eyebrow-line {
+  width: 32px;
+  height: 3px;
+  background-color: var(--color-signature-lime);
+  border-radius: 9999px;
+  box-shadow: 0 0 10px rgba(189, 248, 6, 0.45);
+}
+
+.karriere-eyebrow-text {
+  font-family: var(--font-body);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--color-deep-forest);
+}
+
+/* Main Headline */
+.karriere-heading {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 4.6vw, 4rem);
+  font-weight: 800;
+  line-height: 1.06;
+  letter-spacing: -0.025em;
+  margin: 0 0 1.35rem 0;
+}
+
+.karriere-heading-dark {
+  color: #061B18;
+}
+
+.karriere-heading-lime {
+  color: #7bb500;
+  text-shadow: 0 0 1px rgba(0, 0, 0, 0.05);
+}
+
+/* Supporting Paragraph */
+.karriere-intro-paragraph {
+  font-family: var(--font-body);
+  font-size: clamp(0.96875rem, 1.1vw, 1.05rem);
+  line-height: 1.68;
+  color: rgba(6, 27, 24, 0.76);
+  margin: 0 0 1.85rem 0;
+  max-width: 540px;
+}
+
+/* Primary CTA Button */
+.karriere-cta-wrapper {
+  margin-bottom: 2.75rem;
+}
+
+.karriere-primary-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.95rem 1.85rem;
+  background-color: #061B18;
+  color: #ffffff;
+  font-family: var(--font-body);
+  font-size: 0.9375rem;
+  font-weight: 700;
+  border-radius: 6px;
+  text-decoration: none;
+  box-shadow: 0 8px 24px rgba(6, 27, 24, 0.18);
+  transition: transform var(--transition-fast), background-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.karriere-primary-cta:hover {
+  background-color: var(--color-transport-teal);
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(3, 90, 82, 0.3);
+}
+
+.karriere-cta-arrow {
+  color: var(--color-signature-lime);
+  transition: transform var(--transition-fast);
+}
+
+.karriere-primary-cta:hover .karriere-cta-arrow {
+  transform: translateX(4px);
+}
+
+/* --------------------------------------------------------------------------
+   EMPLOYEE BENEFITS ROW (WITH VERTICAL DIVIDERS)
+   -------------------------------------------------------------------------- */
+.karriere-benefits-row {
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(6, 27, 24, 0.08);
+}
+
+.karriere-benefit-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 0 1rem;
+}
+
+.karriere-benefit-item:first-of-type {
+  padding-left: 0;
+}
+
+.karriere-benefit-item:last-of-type {
+  padding-right: 0;
+}
+
+.karriere-benefit-divider {
+  width: 1px;
+  background-color: rgba(6, 27, 24, 0.14);
+  align-self: stretch;
+}
+
+.karriere-benefit-icon-box {
+  margin-bottom: 0.65rem;
+}
+
+.karriere-benefit-icon {
+  color: #7bb500;
+}
+
+.karriere-benefit-title {
+  font-family: var(--font-display);
+  font-size: 0.9375rem;
+  font-weight: 800;
+  color: #061B18;
+  margin: 0 0 0.3rem 0;
+  line-height: 1.25;
+}
+
+.karriere-benefit-desc {
+  font-family: var(--font-body);
+  font-size: 0.78125rem;
+  line-height: 1.45;
+  color: rgba(6, 27, 24, 0.68);
+  margin: 0;
+}
+
+/* --------------------------------------------------------------------------
+   RIGHT COLUMN: ASYMMETRIC RECRUITMENT HERO COLLAGE
+   -------------------------------------------------------------------------- */
+.karriere-right-column {
+  position: relative;
+  width: 100%;
+}
+
+.karriere-collage-frame {
+  position: relative;
+  width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 24px 60px rgba(6, 27, 24, 0.14);
+  background-color: #061B18;
+}
+
+.karriere-collage-photo {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  transition: transform 700ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.karriere-collage-frame:hover .karriere-collage-photo {
+  transform: scale(1.02);
+}
+
+/* Accessible Quote Panel */
+.karriere-quote-panel {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 38%;
+  height: 60%;
+  padding: 1.5rem 1.25rem;
+  background: transparent;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  z-index: 3;
+  pointer-events: none;
+  opacity: 0;
+}
+
+/* Supporting Strip */
+.karriere-supporting-strip {
+  display: none;
+}
+
+/* --------------------------------------------------------------------------
+   2. JOB CATEGORIES: UNSERE EINSATZBEREICHE (CLEAN 4-CARD OVERVIEW)
+   -------------------------------------------------------------------------- */
+.karriere-jobs-wrapper {
+  margin-top: 1rem;
+}
+
+.karriere-jobs-header {
+  margin-bottom: 2rem;
+}
+
+.karriere-jobs-eyebrow-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.45rem;
+}
+
+.karriere-jobs-lime-line {
+  width: 32px;
+  height: 3px;
+  background-color: var(--color-signature-lime);
+  border-radius: 9999px;
+  box-shadow: 0 0 10px rgba(189, 248, 6, 0.45);
+}
+
+.karriere-jobs-headline {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: #061B18;
+  margin: 0;
+  letter-spacing: -0.015em;
+}
+
+.karriere-jobs-subtitle {
+  font-family: var(--font-body);
+  font-size: 0.985rem;
+  color: rgba(6, 27, 24, 0.72);
+  margin: 0;
+}
+
+/* 4-Card Overview Grid */
+.karriere-jobs-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+}
+
+/* Individual Job Card - Minimal, Clean, Elegant */
+.karriere-job-card {
+  position: relative;
+  height: 112px;
+  border-radius: 8px;
+  background: linear-gradient(145deg, #092621 0%, #061B18 100%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 8px 22px rgba(6, 27, 24, 0.08);
+  padding: 1.15rem 1.2rem 1.05rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: default;
+  transition: transform 250ms cubic-bezier(0.16, 1, 0.3, 1), 
+              box-shadow 250ms cubic-bezier(0.16, 1, 0.3, 1), 
+              border-color 200ms ease;
+  user-select: none;
+}
+
+.karriere-job-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(189, 248, 6, 0.35);
+  box-shadow: 0 12px 28px rgba(6, 27, 24, 0.14);
+}
+
+.karriere-card-content {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Top Row: Lime Line Icon + Arrow Indicator */
+.karriere-card-top-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.karriere-card-icon-box {
+  display: flex;
+  align-items: center;
+}
+
+.karriere-card-icon {
+  color: var(--color-signature-lime);
+  filter: drop-shadow(0 0 6px rgba(189, 248, 6, 0.3));
+}
+
+.karriere-card-arrow-wrap {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.55);
+  background: rgba(255, 255, 255, 0.03);
+  transition: all var(--transition-fast);
+}
+
+.karriere-job-card:hover .karriere-card-arrow-wrap {
+  color: var(--color-signature-lime);
+  border-color: rgba(189, 248, 6, 0.4);
+  background: rgba(189, 248, 6, 0.08);
+}
+
+.karriere-card-arrow {
+  transition: transform var(--transition-fast);
+}
+
+.karriere-job-card:hover .karriere-card-arrow {
+  transform: translateX(2px);
+}
+
+/* Card Title (Crisp, High Contrast, Consistent Position) */
+.karriere-card-title {
+  font-family: var(--font-display);
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.25;
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+/* --------------------------------------------------------------------------
+   3. SUSTAINABILITY & FINAL RECRUITMENT CTA PANEL
+   -------------------------------------------------------------------------- */
+.karriere-sustainability-panel {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #ffffff;
+  border: 1px solid rgba(6, 27, 24, 0.1);
+  border-radius: 10px;
+  padding: 1.5rem clamp(1.25rem, 3vw, 2.5rem);
+  box-shadow: 0 6px 20px rgba(6, 27, 24, 0.04);
+  gap: 1.5rem;
+}
+
+.karriere-sustainability-left {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.karriere-sprout-icon-box {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(189, 248, 6, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.karriere-sprout-icon {
+  color: #7bb500;
+}
+
+.karriere-sustainability-title {
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  font-weight: 800;
+  color: #061B18;
+  margin: 0 0 0.25rem 0;
+  letter-spacing: -0.015em;
+}
+
+.karriere-sustainability-desc {
+  font-family: var(--font-body);
+  font-size: 0.9375rem;
+  color: rgba(6, 27, 24, 0.72);
+  margin: 0;
+}
+
+.karriere-outline-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.85rem 1.65rem;
+  background-color: transparent;
+  color: #061B18;
+  font-family: var(--font-body);
+  font-size: 0.9375rem;
+  font-weight: 700;
+  border: 1.5px solid rgba(6, 27, 24, 0.25);
+  border-radius: 6px;
+  text-decoration: none;
+  transition: all var(--transition-fast);
+  white-space: nowrap;
+}
+
+.karriere-outline-cta:hover {
+  border-color: #061B18;
+  background-color: #061B18;
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(6, 27, 24, 0.15);
+}
+
+.karriere-outline-arrow {
+  color: #7bb500;
+  transition: transform var(--transition-fast);
+}
+
+.karriere-outline-cta:hover .karriere-outline-arrow {
+  color: var(--color-signature-lime);
+  transform: translateX(4px);
+}
+
+/* --------------------------------------------------------------------------
+   4. RESPONSIVE BREAKPOINTS
+   -------------------------------------------------------------------------- */
+@media (max-width: 1180px) {
+  .karriere-hero-split {
+    grid-template-columns: 1fr;
+    gap: 3.5rem;
+  }
+
+  .karriere-jobs-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .karriere-heading {
+    font-size: 2.2rem;
+  }
+
+  .karriere-benefits-row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem 1rem;
+    padding-top: 1.25rem;
+  }
+
+  .karriere-benefit-divider {
+    display: none;
+  }
+
+  .karriere-benefit-item {
+    padding: 0;
+  }
+
+  .karriere-jobs-grid {
+    grid-template-columns: 1fr;
+    gap: 0.85rem;
+  }
+
+  .karriere-job-card {
+    height: 105px;
+    padding: 1rem 1.15rem;
+  }
+
+  .karriere-sustainability-panel {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1.5rem 1.25rem;
+  }
+
+  .karriere-outline-cta {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .karriere-collage-photo {
+    transition: none !important;
+    animation: none !important;
+  }
+}

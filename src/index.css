@@ -1,0 +1,231 @@
+/* ==========================================================================
+   PIEPER INTERNATIONALE TRANSPORTE - DESIGN SYSTEM & FOUNDATION
+   ========================================================================== */
+
+:root {
+  /* Brand Palette */
+  --color-warm-ivory: #FCFAEE;
+  --color-warm-ivory-alt: #F4EFE6;
+  --color-deep-forest: #061B18;
+  --color-transport-teal: #035A52;
+  --color-signature-lime: #BDF806;
+  --color-soft-citron: #D8E267;
+
+  /* Translucent Surface Variants */
+  --color-deep-forest-90: rgba(6, 27, 24, 0.92);
+  --color-deep-forest-70: rgba(6, 27, 24, 0.72);
+  --color-deep-forest-40: rgba(6, 27, 24, 0.40);
+  --color-lime-glow: rgba(189, 248, 6, 0.35);
+  --color-lime-15: rgba(189, 248, 6, 0.15);
+  --color-lime-08: rgba(189, 248, 6, 0.08);
+  --color-ivory-80: rgba(252, 250, 238, 0.85);
+  --color-ivory-60: rgba(252, 250, 238, 0.65);
+  --color-ivory-30: rgba(252, 250, 238, 0.30);
+  --color-ivory-12: rgba(252, 250, 238, 0.12);
+
+  /* Typography */
+  --font-display: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  /* Heights */
+  --contact-bar-height: 42px;
+  --navbar-height: 80px;
+
+  /* Shadows & Glassmorphism */
+  --glass-bg: rgba(6, 27, 24, 0.55);
+  --glass-border: 1px solid rgba(252, 250, 238, 0.12);
+  --glass-blur: blur(14px);
+  --shadow-subtle: 0 10px 30px rgba(0, 0, 0, 0.35);
+  --shadow-lime: 0 0 25px rgba(189, 248, 6, 0.25);
+
+  /* Transitions */
+  --transition-fast: 180ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-normal: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-smooth: 500ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  background-color: var(--color-deep-forest);
+  color: var(--color-warm-ivory);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-body);
+  background-color: var(--color-deep-forest);
+  color: var(--color-warm-ivory);
+  overflow-x: hidden;
+  min-height: 100vh;
+  line-height: 1.5;
+}
+
+#root {
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Custom Selection */
+::selection {
+  background-color: var(--color-signature-lime);
+  color: var(--color-deep-forest);
+}
+
+/* Accessible Links */
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+/* Focus States */
+:focus-visible {
+  outline: 2px solid var(--color-signature-lime);
+  outline-offset: 3px;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+/* Utility Animations */
+@keyframes blinkCaret {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 15px rgba(189, 248, 6, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(189, 248, 6, 0.45);
+  }
+}
+
+@keyframes subtleFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-3px); }
+}
+
+/* ==========================================================================
+   BUTTON ENTRANCE ANIMATIONS (SLIDE IN FROM LEFT / RIGHT)
+   ========================================================================== */
+@keyframes btnSlideLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-36px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes btnSlideRight {
+  0% {
+    opacity: 0;
+    transform: translateX(36px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Left-aligned buttons initial state */
+.btn-slide-left {
+  opacity: 0;
+  transform: translateX(-36px);
+  transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1), transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, opacity;
+}
+
+/* Right-aligned buttons initial state */
+.btn-slide-right {
+  opacity: 0;
+  transform: translateX(36px);
+  transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1), transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, opacity;
+}
+
+/* When triggered into viewport view */
+.btn-slide-left.is-btn-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.btn-slide-right.is-btn-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Hero primary contact button animation */
+.hero-contact-action-btn.btn-slide-left {
+  transition-delay: 0.15s;
+}
+
+/* Hero service selector buttons */
+.reference-service-btn.btn-slide-left {
+  transition-delay: 0.25s;
+}
+
+/* Modal action buttons animate immediately upon modal display */
+.v2-modal-contact-cta,
+.lager-modal-contact-cta {
+  opacity: 1 !important;
+  animation: btnSlideLeft 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.v2-modal-close-btn,
+.v2-modal-dismiss-btn,
+.lager-modal-close-btn,
+.lager-modal-dismiss-btn {
+  opacity: 1 !important;
+  animation: btnSlideRight 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* Section scroll-margin for smooth navigation */
+.pieper-v2-transport-section,
+.pieper-lager-section,
+.pieper-karriere-section,
+.pieper-kontakt-section {
+  scroll-margin-top: 30px;
+}
+
+/* Accessibility: Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .btn-slide-left,
+  .btn-slide-right,
+  .btn-slide-left.is-btn-visible,
+  .btn-slide-right.is-btn-visible,
+  .v2-modal-contact-cta,
+  .lager-modal-contact-cta,
+  .v2-modal-close-btn,
+  .v2-modal-dismiss-btn,
+  .lager-modal-close-btn,
+  .lager-modal-dismiss-btn {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
