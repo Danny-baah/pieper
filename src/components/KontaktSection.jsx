@@ -1,9 +1,7 @@
 import React from 'react';
 import { 
   MapPin, 
-  Phone, 
-  Mail, 
-  Clock, 
+  PhoneCall, 
   ArrowRight
 } from 'lucide-react';
 
@@ -91,96 +89,51 @@ export default function KontaktSection() {
         </div>
 
         {/* ==================================================================
-            2. HORIZONTAL ROW OF FIVE CONTACT INFORMATION PANELS
+            2. CONTACT CALL-TO-ACTION WITH PHONE & LOCATION MAP
             ================================================================== */}
-        <div className="kontakt-panels-grid" role="region" aria-label="Kontaktdaten und Standort">
-          {/* Panel 1: Adresse */}
-          <div className="kontakt-panel kontakt-panel-address">
-            <div className="kontakt-panel-top">
-              <div className="kontakt-panel-icon-circle" aria-hidden="true">
-                <MapPin size={19} strokeWidth={2} className="kontakt-panel-icon" />
-              </div>
-              <h3 className="kontakt-panel-title">Adresse</h3>
+        <div className="kontakt-cta-map-grid" role="region" aria-label="Direktkontakt und Standort">
+          {/* Call to Action Card with Direct Phone Number */}
+          <div className="kontakt-cta-panel">
+            <div className="kontakt-cta-badge">
+              <span className="kontakt-cta-badge-dot" aria-hidden="true" />
+              <span>DIREKTER KONTAKT</span>
             </div>
 
-            <div className="kontakt-panel-content">
-              <p className="kontakt-address-company">
-                PIEPER Internationale Transporte GmbH &amp; Co. KG
-              </p>
-              <p className="kontakt-address-street">Mühlentannen 11–13</p>
-              <p className="kontakt-address-city">49762 Lathen</p>
-              <p className="kontakt-address-country">Deutschland</p>
-            </div>
+            <h3 className="kontakt-cta-title">
+              Schnell &amp; unkompliziert anfragen.
+            </h3>
 
-            {/* Subtle Faint Watermark Icon */}
-            <div className="kontakt-panel-watermark" aria-hidden="true">
-              <MapPin size={72} strokeWidth={1} />
-            </div>
-          </div>
+            <p className="kontakt-cta-description">
+              Haben Sie Fragen zu unseren Transportmöglichkeiten, freien Lagerkapazitäten oder individuellen Logistikkonzepten? Rufen Sie uns direkt an – unser Dispositionsteam ist gerne persönlich für Sie da.
+            </p>
 
-          {/* Panel 2: Telefon */}
-          <div className="kontakt-panel kontakt-panel-phone">
-            <div className="kontakt-panel-top">
-              <div className="kontakt-panel-icon-circle" aria-hidden="true">
-                <Phone size={19} strokeWidth={2} className="kontakt-panel-icon" />
-              </div>
-              <h3 className="kontakt-panel-title">Telefon</h3>
-            </div>
-
-            <div className="kontakt-panel-content">
+            <div className="kontakt-cta-actions">
               <a 
                 href="tel:+49593393900" 
-                className="kontakt-direct-link kontakt-phone-link"
-                aria-label="Telefonnummer anrufen: +49 (0) 5933 - 93900"
+                className="kontakt-cta-phone-card btn-slide-left"
+                aria-label="Telefonnummer direkt anrufen: +49 (0) 5933 - 93900"
               >
-                +49 (0) 5933 - 93900
+                <div className="kontakt-cta-phone-icon-circle" aria-hidden="true">
+                  <PhoneCall size={22} strokeWidth={2.2} />
+                </div>
+                <div className="kontakt-cta-phone-text">
+                  <span className="kontakt-cta-phone-label">Jetzt direkt anrufen</span>
+                  <span className="kontakt-cta-phone-number">+49 (0) 5933 - 93900</span>
+                </div>
+                <div className="kontakt-cta-phone-arrow" aria-hidden="true">
+                  <ArrowRight size={18} strokeWidth={2.4} />
+                </div>
               </a>
-              <p className="kontakt-panel-subtext">
-                Wir sind telefonisch für Sie erreichbar.
-              </p>
-            </div>
-
-            {/* Subtle Faint Watermark Icon */}
-            <div className="kontakt-panel-watermark" aria-hidden="true">
-              <Phone size={72} strokeWidth={1} />
             </div>
           </div>
 
-          {/* Panel 3: E-Mail */}
-          <div className="kontakt-panel kontakt-panel-email">
-            <div className="kontakt-panel-top">
-              <div className="kontakt-panel-icon-circle" aria-hidden="true">
-                <Mail size={19} strokeWidth={2} className="kontakt-panel-icon" />
-              </div>
-              <h3 className="kontakt-panel-title">E-Mail</h3>
-            </div>
-
-            <div className="kontakt-panel-content">
-              <a 
-                href="mailto:info@pieper-spedition.com" 
-                className="kontakt-direct-link kontakt-email-link"
-                aria-label="E-Mail schreiben an info@pieper-spedition.com"
-              >
-                info@pieper-spedition.com
-              </a>
-              <p className="kontakt-panel-subtext">
-                Schreiben Sie uns jederzeit – wir freuen uns auf Ihre Nachricht.
-              </p>
-            </div>
-
-            {/* Subtle Faint Watermark Icon */}
-            <div className="kontakt-panel-watermark" aria-hidden="true">
-              <Mail size={72} strokeWidth={1} />
-            </div>
-          </div>
-
-          {/* Panel 4: Standort (Map Visual & Route Planen Link) */}
-          <div className="kontakt-panel kontakt-panel-map">
+          {/* Location Map Visual & Route Planen Link */}
+          <div className="kontakt-map-card">
             {/* Background Map Graphic */}
             <div className="kontakt-map-bg-box" aria-hidden="true">
               <img 
                 src="./images/kontakt_map.jpg" 
-                alt=""
+                alt="Standortkarte Lathen"
                 className="kontakt-map-img"
                 loading="lazy"
               />
@@ -211,32 +164,6 @@ export default function KontaktSection() {
               </div>
               <span>Route planen</span>
             </a>
-          </div>
-
-          {/* Panel 5: Öffnungszeiten */}
-          <div className="kontakt-panel kontakt-panel-hours">
-            <div className="kontakt-panel-top">
-              <div className="kontakt-panel-icon-circle" aria-hidden="true">
-                <Clock size={19} strokeWidth={2} className="kontakt-panel-icon" />
-              </div>
-              <h3 className="kontakt-panel-title">Unsere Öffnungszeiten</h3>
-            </div>
-
-            <div className="kontakt-panel-content">
-              <div className="kontakt-hours-group">
-                <span className="kontakt-hours-days">Montag – Freitag</span>
-                <span className="kontakt-hours-time">Öffnungszeiten auf Anfrage</span>
-              </div>
-              <div className="kontakt-hours-group">
-                <span className="kontakt-hours-days">Samstag – Sonntag</span>
-                <span className="kontakt-hours-time">Öffnungszeiten auf Anfrage</span>
-              </div>
-            </div>
-
-            {/* Subtle Faint Watermark Icon */}
-            <div className="kontakt-panel-watermark" aria-hidden="true">
-              <Clock size={72} strokeWidth={1} />
-            </div>
           </div>
         </div>
       </div>

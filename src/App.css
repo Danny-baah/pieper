@@ -514,6 +514,8 @@
   cursor: pointer;
   color: rgba(255, 255, 255, 0.65);
   transition: color var(--transition-fast);
+  opacity: 1 !important;
+  visibility: visible !important;
 }
 
 .reference-service-btn:hover {
@@ -529,11 +531,15 @@
   flex-direction: column;
   align-items: center;
   position: relative;
+  opacity: 1 !important;
+  visibility: visible !important;
 }
 
 .reference-icon {
   color: rgba(255, 255, 255, 0.65);
   transition: color var(--transition-fast), transform var(--transition-fast);
+  opacity: 1 !important;
+  visibility: visible !important;
 }
 
 .reference-service-btn.active .reference-icon {

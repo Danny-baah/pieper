@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
+import { createPortal } from 'react-dom';
 import { 
   ArrowRight, 
   Truck, 
@@ -273,9 +274,9 @@ export default function TransportlogistikSection() {
       </div>
 
       {/* ====================================================================
-          3. ACCESSIBLE SERVICE DETAIL MODAL DIALOG
+          3. ACCESSIBLE SERVICE DETAIL MODAL DIALOG (PORTALED TO BODY)
           ==================================================================== */}
-      {activeService && (
+      {activeService && typeof document !== 'undefined' && createPortal(
         <div 
           className="v2-modal-backdrop" 
           onClick={closeModal}
@@ -363,7 +364,8 @@ export default function TransportlogistikSection() {
               </div>
             </div>
           </div>
-        </div>
+        </div>,
+        document.body
       )}
     </section>
   );

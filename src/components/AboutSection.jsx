@@ -5,7 +5,6 @@ import {
   TrendingUp, 
   ArrowRight, 
   Truck, 
-  MapPin, 
   Warehouse 
 } from 'lucide-react';
 
@@ -173,53 +172,27 @@ export default function AboutSection() {
         <div className="stats-watermark-text" aria-hidden="true">PIEPER</div>
 
         <div className="stats-band-container">
-          {/* Stat 1: Zuverlässige Transporte / Erfahrung */}
+          {/* Card 1: Transport */}
           <div className="stat-block">
             <div className="stat-icon-wrapper">
-              <Truck className="stat-icon" size={34} strokeWidth={1.8} aria-hidden="true" />
+              <Truck className="stat-icon" size={36} strokeWidth={1.8} aria-hidden="true" />
             </div>
             <div className="stat-text-wrapper">
               <span className="stat-highlight-title">Zuverlässige Transporte</span>
-              <span className="stat-subtitle">Termintreue & Präzision auf jeder Route</span>
+              <span className="stat-subtitle">Termintreue &amp; Präzision auf jeder Route</span>
             </div>
           </div>
 
           <div className="stat-divider" aria-hidden="true" />
 
-          {/* Stat 2: Erfahrenes Team / Fachkräfte */}
+          {/* Card 2: Lagerlogistik */}
           <div className="stat-block">
             <div className="stat-icon-wrapper">
-              <Users className="stat-icon" size={34} strokeWidth={1.8} aria-hidden="true" />
+              <Warehouse className="stat-icon" size={36} strokeWidth={1.8} aria-hidden="true" />
             </div>
             <div className="stat-text-wrapper">
-              <span className="stat-highlight-title">Erfahrenes Team</span>
-              <span className="stat-subtitle">Geschulte Fachkräfte für höchste Ansprüche</span>
-            </div>
-          </div>
-
-          <div className="stat-divider" aria-hidden="true" />
-
-          {/* Stat 3: Deutschland & Europa */}
-          <div className="stat-block">
-            <div className="stat-icon-wrapper">
-              <MapPin className="stat-icon" size={34} strokeWidth={1.8} aria-hidden="true" />
-            </div>
-            <div className="stat-text-wrapper">
-              <span className="stat-highlight-title lime-accent">Deutschland & Europa</span>
-              <span className="stat-subtitle">Unser flächendeckendes Einsatzgebiet</span>
-            </div>
-          </div>
-
-          <div className="stat-divider" aria-hidden="true" />
-
-          {/* Stat 4: Effiziente Prozesse */}
-          <div className="stat-block">
-            <div className="stat-icon-wrapper">
-              <Warehouse className="stat-icon" size={34} strokeWidth={1.8} aria-hidden="true" />
-            </div>
-            <div className="stat-text-wrapper">
-              <span className="stat-highlight-title lime-accent">Effiziente Prozesse</span>
-              <span className="stat-subtitle">Moderne Lager- & Umschlaglogistik</span>
+              <span className="stat-highlight-title lime-accent">Effiziente Lagerlogistik</span>
+              <span className="stat-subtitle">Moderne Lager- &amp; Umschlaglogistik</span>
             </div>
           </div>
         </div>

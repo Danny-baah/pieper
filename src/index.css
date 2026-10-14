@@ -182,11 +182,6 @@ button {
   transition-delay: 0.15s;
 }
 
-/* Hero service selector buttons */
-.reference-service-btn.btn-slide-left {
-  transition-delay: 0.25s;
-}
-
 /* Modal action buttons animate immediately upon modal display */
 .v2-modal-contact-cta,
 .lager-modal-contact-cta {

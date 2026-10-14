@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
+import { createPortal } from 'react-dom';
 import { 
   Recycle, 
   Warehouse, 
@@ -281,11 +282,11 @@ export default function LagerlogistikSection() {
       </div>
 
       {/* ==================================================================
-          3. ACCESSIBLE SERVICE DETAIL MODAL DIALOG
+          3. ACCESSIBLE SERVICE DETAIL MODAL DIALOG (PORTALED TO BODY)
           ================================================================== */}
-      {activeService && (
+      {activeService && typeof document !== 'undefined' && createPortal(
         <div 
-          className="lager-modal-backdrop"
+          className="lager-modal-backdrop" 
           onClick={closeModal}
           role="presentation"
         >
@@ -371,7 +372,8 @@ export default function LagerlogistikSection() {
               </div>
             </div>
           </div>
-        </div>
+        </div>,
+        document.body
       )}
     </section>
   );

@@ -40,7 +40,7 @@ export default function ServiceSelectors({ activeCategory, onSelectService }) {
         {/* Transportlogistik */}
         <button
           type="button"
-          className={`reference-service-btn btn-slide-left ${isTransportActive ? 'active' : ''}`}
+          className={`reference-service-btn ${isTransportActive ? 'active' : ''}`}
           onClick={handleTransportClick}
           aria-pressed={isTransportActive}
           aria-label="Transportlogistik ansehen und zur Sektion scrollen"
@@ -60,7 +60,7 @@ export default function ServiceSelectors({ activeCategory, onSelectService }) {
         {/* Lagerlogistik - No dot, no border */}
         <button
           type="button"
-          className={`reference-service-btn btn-slide-left ${isWarehouseActive ? 'active' : ''}`}
+          className={`reference-service-btn ${isWarehouseActive ? 'active' : ''}`}
           onClick={handleWarehouseClick}
           aria-pressed={isWarehouseActive}
           aria-label="Lagerlogistik ansehen und zur Sektion scrollen"

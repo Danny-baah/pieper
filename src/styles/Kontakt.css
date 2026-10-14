@@ -197,143 +197,181 @@
 }
 
 /* --------------------------------------------------------------------------
-   2. HORIZONTAL ROW OF FIVE CONTACT INFORMATION PANELS
+   2. CONTACT CALL-TO-ACTION & LOCATION MAP GRID
    -------------------------------------------------------------------------- */
-.kontakt-panels-grid {
+.kontakt-cta-map-grid {
   display: grid;
-  grid-template-columns: 1.25fr 1fr 1.15fr 1.45fr 1.1fr;
-  gap: 1.15rem;
+  grid-template-columns: 1.18fr 1fr;
+  gap: clamp(1.5rem, 3vw, 2.5rem);
   align-items: stretch;
+  margin-top: 1rem;
 }
 
-/* Common Contact Panel Styling */
-.kontakt-panel {
+/* Call to Action Panel */
+.kontakt-cta-panel {
   position: relative;
   background-color: #061B18;
   border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 8px;
-  padding: 1.35rem 1.25rem 1.25rem;
+  border-radius: 12px;
+  padding: clamp(2rem, 3.5vw, 2.75rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+  box-shadow: 0 16px 40px rgba(6, 27, 24, 0.15);
+  transition: border-color 200ms ease, box-shadow 250ms ease;
+}
+
+.kontakt-cta-panel:hover {
+  border-color: rgba(189, 248, 6, 0.3);
+  box-shadow: 0 20px 48px rgba(6, 27, 24, 0.22);
+}
+
+.kontakt-cta-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--color-signature-lime);
+  margin-bottom: 0.85rem;
+}
+
+.kontakt-cta-badge-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: var(--color-signature-lime);
+  box-shadow: 0 0 8px var(--color-signature-lime);
+}
+
+.kontakt-cta-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.4rem, 2.2vw, 1.85rem);
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1.25;
+  margin: 0 0 0.85rem 0;
+  letter-spacing: -0.015em;
+}
+
+.kontakt-cta-description {
+  font-family: var(--font-body);
+  font-size: clamp(0.875rem, 1.05vw, 0.95rem);
+  color: rgba(252, 250, 238, 0.8);
+  line-height: 1.55;
+  margin: 0 0 1.75rem 0;
+  max-width: 520px;
+}
+
+.kontakt-cta-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+/* Phone CTA Card / Button */
+.kontakt-cta-phone-card {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.85rem 1.45rem;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1.5px solid rgba(189, 248, 6, 0.45);
+  border-radius: 12px;
+  color: #ffffff;
+  text-decoration: none;
+  transition: all var(--transition-normal);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.25);
+}
+
+.kontakt-cta-phone-card:hover {
+  background: var(--color-signature-lime);
+  color: var(--color-deep-forest);
+  border-color: var(--color-signature-lime);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(189, 248, 6, 0.35);
+}
+
+.kontakt-cta-phone-icon-circle {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--color-signature-lime);
+  color: var(--color-deep-forest);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 0 12px rgba(189, 248, 6, 0.4);
+  transition: transform var(--transition-fast), background var(--transition-fast), color var(--transition-fast);
+}
+
+.kontakt-cta-phone-card:hover .kontakt-cta-phone-icon-circle {
+  background: var(--color-deep-forest);
+  color: var(--color-signature-lime);
+  transform: scale(1.05);
+}
+
+.kontakt-cta-phone-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.kontakt-cta-phone-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: rgba(255, 255, 255, 0.7);
+  transition: color var(--transition-fast);
+}
+
+.kontakt-cta-phone-card:hover .kontakt-cta-phone-label {
+  color: rgba(6, 27, 24, 0.8);
+}
+
+.kontakt-cta-phone-number {
+  font-family: var(--font-display);
+  font-size: clamp(1.15rem, 1.45vw, 1.35rem);
+  font-weight: 800;
+  letter-spacing: 0.25px;
+}
+
+.kontakt-cta-phone-arrow {
+  margin-left: 0.5rem;
+  color: var(--color-signature-lime);
+  transition: transform var(--transition-fast), color var(--transition-fast);
+}
+
+.kontakt-cta-phone-card:hover .kontakt-cta-phone-arrow {
+  color: var(--color-deep-forest);
+  transform: translateX(4px);
+}
+
+/* Map Card */
+.kontakt-map-card {
+  position: relative;
+  background-color: #f4f6f8;
+  border: 1px solid rgba(6, 27, 24, 0.12);
+  border-radius: 12px;
+  padding: 1.25rem;
+  min-height: 280px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   overflow: hidden;
-  box-shadow: 0 10px 24px rgba(6, 27, 24, 0.1);
-  min-height: 195px;
-  transition: transform 250ms cubic-bezier(0.16, 1, 0.3, 1), 
-              box-shadow 250ms cubic-bezier(0.16, 1, 0.3, 1), 
-              border-color 200ms ease;
+  box-shadow: 0 16px 40px rgba(6, 27, 24, 0.1);
+  transition: box-shadow 250ms ease, border-color 200ms ease;
 }
 
-.kontakt-panel:not(.kontakt-panel-map):hover {
-  transform: translateY(-3px);
-  border-color: rgba(189, 248, 6, 0.35);
-  box-shadow: 0 16px 36px rgba(6, 27, 24, 0.2);
-}
-
-/* Panel Header Row (Icon + Title) */
-.kontakt-panel-top {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  margin-bottom: 1.15rem;
-  position: relative;
-  z-index: 2;
-}
-
-.kontakt-panel-icon-circle {
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  border: 1.5px solid var(--color-signature-lime);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--color-signature-lime);
-  background: rgba(189, 248, 6, 0.08);
-  box-shadow: 0 0 10px rgba(189, 248, 6, 0.2);
-  flex-shrink: 0;
-  transition: transform var(--transition-fast);
-}
-
-.kontakt-panel:hover .kontakt-panel-icon-circle {
-  transform: scale(1.06);
-}
-
-.kontakt-panel-title {
-  font-family: var(--font-display);
-  font-size: 1.05rem;
-  font-weight: 700;
-  color: #ffffff;
-  margin: 0;
-  letter-spacing: -0.01em;
-}
-
-/* Panel Content Body */
-.kontakt-panel-content {
-  position: relative;
-  z-index: 2;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-}
-
-/* Panel 1: Adresse Typography */
-.kontakt-address-company {
-  font-family: var(--font-body);
-  font-size: 0.84375rem;
-  font-weight: 700;
-  color: #ffffff;
-  line-height: 1.35;
-  margin: 0 0 0.35rem 0;
-}
-
-.kontakt-address-street,
-.kontakt-address-city,
-.kontakt-address-country {
-  font-family: var(--font-body);
-  font-size: 0.8125rem;
-  color: rgba(252, 250, 238, 0.82);
-  line-height: 1.4;
-  margin: 0;
-}
-
-/* Panel 2 & 3: Direct Phone & Email Links */
-.kontakt-direct-link {
-  font-family: var(--font-body);
-  font-size: 0.9375rem;
-  font-weight: 700;
-  color: #ffffff;
-  text-decoration: none;
-  display: inline-block;
-  line-height: 1.3;
-  margin: 0 0 0.45rem 0;
-  word-break: break-all;
-  transition: color var(--transition-fast);
-}
-
-.kontakt-direct-link:hover {
-  color: var(--color-signature-lime);
-}
-
-.kontakt-panel-subtext {
-  font-family: var(--font-body);
-  font-size: 0.78125rem;
-  color: rgba(252, 250, 238, 0.65);
-  line-height: 1.45;
-  margin: 0;
-}
-
-/* Panel 4: Map Visual & Route Planen */
-.kontakt-panel-map {
-  background-color: #f4f6f8;
-  border: 1px solid rgba(6, 27, 24, 0.15);
-  padding: 1rem;
-  justify-content: space-between;
-}
-
-.kontakt-panel-map:hover {
-  box-shadow: 0 16px 36px rgba(6, 27, 24, 0.16);
-  border-color: rgba(6, 27, 24, 0.3);
+.kontakt-map-card:hover {
+  box-shadow: 0 20px 48px rgba(6, 27, 24, 0.18);
+  border-color: rgba(6, 27, 24, 0.25);
 }
 
 .kontakt-map-bg-box {
@@ -354,8 +392,8 @@
   transition: transform 600ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.kontakt-panel-map:hover .kontakt-map-img {
-  transform: scale(1.05);
+.kontakt-map-card:hover .kontakt-map-img {
+  transform: scale(1.04);
 }
 
 .kontakt-map-overlay {
@@ -371,12 +409,13 @@
   align-self: flex-start;
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  padding: 0.45rem 0.65rem;
-  border-radius: 6px;
-  background: rgba(255, 255, 255, 0.95);
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+  gap: 0.65rem;
+  padding: 0.6rem 0.95rem;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
   border: 1px solid rgba(6, 27, 24, 0.08);
+  backdrop-filter: blur(8px);
 }
 
 .kontakt-map-pin-icon {
@@ -392,13 +431,13 @@
 
 .kontakt-map-badge-text strong {
   font-family: var(--font-display);
-  font-size: 0.75rem;
+  font-size: 0.8125rem;
   color: #061B18;
 }
 
 .kontakt-map-badge-text span {
   font-family: var(--font-body);
-  font-size: 0.6875rem;
+  font-size: 0.71875rem;
   color: rgba(6, 27, 24, 0.75);
 }
 
@@ -408,22 +447,22 @@
   align-self: flex-end;
   display: inline-flex;
   align-items: center;
-  gap: 0.55rem;
-  padding: 0.5rem 0.95rem;
+  gap: 0.65rem;
+  padding: 0.6rem 1.15rem;
   background-color: #061B18;
   color: #ffffff;
   border-radius: 9999px;
   font-family: var(--font-body);
-  font-size: 0.8125rem;
+  font-size: 0.84375rem;
   font-weight: 700;
   text-decoration: none;
-  box-shadow: 0 4px 15px rgba(6, 27, 24, 0.25);
+  box-shadow: 0 4px 18px rgba(6, 27, 24, 0.3);
   transition: all var(--transition-fast);
 }
 
 .kontakt-route-circle-arrow {
-  width: 22px;
-  height: 22px;
+  width: 24px;
+  height: 24px;
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.18);
   display: flex;
@@ -436,7 +475,7 @@
   background-color: var(--color-signature-lime);
   color: var(--color-deep-forest);
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(189, 248, 6, 0.4);
+  box-shadow: 0 8px 24px rgba(189, 248, 6, 0.4);
 }
 
 .kontakt-route-btn:hover .kontakt-route-circle-arrow {
@@ -445,63 +484,22 @@
   transform: translateX(2px);
 }
 
-/* Panel 5: Öffnungszeiten */
-.kontakt-hours-group {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 0.65rem;
-}
-
-.kontakt-hours-group:last-of-type {
-  margin-bottom: 0;
-}
-
-.kontakt-hours-days {
-  font-family: var(--font-body);
-  font-size: 0.84375rem;
-  font-weight: 700;
-  color: #ffffff;
-  line-height: 1.35;
-}
-
-.kontakt-hours-time {
-  font-family: var(--font-body);
-  font-size: 0.78125rem;
-  color: rgba(252, 250, 238, 0.7);
-  line-height: 1.4;
-}
-
-/* Subtle Watermark Icon in dark panels */
-.kontakt-panel-watermark {
-  position: absolute;
-  bottom: -8px;
-  right: -8px;
-  color: rgba(255, 255, 255, 0.035);
-  pointer-events: none;
-  transition: transform var(--transition-fast), color var(--transition-fast);
-}
-
-.kontakt-panel:hover .kontakt-panel-watermark {
-  color: rgba(189, 248, 6, 0.05);
-  transform: scale(1.08);
-}
-
 /* --------------------------------------------------------------------------
    3. RESPONSIVE BREAKPOINTS
    -------------------------------------------------------------------------- */
-@media (max-width: 1200px) {
+@media (max-width: 1024px) {
   .kontakt-hero-split {
     grid-template-columns: 1fr;
     gap: 3rem;
   }
 
-  .kontakt-panels-grid {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
+  .kontakt-cta-map-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
 
-  .kontakt-panel-map {
-    grid-column: span 2;
+  .kontakt-map-card {
+    min-height: 250px;
   }
 }
 
@@ -520,19 +518,13 @@
     gap: 1.5rem;
   }
 
-  .kontakt-panels-grid {
-    grid-template-columns: 1fr;
-    gap: 1rem;
+  .kontakt-cta-panel {
+    padding: 1.5rem;
   }
 
-  .kontakt-panel-map {
-    grid-column: auto;
-    min-height: 200px;
-  }
-
-  .kontakt-panel {
-    min-height: auto;
-    padding: 1.25rem;
+  .kontakt-cta-phone-card {
+    width: 100%;
+    justify-content: space-between;
   }
 }
 

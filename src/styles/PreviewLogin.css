@@ -1,0 +1,297 @@
+/* ==========================================================================
+   PREVIEW LOGIN - CLIENT ACCESS GATE STYLES
+   Minimalist, anonymous, password-only preview gate
+   ========================================================================== */
+
+.preview-gate-container {
+  min-height: 100vh;
+  min-height: 100svh;
+  width: 100%;
+  background-color: #FCFAEE;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  padding: 24px 20px;
+  box-sizing: border-box;
+}
+
+/* Background Artwork: Soft beige-green gradients and sweeping curves */
+.preview-bg-artwork {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.preview-bg-svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* Card Positioning Wrapper */
+.preview-card-wrapper {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 440px;
+  display: flex;
+  justify-content: center;
+}
+
+/* Compact Ivory Login Card */
+.preview-login-card {
+  width: 100%;
+  background-color: #FAF8F2;
+  border: 1px solid rgba(6, 27, 24, 0.08);
+  border-radius: 14px;
+  box-shadow: 
+    0 4px 14px -2px rgba(6, 27, 24, 0.03),
+    0 16px 36px -4px rgba(6, 27, 24, 0.06);
+  padding: 34px 28px 28px 28px;
+  box-sizing: border-box;
+  transition: box-shadow 0.3s ease;
+}
+
+/* Form Layout */
+.preview-login-form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+/* Single Password Field Container */
+.preview-input-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 46px;
+  background-color: #FFFFFF;
+  border: 1px solid #DCD8CB;
+  border-radius: 8px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  box-sizing: border-box;
+}
+
+.preview-input-container:hover {
+  border-color: #C8C3B3;
+}
+
+.preview-input-container:focus-within {
+  border-color: #061B18;
+  box-shadow: 0 0 0 3px rgba(6, 27, 24, 0.07);
+}
+
+.preview-input-container.has-error {
+  border-color: #B91C1C;
+  box-shadow: 0 0 0 2px rgba(185, 28, 28, 0.12);
+}
+
+/* Subtle Left Lock Icon */
+.preview-input-icon.preview-lock-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 14px;
+  margin-right: 8px;
+  color: #55625D;
+  flex-shrink: 0;
+  pointer-events: none;
+}
+
+/* Password Input Field */
+.preview-password-field {
+  flex: 1;
+  border: none;
+  background: transparent;
+  height: 100%;
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  color: #061B18;
+  outline: none;
+  padding: 0 4px;
+  box-sizing: border-box;
+}
+
+.preview-password-field::placeholder {
+  color: #7D8884;
+  opacity: 1;
+  font-weight: 400;
+}
+
+/* Right Visibility Toggle Button */
+.preview-toggle-visibility-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: 0 14px;
+  border: none;
+  background: transparent;
+  color: #6D7975;
+  cursor: pointer;
+  transition: color 0.18s ease;
+  flex-shrink: 0;
+  border-radius: 0 8px 8px 0;
+}
+
+.preview-toggle-visibility-btn:hover {
+  color: #061B18;
+}
+
+.preview-toggle-visibility-btn:focus-visible {
+  outline: 2px solid #061B18;
+  outline-offset: -2px;
+  border-radius: 4px;
+}
+
+/* Discreet Error Message */
+.preview-error-message {
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  color: #B91C1C;
+  margin-top: 8px;
+  padding-left: 2px;
+  animation: previewFadeIn 0.2s ease-out;
+}
+
+@keyframes previewFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-3px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Full-width Login Button */
+.preview-login-button {
+  margin-top: 14px;
+  width: 100%;
+  height: 46px;
+  background-color: #061B18;
+  color: #FFFFFF;
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: background-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+  box-sizing: border-box;
+}
+
+.preview-login-button:hover:not(:disabled) {
+  background-color: #0D2D27;
+}
+
+.preview-login-button:active:not(:disabled) {
+  transform: scale(0.995);
+}
+
+.preview-login-button:focus-visible {
+  outline: 2px solid #035A52;
+  outline-offset: 3px;
+}
+
+.preview-login-button:disabled,
+.preview-login-button.is-loading {
+  opacity: 0.85;
+  cursor: not-allowed;
+}
+
+/* Spinner Icon */
+.preview-spinner {
+  animation: previewSpin 0.75s linear infinite;
+}
+
+@keyframes previewSpin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ==========================================================================
+   AUTHENTICATED PREVIEW RE-LOCK BADGE / BUTTON
+   Allows the client / reviewer to return to the login gate at any time
+   ========================================================================== */
+.preview-relock-banner {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(6, 27, 24, 0.85);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(252, 250, 238, 0.16);
+  border-radius: 999px;
+  padding: 6px 14px;
+  color: #FCFAEE;
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.3);
+  transition: all 0.2s ease;
+}
+
+.preview-relock-banner:hover {
+  background: #061B18;
+  border-color: #BDF806;
+  color: #BDF806;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 22px rgba(0, 0, 0, 0.4);
+}
+
+.preview-relock-banner:focus-visible {
+  outline: 2px solid #BDF806;
+  outline-offset: 2px;
+}
+
+/* ==========================================================================
+   RESPONSIVE OPTIMIZATIONS
+   ========================================================================== */
+@media (max-width: 480px) {
+  .preview-gate-container {
+    padding: 16px;
+  }
+
+  .preview-login-card {
+    padding: 28px 20px 22px 20px;
+    border-radius: 12px;
+  }
+
+  .preview-input-container {
+    height: 44px;
+  }
+
+  .preview-login-button {
+    height: 44px;
+  }
+
+  .preview-relock-banner {
+    bottom: 12px;
+    right: 12px;
+    font-size: 11px;
+    padding: 5px 12px;
+  }
+}
