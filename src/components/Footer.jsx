@@ -120,7 +120,15 @@ export default function Footer() {
           <span className="footer-bottom-divider" aria-hidden="true" />
 
           <p className="footer-credit-text">
-            Webdesign von <strong className="footer-credit-brand">EmanCopys</strong>
+            Webdesign von{' '}
+            <a
+              href="https://emancopys.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="footer-credit-brand"
+            >
+              EmanCopys
+            </a>
           </p>
 
           <span className="footer-bottom-divider" aria-hidden="true" />

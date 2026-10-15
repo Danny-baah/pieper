@@ -272,6 +272,15 @@
 .footer-credit-brand {
   color: #ffffff;
   font-weight: 700;
+  text-decoration: none;
+  transition: color 200ms ease;
+}
+
+.footer-credit-brand:hover,
+.footer-credit-brand:focus-visible {
+  color: var(--color-signature-lime);
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
 .footer-bottom-divider {

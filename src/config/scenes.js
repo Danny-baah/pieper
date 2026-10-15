@@ -18,7 +18,7 @@ export const SCENES = [
     id: 'transport-a',
     index: 0,
     startTime: 0.0,
-    endTime: 10.0,
+    endTime: 9.9,
     serviceCategory: 'Transportlogistik',
     overline: 'PIEPER INTERNATIONALE TRANSPORTE',
     headlinePrefix: 'Transport,',
@@ -29,8 +29,8 @@ export const SCENES = [
   {
     id: 'warehouse',
     index: 1,
-    startTime: 10.0,
-    endTime: 20.0,
+    startTime: 9.9,
+    endTime: 17.9,
     serviceCategory: 'Lagerlogistik',
     overline: 'PIEPER INTERNATIONALE TRANSPORTE',
     headlinePrefix: 'Logistik,',
@@ -41,7 +41,7 @@ export const SCENES = [
   {
     id: 'transport-b',
     index: 2,
-    startTime: 20.0,
+    startTime: 17.9,
     endTime: 25.83,
     serviceCategory: 'Transportlogistik',
     overline: 'PIEPER INTERNATIONALE TRANSPORTE',

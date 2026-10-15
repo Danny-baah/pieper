@@ -72,11 +72,11 @@ export default function VideoBackground({
 
     const currentTime = video.currentTime;
 
-    // Determine active scene based on cut timestamps (0-10s, 10-20s, 20-end)
+    // Determine active scene based on cut timestamps (0-9.9s, 9.9-17.9s, 17.9-end)
     let currentSceneIdx = 0;
-    if (currentTime >= 20.0) {
+    if (currentTime >= 17.9) {
       currentSceneIdx = 2;
-    } else if (currentTime >= 10.0) {
+    } else if (currentTime >= 9.9) {
       currentSceneIdx = 1;
     } else {
       currentSceneIdx = 0;
