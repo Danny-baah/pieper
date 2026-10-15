@@ -115,53 +115,34 @@ export default function AboutSection() {
           </div>
         </div>
 
-        {/* Right Column: Editorial Truck Collage */}
-        <div className="about-collage-column">
-          <div className="about-collage-grid">
-            {/* Main Primary Image: Front 3/4 highway shot */}
-            <div className="collage-item collage-item-main">
+        {/* Right Column: 2-Card Visual Showcase (Transport & Lagerlogistik) */}
+        <div className="about-showcase-column">
+          <div className="about-showcase-stack">
+            {/* Image 1: Main Highway Transport Truck */}
+            <div className="about-image-card about-card-truck">
               <span className="ki-badge">KI-generiert</span>
               <img 
                 src="./images/truck_highway_main.jpg" 
                 alt="Pieper IVECO S-WAY LKW im Straßentransport auf der Autobahn"
-                className="collage-img"
+                className="about-card-img about-truck-img"
                 loading="lazy"
                 width="1020"
-                height="800"
+                height="500"
               />
             </div>
 
-            {/* Sub-column with 2 stacked images */}
-            <div className="collage-sub-column">
-              {/* Secondary Image: Trailer rear view */}
-              <div className="collage-item collage-item-top">
-                <span className="ki-badge">KI-generiert</span>
-                <img 
-                  src="./images/truck_trailer_rear.jpg" 
-                  alt="Pieper Sattelzug Heckansicht mit Lathen Kontaktdaten"
-                  className="collage-img"
-                  loading="lazy"
-                  width="640"
-                  height="420"
-                />
-              </div>
-
-              {/* Third Image: Modern Warehouse Logistics Center */}
-              <div className="collage-item collage-item-bottom">
-                <span className="ki-badge">KI-generiert</span>
-                <img 
-                  src="./images/warehouse_interior.jpg" 
-                  alt="Modernes Pieper Logistikzentrum und Hochregallager"
-                  className="collage-img"
-                  loading="lazy"
-                  width="640"
-                  height="460"
-                />
-              </div>
+            {/* Image 2: Modern Warehouse Logistics Center */}
+            <div className="about-image-card about-card-warehouse">
+              <span className="ki-badge">KI-generiert</span>
+              <img 
+                src="./images/warehouse_interior.jpg" 
+                alt="Modernes Pieper Logistikzentrum und Hochregallager"
+                className="about-card-img about-warehouse-img"
+                loading="lazy"
+                width="1020"
+                height="500"
+              />
             </div>
-
-            {/* Editorial angled lime accent blade on the right */}
-            <div className="collage-lime-blade" aria-hidden="true" />
           </div>
         </div>
       </div>

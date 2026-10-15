@@ -193,8 +193,8 @@
 }
 
 .v2-truck-frame .ki-badge {
-  left: calc(14% + 16px);
-  top: 14px;
+  left: calc(14% + 14px);
+  top: 10px;
 }
 
 .v2-truck-photo {
@@ -698,7 +698,8 @@
   }
 
   .v2-truck-frame .ki-badge {
-    left: 14px;
+    left: 10px;
+    top: 10px;
   }
 
   .v2-far-right-blade {

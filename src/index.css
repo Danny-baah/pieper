@@ -224,25 +224,26 @@ button {
   }
 }
 
-/* AI-Generated Badge Utility (matches user's reference screenshot) */
+/* AI-Generated Badge Utility (text-only label: no background, no border, reduced font size) */
 .ki-badge {
   position: absolute;
-  top: 12px;
-  left: 12px;
+  top: 10px;
+  left: 10px;
   z-index: 10;
-  background: rgba(30, 35, 33, 0.75);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 6px;
-  padding: 3px 8px;
+  background: transparent !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  border: none !important;
+  border-radius: 0 !important;
+  padding: 0 !important;
+  box-shadow: none !important;
   font-family: var(--font-body, system-ui);
-  font-size: 0.6875rem;
+  font-size: 0.625rem;
   font-weight: 600;
-  color: #ffffff;
-  letter-spacing: 0.25px;
+  color: rgba(255, 255, 255, 0.9);
+  letter-spacing: 0.5px;
   line-height: 1.2;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.9), 0 0 8px rgba(0, 0, 0, 0.65);
   pointer-events: none;
   user-select: none;
   white-space: nowrap;
@@ -252,7 +253,15 @@ button {
   position: static;
   display: inline-flex;
   align-items: center;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+}
+
+@media (max-width: 768px) {
+  .ki-badge {
+    font-size: 0.53125rem !important; /* ~8.5px very small on mobile */
+    top: 8px;
+    left: 8px;
+    letter-spacing: 0.4px;
+  }
 }
 
 

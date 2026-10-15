@@ -33,32 +33,10 @@
   z-index: 1;
 }
 
-.ki-badge {
-  position: absolute;
-  top: 14px;
-  left: 14px;
-  z-index: 5;
-  background: rgba(30, 35, 33, 0.72);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 6px;
-  padding: 4px 10px;
-  font-family: var(--font-body, system-ui);
-  font-size: 0.72rem;
-  font-weight: 600;
-  color: #ffffff;
-  letter-spacing: 0.4px;
-  line-height: 1.2;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
-  pointer-events: none;
-  user-select: none;
-}
-
 .footer-facility-banner-wrap .footer-ki-badge {
   left: auto;
-  right: 18px;
-  top: 14px;
+  right: 14px;
+  top: 10px;
 }
 
 .footer-facility-sunset-photo {
