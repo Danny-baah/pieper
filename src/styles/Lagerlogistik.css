@@ -12,34 +12,68 @@
   border-top: 1px solid rgba(6, 27, 24, 0.06);
 }
 
-.lager-main-container {
+/* --------------------------------------------------------------------------
+   1. UPPER SECTION: ASYMMETRIC SPLIT COMPOSITION (IMAGE ON LEFT, CONTENT ON RIGHT)
+   -------------------------------------------------------------------------- */
+.lager-hero-split-stage {
+  position: relative;
+  width: 100%;
+  background-color: var(--color-warm-ivory-alt, #F4EFE6);
+  overflow: hidden;
+}
+
+/* Faint Watermark '02' behind right content */
+.lager-hero-watermark {
+  position: absolute;
+  right: 22%;
+  top: 0;
+  font-family: var(--font-display);
+  font-size: clamp(9rem, 16vw, 15.5rem);
+  font-weight: 900;
+  color: rgba(6, 27, 24, 0.038);
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+  z-index: 1;
+}
+
+.lager-hero-container {
+  position: relative;
+  z-index: 2;
   max-width: 1440px;
   margin: 0 auto;
-  padding: clamp(4.5rem, 6.5vw, 6.5rem) clamp(1.25rem, 4vw, 3.5rem);
+  padding: clamp(3.5rem, 5vw, 5.5rem) clamp(1.25rem, 4vw, 3.5rem) clamp(7.5rem, 9.5vw, 10rem);
   display: grid;
-  grid-template-columns: 0.95fr 1.18fr;
-  gap: clamp(2.5rem, 5vw, 5rem);
+  grid-template-columns: 1.15fr 1.05fr; /* Image on Left, Content on Right */
+  gap: clamp(2.5rem, 4.5vw, 5rem);
   align-items: center;
 }
 
-/* --------------------------------------------------------------------------
-   1. LEFT VISUAL COLUMN: WAREHOUSE PHOTOGRAPHY & DECORATIVE PANELS
-   -------------------------------------------------------------------------- */
-.lager-visual-column {
+/* Left Column: Prominent Angled Warehouse Photograph (Opposite of Transport) */
+.lager-hero-image-col {
   position: relative;
   width: 100%;
+  height: 440px;
 }
 
 .lager-image-frame {
   position: relative;
   width: 100%;
-  height: 590px;
-  border-radius: 6px;
+  height: 100%;
+  border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0 24px 55px rgba(6, 27, 24, 0.14);
-  /* Editorial asymmetric diagonal cut matching reference */
-  clip-path: polygon(0 0, 96% 0, 100% 18%, 94% 28%, 100% 36%, 74% 100%, 0 100%);
+  box-shadow: 0 20px 45px rgba(6, 27, 24, 0.14);
+  /* Sloped right edge pointing into content column */
+  clip-path: polygon(0 0, 100% 0, 86% 100%, 0 100%);
   background-color: #061B18;
+}
+
+.lager-hero-ki-badge {
+  position: absolute;
+  top: 14px;
+  right: 28px;
+  left: auto !important;
+  z-index: 10;
 }
 
 .lager-forklift-photo {
@@ -52,107 +86,36 @@
 }
 
 .lager-image-frame:hover .lager-forklift-photo {
-  transform: scale(1.03);
+  transform: scale(1.04);
 }
 
-.lager-photo-overlay {
+.lager-lighting-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(6, 27, 24, 0.12) 0%, transparent 45%, rgba(6, 27, 24, 0.22) 100%);
+  background: linear-gradient(135deg, transparent 65%, rgba(6, 27, 24, 0.25) 100%);
   pointer-events: none;
 }
 
-/* Upper-Left Decorative Dark Panel */
-.lager-upper-panel {
+/* Far-left angled blade matching reference */
+.lager-far-left-blade {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 175px;
-  background: #061B18;
-  padding: 1.75rem 1.5rem;
-  clip-path: polygon(0 0, 100% 0, 82% 100%, 0 100%);
-  z-index: 3;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
-  pointer-events: none;
-}
-
-.lager-panel-lime-line {
-  display: block;
-  width: 28px;
-  height: 3px;
+  left: -8px;
+  top: 15%;
+  width: 8px;
+  height: 70%;
   background-color: var(--color-signature-lime);
   border-radius: 9999px;
-  box-shadow: 0 0 8px rgba(189, 248, 6, 0.45);
-  margin-bottom: 1.25rem;
-}
-
-.lager-panel-words {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 0.65rem;
-}
-
-.lager-panel-words li {
-  font-family: var(--font-body);
-  font-size: 0.71875rem;
-  font-weight: 700;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: rgba(252, 250, 238, 0.72);
-  line-height: 1.2;
-}
-
-/* Lower-Left Decorative Dark Panel */
-.lager-lower-panel {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 220px;
-  background: #061B18;
-  padding: 1.5rem 1.5rem 1.65rem;
-  clip-path: polygon(0 0, 78% 0, 100% 100%, 0 100%);
-  z-index: 3;
-  box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.35);
-  display: flex;
-  align-items: center;
-  gap: 1rem;
+  transform: rotate(5deg);
+  box-shadow: 0 0 15px rgba(189, 248, 6, 0.45);
   pointer-events: none;
+  z-index: 3;
 }
 
-.lager-lower-lime-bar {
-  width: 3px;
-  height: 40px;
-  background-color: var(--color-signature-lime);
-  border-radius: 9999px;
-  box-shadow: 0 0 8px rgba(189, 248, 6, 0.4);
-  flex-shrink: 0;
-}
-
-.lager-lower-text-group {
+/* Right Content Column */
+.lager-hero-content-col {
   display: flex;
   flex-direction: column;
-  gap: 3px;
-}
-
-.lager-lower-line {
-  font-family: var(--font-body);
-  font-size: 0.71875rem;
-  font-weight: 700;
-  letter-spacing: 1.8px;
-  text-transform: uppercase;
-  color: rgba(252, 250, 238, 0.88);
-  line-height: 1.25;
-}
-
-/* --------------------------------------------------------------------------
-   2. RIGHT CONTENT COLUMN: HEADLINE, INTRO & 2×2 SERVICE CARDS
-   -------------------------------------------------------------------------- */
-.lager-content-column {
-  display: flex;
-  flex-direction: column;
+  max-width: 580px;
 }
 
 /* Eyebrow */
@@ -160,7 +123,7 @@
   display: inline-flex;
   align-items: center;
   gap: 0.75rem;
-  margin-bottom: 1.15rem;
+  margin-bottom: 1.25rem;
 }
 
 .lager-eyebrow-line {
@@ -183,11 +146,11 @@
 /* Main Heading */
 .lager-heading {
   font-family: var(--font-display);
-  font-size: clamp(2.4rem, 4.4vw, 3.85rem);
+  font-size: clamp(2.65rem, 4.8vw, 4.35rem);
   font-weight: 800;
-  line-height: 1.08;
+  line-height: 1.06;
   letter-spacing: -0.025em;
-  margin: 0 0 1.35rem 0;
+  margin: 0 0 1.5rem 0;
 }
 
 .lager-heading-dark {
@@ -195,196 +158,264 @@
 }
 
 .lager-heading-lime {
-  color: #7bb500; /* High-contrast editorial lime tailored for warm ivory */
+  color: #7bb500;
   text-shadow: 0 0 1px rgba(0, 0, 0, 0.05);
 }
 
-/* Intro Paragraph */
-.lager-intro-paragraph {
+/* Supporting Copy */
+.lager-supporting-text {
   font-family: var(--font-body);
-  font-size: clamp(0.96875rem, 1.1vw, 1.05rem);
+  font-size: clamp(1rem, 1.15vw, 1.0625rem);
   line-height: 1.68;
   color: rgba(6, 27, 24, 0.76);
   margin: 0 0 2.25rem 0;
-  max-width: 540px;
+  max-width: 520px;
 }
 
-/* 2×2 Services Grid */
-.lager-services-grid {
+/* Bottom Row: CTA Button + Vertical Divider + Brand Values List */
+.lager-action-brand-row {
+  display: flex;
+  align-items: center;
+  gap: 2.25rem;
+}
+
+.lager-cta-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 0.95rem 1.85rem;
+  background-color: #061B18;
+  color: #ffffff;
+  font-family: var(--font-body);
+  font-size: 0.9375rem;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  border-radius: 6px;
+  text-decoration: none;
+  box-shadow: 0 10px 25px rgba(6, 27, 24, 0.22);
+  transition: all var(--transition-fast);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.lager-cta-button:hover,
+.lager-cta-button:focus-visible {
+  background-color: var(--color-transport-teal);
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 14px 30px rgba(6, 27, 24, 0.32);
+}
+
+.lager-btn-arrow {
+  color: var(--color-signature-lime);
+  transition: transform var(--transition-fast);
+}
+
+.lager-cta-button:hover .lager-btn-arrow,
+.lager-cta-button:focus-visible .lager-btn-arrow {
+  transform: translateX(4px);
+}
+
+.lager-brand-divider {
+  width: 1px;
+  height: 48px;
+  background-color: rgba(6, 27, 24, 0.15);
+  flex-shrink: 0;
+}
+
+.lager-brand-values-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.lager-brand-value-item {
+  font-family: var(--font-body);
+  font-size: 0.71875rem;
+  font-weight: 700;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+  color: rgba(6, 27, 24, 0.52);
+  line-height: 1.25;
+}
+
+/* --------------------------------------------------------------------------
+   2. FOUR COMPACT SERVICE CARDS (4 COLUMNS, OVERLAPPING BOUNDARY, NO IMAGES)
+   -------------------------------------------------------------------------- */
+.lager-cards-section-wrapper {
+  position: relative;
+  z-index: 20;
+  margin-top: -80px;
+  padding: 0 clamp(1.25rem, 4vw, 3.5rem) clamp(4.5rem, 6.5vw, 6.5rem);
+  background-color: var(--color-warm-ivory-alt, #F4EFE6);
+}
+
+.lager-cards-container {
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.lager-cards-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1.25rem;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(1rem, 1.8vw, 1.75rem);
 }
 
-/* Individual Service Card */
+/* Individual Card (No image, sleek dark background) */
 .lager-service-card {
   position: relative;
-  height: 145px;
+  height: 165px;
   border-radius: 8px;
   overflow: hidden;
-  background-color: #061B18;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 12px 28px rgba(6, 27, 24, 0.12);
+  box-shadow: 0 18px 40px rgba(6, 27, 24, 0.14);
   cursor: pointer;
-  transition: transform 300ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 300ms cubic-bezier(0.16, 1, 0.3, 1), border-color 250ms ease;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  transition: transform 350ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 350ms cubic-bezier(0.16, 1, 0.3, 1), border-color 300ms ease;
   outline: none;
+  background-color: #061B18;
+}
+
+/* Angled edges for Card 1 and Card 4 for editorial symmetry */
+.lager-card-produktionsentsorgung {
+  clip-path: polygon(14px 0, 100% 0, 100% 100%, 0 100%);
+}
+
+.lager-card-displaybau {
+  clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 100%, 0 100%);
 }
 
 .lager-service-card:hover,
 .lager-service-card:focus-visible {
-  transform: translateY(-4px);
-  box-shadow: 0 18px 40px rgba(6, 27, 24, 0.22);
-  border-color: rgba(189, 248, 6, 0.4);
+  transform: translateY(-6px);
+  box-shadow: 0 26px 55px rgba(6, 27, 24, 0.24);
+  border-color: rgba(189, 248, 6, 0.45);
 }
 
-/* Card Background Image Texture & Overlay */
-.lager-card-bg-box {
+.lager-card-dark-gradient {
   position: absolute;
   inset: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
-  overflow: hidden;
-}
-
-.lager-card-bg-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-  display: block;
-  transition: transform 600ms cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.lager-service-card:hover .lager-card-bg-img,
-.lager-service-card:focus-visible .lager-card-bg-img {
-  transform: scale(1.06);
-}
-
-.lager-card-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, rgba(6, 27, 24, 0.88) 0%, rgba(6, 27, 24, 0.94) 100%);
+  background: linear-gradient(180deg, rgba(6, 27, 24, 0.75) 0%, rgba(6, 27, 24, 0.95) 100%);
   pointer-events: none;
   transition: opacity 300ms ease;
 }
 
-.lager-service-card:hover .lager-card-overlay {
-  opacity: 0.88;
+.lager-service-card:hover .lager-card-dark-gradient {
+  opacity: 0.92;
 }
 
-/* Card Content Area */
-.lager-card-content {
-  position: relative;
-  z-index: 3;
-  height: 100%;
-  padding: 1.15rem 1.25rem 1.15rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-/* Number Indicator Row & Header */
-.lager-card-header-row {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  width: 100%;
-}
-
-.lager-card-num-group {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.lager-hero-ki-badge {
-  top: 14px;
-  right: 28px;
-  left: auto !important;
-  z-index: 10;
-}
-
-.lager-card-number-line {
-  width: 18px;
-  height: 2px;
-  background-color: var(--color-signature-lime);
-  border-radius: 9999px;
-}
-
-.lager-card-number {
+/* Top-Right Number Indicator (01 —, 02 —, 03 —, 04 —) */
+.lager-card-index-indicator {
+  position: absolute;
+  top: 0.95rem;
+  right: 1.15rem;
   font-family: var(--font-display);
   font-size: 0.8125rem;
   font-weight: 700;
-  color: rgba(255, 255, 255, 0.75);
-  letter-spacing: 0.5px;
+  color: rgba(255, 255, 255, 0.82);
+  letter-spacing: 1px;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+  pointer-events: none;
 }
 
-/* Lime Icon */
-.lager-card-icon-wrapper {
-  margin: 0.25rem 0;
+.lager-card-dash {
+  color: var(--color-signature-lime);
+}
+
+/* Card Foreground Content */
+.lager-card-foreground {
+  position: relative;
+  z-index: 3;
+  height: 100%;
+  padding: 1.1rem 1.25rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.lager-card-title-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.lager-card-icon-box {
+  margin-bottom: 0.65rem;
 }
 
 .lager-card-icon {
   color: var(--color-signature-lime);
-  filter: drop-shadow(0 0 8px rgba(189, 248, 6, 0.35));
-  transition: transform var(--transition-fast), filter var(--transition-fast);
+  filter: drop-shadow(0 0 10px rgba(189, 248, 6, 0.35));
+  transition: transform var(--transition-fast);
 }
 
 .lager-service-card:hover .lager-card-icon,
 .lager-service-card:focus-visible .lager-card-icon {
   transform: scale(1.08);
-  filter: drop-shadow(0 0 12px rgba(189, 248, 6, 0.55));
 }
 
-/* Bottom Row: Title + Circular Arrow Button */
-.lager-card-bottom-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  gap: 0.75rem;
-}
-
+/* Card Title (Name Only) */
 .lager-card-title {
   font-family: var(--font-display);
-  font-size: 1.05rem;
+  font-size: clamp(1.1rem, 1.25vw, 1.28rem);
   font-weight: 800;
   color: #ffffff;
   line-height: 1.2;
-  margin: 0;
+  margin: 0 0 0.55rem 0;
   letter-spacing: -0.015em;
-  flex: 1;
-  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
 }
 
-.lager-card-action {
+.lager-card-accent-line {
+  width: 28px;
+  height: 3px;
+  background-color: var(--color-signature-lime);
+  border-radius: 9999px;
+  box-shadow: 0 0 8px rgba(189, 248, 6, 0.45);
+  transition: width 300ms ease;
+}
+
+.lager-service-card:hover .lager-card-accent-line,
+.lager-service-card:focus-visible .lager-card-accent-line {
+  width: 44px;
+}
+
+/* Circular Arrow Button */
+.lager-card-action-box {
   flex-shrink: 0;
+  margin-left: 0.5rem;
 }
 
-.lager-circle-arrow-btn {
-  width: 34px;
-  height: 34px;
+.lager-card-circle-btn {
+  width: 38px;
+  height: 38px;
   border-radius: 50%;
-  border: 1.5px solid rgba(255, 255, 255, 0.35);
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.18);
   display: flex;
   align-items: center;
   justify-content: center;
   color: #ffffff;
-  background: rgba(6, 27, 24, 0.4);
-  transition: all 250ms ease;
+  transition: all 300ms cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
 }
 
-.lager-arrow-icon {
-  transition: transform var(--transition-fast);
+.lager-card-arrow-icon {
+  transition: transform 300ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.lager-service-card:hover .lager-circle-arrow-btn,
-.lager-service-card:focus-visible .lager-circle-arrow-btn {
-  background: var(--color-signature-lime);
-  color: var(--color-deep-forest);
+.lager-service-card:hover .lager-card-circle-btn,
+.lager-service-card:focus-visible .lager-card-circle-btn {
+  background-color: var(--color-signature-lime);
   border-color: var(--color-signature-lime);
-  transform: scale(1.06) translateX(2px);
-  box-shadow: 0 0 12px rgba(189, 248, 6, 0.4);
+  color: #061B18;
+  transform: rotate(-45deg);
+  box-shadow: 0 0 15px rgba(189, 248, 6, 0.6);
 }
 
 /* --------------------------------------------------------------------------
@@ -449,45 +480,49 @@
   width: 52px;
   height: 52px;
   border-radius: 10px;
-  background: #061B18;
-  border: 2px solid var(--color-signature-lime);
+  background-color: var(--color-deep-forest);
+  border: 1.5px solid var(--color-signature-lime);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--color-signature-lime);
-  box-shadow: 0 8px 20px rgba(6, 27, 24, 0.4);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
   z-index: 2;
+}
+
+.lager-modal-badge-icon {
+  color: var(--color-signature-lime);
 }
 
 .lager-modal-close-btn {
   position: absolute;
   top: 1rem;
   right: 1rem;
-  width: 38px;
-  height: 38px;
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
-  background: rgba(6, 27, 24, 0.7);
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: rgba(6, 27, 24, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   color: #ffffff;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   transition: all var(--transition-fast);
-  z-index: 5;
+  z-index: 3;
 }
 
 .lager-modal-close-btn:hover {
   background: var(--color-signature-lime);
-  color: var(--color-deep-forest);
-  border-color: var(--color-signature-lime);
+  color: #061B18;
   transform: rotate(90deg);
 }
 
 .lager-modal-body {
-  padding: 2rem 2.25rem 2.25rem;
-  display: flex;
-  flex-direction: column;
+  padding: 1.75rem 2rem 2rem;
+}
+
+.lager-modal-header-meta {
+  margin-bottom: 1.25rem;
 }
 
 .lager-modal-category {
@@ -495,28 +530,26 @@
   font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 2px;
+  color: #7bb500;
   text-transform: uppercase;
-  color: var(--color-transport-teal);
-  margin-bottom: 0.35rem;
   display: block;
+  margin-bottom: 0.4rem;
 }
 
 .lager-modal-title {
   font-family: var(--font-display);
-  font-size: 1.85rem;
+  font-size: 1.75rem;
   font-weight: 800;
   color: #061B18;
-  line-height: 1.15;
+  line-height: 1.2;
   margin: 0 0 0.75rem 0;
-  letter-spacing: -0.02em;
 }
 
 .lager-modal-lime-bar {
-  width: 36px;
-  height: 3.5px;
+  width: 40px;
+  height: 3px;
   background-color: var(--color-signature-lime);
   border-radius: 9999px;
-  margin-bottom: 1.25rem;
 }
 
 .lager-modal-description {
@@ -634,70 +667,90 @@
 /* --------------------------------------------------------------------------
    4. RESPONSIVE BREAKPOINTS
    -------------------------------------------------------------------------- */
-@media (max-width: 1180px) {
-  .lager-main-container {
+@media (max-width: 1100px) {
+  .lager-hero-container {
     grid-template-columns: 1fr;
-    gap: 3.5rem;
-    padding: 4rem clamp(1.25rem, 4vw, 2.5rem);
+    gap: 3rem;
+    padding-bottom: 5rem;
   }
 
-  .lager-image-frame {
-    height: 480px;
+  .lager-cards-section-wrapper {
+    margin-top: -30px;
+  }
+
+  .lager-cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .lager-card-produktionsentsorgung,
+  .lager-card-displaybau {
     clip-path: none;
   }
 
-  .lager-services-grid {
-    gap: 1rem;
+  .lager-hero-watermark {
+    display: none;
   }
 }
 
 @media (max-width: 768px) {
-  .lager-main-container {
-    padding: 3.5rem 1.25rem;
+  .lager-hero-split-stage {
+    padding-top: 1rem;
+  }
+
+  .lager-hero-container {
+    padding: 2.5rem 1.25rem 3.5rem;
+    gap: 2.5rem;
+  }
+
+  .lager-hero-image-col {
+    height: 300px;
+  }
+
+  .lager-image-frame {
+    clip-path: none;
+  }
+
+  .lager-far-left-blade {
+    display: none;
   }
 
   .lager-heading {
     font-size: 2.15rem;
   }
 
-  .lager-intro-paragraph {
+  .lager-supporting-text {
     font-size: 0.96875rem;
-    margin-bottom: 2rem;
+    margin-bottom: 1.75rem;
   }
 
-  .lager-image-frame {
-    height: 340px;
+  .lager-action-brand-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
   }
 
-  .lager-forklift-photo {
-    object-position: center center;
+  .lager-brand-divider {
+    display: none;
   }
 
-  .lager-upper-panel {
-    width: 140px;
-    padding: 1.25rem 1rem;
+  .lager-brand-values-list {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.75rem 1.25rem;
   }
 
-  .lager-panel-words li {
-    font-size: 0.65rem;
+  .lager-cards-section-wrapper {
+    margin-top: 0;
+    padding: 0 1.25rem 3.5rem;
   }
 
-  .lager-lower-panel {
-    width: 180px;
-    padding: 1rem;
-  }
-
-  .lager-lower-line {
-    font-size: 0.65rem;
-  }
-
-  .lager-services-grid {
+  .lager-cards-grid {
     grid-template-columns: 1fr;
     gap: 1rem;
   }
 
   .lager-service-card {
-    height: 135px;
+    height: 155px;
   }
 
   .lager-modal-body {
@@ -720,7 +773,6 @@
 
 @media (prefers-reduced-motion: reduce) {
   .lager-forklift-photo,
-  .lager-card-bg-img,
   .lager-modal-backdrop,
   .lager-modal-dialog {
     transition: none !important;

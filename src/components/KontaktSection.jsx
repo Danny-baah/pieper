@@ -26,12 +26,8 @@ export default function KontaktSection() {
             </div>
 
             <h3 className="kontakt-cta-title">
-              Schnell &amp; unkompliziert anfragen.
+              Haben Sie etwas zu transportieren?
             </h3>
-
-            <p className="kontakt-cta-description">
-              Haben Sie Fragen zu unseren Transportmöglichkeiten, freien Lagerkapazitäten oder individuellen Logistikkonzepten? Rufen Sie uns direkt an – unser Dispositionsteam ist gerne persönlich für Sie da.
-            </p>
 
             <div className="kontakt-cta-actions">
               <a 
@@ -61,16 +57,13 @@ export default function KontaktSection() {
             </div>
 
             <h2 id="kontakt-main-heading" className="kontakt-heading">
-              <span className="kontakt-heading-dark">Wir sind</span>
+              <span className="kontakt-heading-dark">Kontaktieren Sie</span>
               <br />
-              <span className="kontakt-heading-dark">für </span>
-              <span className="kontakt-heading-lime">Sie da.</span>
+              <span className="kontakt-heading-lime">uns gerne.</span>
             </h2>
 
             <p className="kontakt-intro-paragraph">
-              Ob Transport, Lagerlogistik oder individuelle Lösungen – wir freuen 
-              uns auf Ihre Anfrage. Unser Team steht Ihnen gerne persönlich zur 
-              Verfügung.
+              Wir finden gerne die passende Lösung für Sie.
             </p>
           </div>
         </div>

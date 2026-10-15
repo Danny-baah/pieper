@@ -1,5 +1,5 @@
 /* ==========================================================================
-   PIEPER INTERNATIONALE TRANSPORTE - KARRIERE SECTION
+   PIEPER INTERNATIONALE TRANSPORTE - KARRIERE SECTION (STREAMLINED)
    ========================================================================== */
 
 .pieper-karriere-section {
@@ -15,19 +15,19 @@
 .karriere-main-container {
   max-width: 1440px;
   margin: 0 auto;
-  padding: clamp(4.5rem, 6.5vw, 6.5rem) clamp(1.25rem, 4vw, 3.5rem);
+  padding: clamp(3.5rem, 5vw, 5rem) clamp(1.25rem, 4vw, 3.5rem);
   display: flex;
   flex-direction: column;
-  gap: clamp(3rem, 5vw, 4.5rem);
+  gap: clamp(1.25rem, 2vw, 1.75rem);
 }
 
 /* --------------------------------------------------------------------------
-   1. UPPER HERO SPLIT: INTRO & BENEFITS (LEFT) + ASYMMETRIC COLLAGE (RIGHT)
+   1. UPPER HERO SPLIT: INTRO & BENEFITS (LEFT) + CLEAN IMAGE (RIGHT)
    -------------------------------------------------------------------------- */
 .karriere-hero-split {
   display: grid;
   grid-template-columns: 1.05fr 1.12fr;
-  gap: clamp(2rem, 4vw, 4rem);
+  gap: clamp(2rem, 4vw, 3.5rem);
   align-items: center;
 }
 
@@ -69,7 +69,7 @@
   font-weight: 800;
   line-height: 1.06;
   letter-spacing: -0.025em;
-  margin: 0 0 1.35rem 0;
+  margin: 0 0 1.25rem 0;
 }
 
 .karriere-heading-dark {
@@ -87,13 +87,41 @@
   font-size: clamp(0.96875rem, 1.1vw, 1.05rem);
   line-height: 1.68;
   color: rgba(6, 27, 24, 0.76);
-  margin: 0 0 1.85rem 0;
+  margin: 0 0 1.15rem 0;
   max-width: 540px;
+}
+
+/* Compact Key Benefits */
+.karriere-benefits-compact {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.65rem 1.25rem;
+  margin-bottom: 1.25rem;
+  padding: 0.95rem 1.15rem;
+  background: rgba(6, 27, 24, 0.035);
+  border-radius: 8px;
+  border-left: 3px solid var(--color-signature-lime);
+}
+
+.karriere-benefit-pill {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: rgba(6, 27, 24, 0.82);
+  line-height: 1.35;
+}
+
+.karriere-benefit-check {
+  color: #7bb500;
+  flex-shrink: 0;
 }
 
 /* Primary CTA Button */
 .karriere-cta-wrapper {
-  margin-bottom: 2.75rem;
+  margin-top: 0;
 }
 
 .karriere-primary-cta {
@@ -129,122 +157,61 @@
 }
 
 /* --------------------------------------------------------------------------
-   EMPLOYEE BENEFITS ROW (WITH VERTICAL DIVIDERS)
-   -------------------------------------------------------------------------- */
-.karriere-benefits-row {
-  display: flex;
-  align-items: stretch;
-  justify-content: space-between;
-  padding-top: 1.5rem;
-  border-top: 1px solid rgba(6, 27, 24, 0.08);
-}
-
-.karriere-benefit-item {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  padding: 0 1rem;
-}
-
-.karriere-benefit-item:first-of-type {
-  padding-left: 0;
-}
-
-.karriere-benefit-item:last-of-type {
-  padding-right: 0;
-}
-
-.karriere-benefit-divider {
-  width: 1px;
-  background-color: rgba(6, 27, 24, 0.14);
-  align-self: stretch;
-}
-
-.karriere-benefit-icon-box {
-  margin-bottom: 0.65rem;
-}
-
-.karriere-benefit-icon {
-  color: #7bb500;
-}
-
-.karriere-benefit-title {
-  font-family: var(--font-display);
-  font-size: 0.9375rem;
-  font-weight: 800;
-  color: #061B18;
-  margin: 0 0 0.3rem 0;
-  line-height: 1.25;
-}
-
-.karriere-benefit-desc {
-  font-family: var(--font-body);
-  font-size: 0.78125rem;
-  line-height: 1.45;
-  color: rgba(6, 27, 24, 0.68);
-  margin: 0;
-}
-
-/* --------------------------------------------------------------------------
-   RIGHT COLUMN: ASYMMETRIC RECRUITMENT HERO COLLAGE
+   RIGHT COLUMN: CLEAN RECRUITMENT HERO IMAGE
    -------------------------------------------------------------------------- */
 .karriere-right-column {
   position: relative;
   width: 100%;
 }
 
-.karriere-collage-frame {
+.karriere-image-frame {
   position: relative;
   width: 100%;
+  aspect-ratio: 16 / 9;
   border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0 24px 60px rgba(6, 27, 24, 0.14);
+  box-shadow: 0 20px 50px rgba(6, 27, 24, 0.14);
   background-color: #061B18;
+  border: 1px solid rgba(6, 27, 24, 0.08);
 }
 
-.karriere-collage-photo {
+.karriere-image-frame .ki-badge {
+  position: absolute;
+  top: 12px;
+  right: 14px;
+  left: auto;
+  z-index: 4;
+}
+
+.karriere-hero-photo {
   width: 100%;
-  height: auto;
+  height: 100%;
   display: block;
   object-fit: cover;
+  object-position: center center;
   transition: transform 700ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.karriere-collage-frame:hover .karriere-collage-photo {
-  transform: scale(1.02);
+.karriere-image-frame:hover .karriere-hero-photo {
+  transform: scale(1.03);
 }
 
-/* Accessible Quote Panel */
-.karriere-quote-panel {
+.karriere-photo-overlay {
   position: absolute;
-  top: 0;
-  right: 0;
-  width: 38%;
-  height: 60%;
-  padding: 1.5rem 1.25rem;
-  background: transparent;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  z-index: 3;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 70%, rgba(6, 27, 24, 0.25) 100%);
   pointer-events: none;
-  opacity: 0;
-}
-
-/* Supporting Strip */
-.karriere-supporting-strip {
-  display: none;
 }
 
 /* --------------------------------------------------------------------------
    2. JOB CATEGORIES: OFFENE STELLEN (CLEAN 4-CARD OVERVIEW)
    -------------------------------------------------------------------------- */
 .karriere-jobs-wrapper {
-  margin-top: 1rem;
+  margin-top: 0;
 }
 
 .karriere-jobs-header {
-  margin-bottom: 2rem;
+  margin-bottom: 1.25rem;
 }
 
 .karriere-jobs-eyebrow-row {
@@ -264,60 +231,61 @@
 
 .karriere-jobs-headline {
   font-family: var(--font-display);
-  font-size: 1.6rem;
+  font-size: clamp(1.8rem, 2.75vw, 2.35rem);
   font-weight: 800;
   color: #061B18;
+  letter-spacing: -0.02em;
   margin: 0;
-  letter-spacing: -0.015em;
 }
 
 .karriere-jobs-subtitle {
   font-family: var(--font-body);
-  font-size: 0.985rem;
-  color: rgba(6, 27, 24, 0.72);
+  font-size: 0.9375rem;
+  color: rgba(6, 27, 24, 0.68);
   margin: 0;
+  padding-left: 2.75rem;
 }
 
-/* 4-Card Overview Grid */
+/* Clean 4-Card Overview Grid */
 .karriere-jobs-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 1.25rem;
+  gap: clamp(1rem, 1.8vw, 1.75rem);
 }
 
-/* Individual Job Card - Minimal, Clean, Elegant */
+/* Compact Job Card (Clickable direct link) */
 .karriere-job-card {
   position: relative;
-  height: 112px;
+  height: 125px;
   border-radius: 8px;
-  background: linear-gradient(145deg, #092621 0%, #061B18 100%);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 8px 22px rgba(6, 27, 24, 0.08);
-  padding: 1.15rem 1.2rem 1.05rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  cursor: default;
-  transition: transform 250ms cubic-bezier(0.16, 1, 0.3, 1), 
-              box-shadow 250ms cubic-bezier(0.16, 1, 0.3, 1), 
-              border-color 200ms ease;
-  user-select: none;
+  overflow: hidden;
+  background-color: #061B18;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 10px 25px rgba(6, 27, 24, 0.12);
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 300ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 300ms cubic-bezier(0.16, 1, 0.3, 1), border-color 300ms ease;
+  outline: none;
 }
 
-.karriere-job-card:hover {
-  transform: translateY(-2px);
-  border-color: rgba(189, 248, 6, 0.35);
-  box-shadow: 0 12px 28px rgba(6, 27, 24, 0.14);
+.karriere-job-card:hover,
+.karriere-job-card:focus-visible {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 36px rgba(6, 27, 24, 0.22);
+  border-color: rgba(189, 248, 6, 0.45);
 }
 
 .karriere-card-content {
+  position: relative;
+  z-index: 3;
   height: 100%;
+  padding: 1.15rem 1.25rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 
-/* Top Row: Lime Line Icon + Arrow Indicator */
 .karriere-card-top-row {
   display: flex;
   align-items: center;
@@ -327,53 +295,63 @@
 .karriere-card-icon-box {
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 
 .karriere-card-icon {
   color: var(--color-signature-lime);
-  filter: drop-shadow(0 0 6px rgba(189, 248, 6, 0.3));
-}
-
-.karriere-card-arrow-wrap {
-  width: 26px;
-  height: 26px;
-  border-radius: 50%;
-  border: 1px solid rgba(255, 255, 255, 0.16);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: rgba(255, 255, 255, 0.55);
-  background: rgba(255, 255, 255, 0.03);
-  transition: all var(--transition-fast);
-}
-
-.karriere-job-card:hover .karriere-card-arrow-wrap {
-  color: var(--color-signature-lime);
-  border-color: rgba(189, 248, 6, 0.4);
-  background: rgba(189, 248, 6, 0.08);
-}
-
-.karriere-card-arrow {
+  filter: drop-shadow(0 0 8px rgba(189, 248, 6, 0.35));
   transition: transform var(--transition-fast);
 }
 
-.karriere-job-card:hover .karriere-card-arrow {
-  transform: translateX(2px);
+.karriere-job-card:hover .karriere-card-icon,
+.karriere-job-card:focus-visible .karriere-card-icon {
+  transform: scale(1.08);
 }
 
-/* Card Title (Crisp, High Contrast, Consistent Position) */
+.karriere-card-arrow-wrap {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  transition: all 250ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.karriere-card-arrow {
+  color: #ffffff;
+  transition: transform var(--transition-fast);
+}
+
+.karriere-job-card:hover .karriere-card-arrow-wrap,
+.karriere-job-card:focus-visible .karriere-card-arrow-wrap {
+  background-color: var(--color-signature-lime);
+  border-color: var(--color-signature-lime);
+  color: #061B18;
+  transform: rotate(-45deg);
+}
+
+.karriere-job-card:hover .karriere-card-arrow,
+.karriere-job-card:focus-visible .karriere-card-arrow {
+  color: #061B18;
+}
+
 .karriere-card-title {
   font-family: var(--font-display);
-  font-size: 0.9375rem;
+  font-size: 0.96875rem;
   font-weight: 700;
   color: #ffffff;
-  line-height: 1.25;
+  line-height: 1.3;
   margin: 0;
   letter-spacing: -0.01em;
 }
 
 /* --------------------------------------------------------------------------
-   3. SUSTAINABILITY & FINAL RECRUITMENT CTA PANEL
+   3. SUSTAINABILITY & DIRECT APPLICATION BANNER
    -------------------------------------------------------------------------- */
 .karriere-sustainability-panel {
   display: flex;
@@ -381,8 +359,8 @@
   justify-content: space-between;
   background-color: #ffffff;
   border: 1px solid rgba(6, 27, 24, 0.1);
-  border-radius: 10px;
-  padding: 1.5rem clamp(1.25rem, 3vw, 2.5rem);
+  border-radius: 8px;
+  padding: 1.25rem clamp(1.25rem, 3vw, 2.25rem);
   box-shadow: 0 6px 20px rgba(6, 27, 24, 0.04);
   gap: 1.5rem;
 }
@@ -410,7 +388,7 @@
 
 .karriere-sustainability-title {
   font-family: var(--font-display);
-  font-size: 1.125rem;
+  font-size: 1.0625rem;
   font-weight: 800;
   color: #061B18;
   margin: 0 0 0.25rem 0;
@@ -419,7 +397,7 @@
 
 .karriere-sustainability-desc {
   font-family: var(--font-body);
-  font-size: 0.9375rem;
+  font-size: 0.90625rem;
   color: rgba(6, 27, 24, 0.72);
   margin: 0;
 }
@@ -428,7 +406,7 @@
   display: inline-flex;
   align-items: center;
   gap: 0.65rem;
-  padding: 0.85rem 1.65rem;
+  padding: 0.8rem 1.6rem;
   background-color: transparent;
   color: #061B18;
   font-family: var(--font-body);
@@ -439,6 +417,7 @@
   text-decoration: none;
   transition: all var(--transition-fast);
   white-space: nowrap;
+  cursor: pointer;
 }
 
 .karriere-outline-cta:hover {
@@ -460,12 +439,274 @@
 }
 
 /* --------------------------------------------------------------------------
+   DIRECT APPLICATION MODAL OVERLAY & CARD
+   -------------------------------------------------------------------------- */
+.karriere-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(6, 27, 24, 0.72);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.25rem;
+  animation: karriereModalFadeIn 220ms ease-out forwards;
+}
+
+@keyframes karriereModalFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.karriere-modal-card {
+  position: relative;
+  width: 100%;
+  max-width: 520px;
+  background: #ffffff;
+  border-radius: 12px;
+  border: 1px solid rgba(6, 27, 24, 0.12);
+  box-shadow: 0 25px 70px rgba(6, 27, 24, 0.35);
+  padding: 1.85rem;
+  animation: karriereCardScaleUp 260ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes karriereCardScaleUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.karriere-modal-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1.35rem;
+  padding-bottom: 1.15rem;
+  border-bottom: 1px solid rgba(6, 27, 24, 0.08);
+}
+
+.karriere-modal-icon-wrap {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #061B18;
+  color: var(--color-signature-lime);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 4px 14px rgba(6, 27, 24, 0.2);
+}
+
+.karriere-modal-titles {
+  flex: 1;
+}
+
+.karriere-modal-title {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #061B18;
+  margin: 0 0 0.25rem 0;
+  letter-spacing: -0.02em;
+}
+
+.karriere-modal-subtitle {
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  color: rgba(6, 27, 24, 0.7);
+  margin: 0;
+}
+
+.karriere-modal-subtitle strong {
+  color: #061B18;
+  word-break: break-all;
+}
+
+.karriere-modal-close {
+  background: transparent;
+  border: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  color: rgba(6, 27, 24, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.karriere-modal-close:hover {
+  background: rgba(6, 27, 24, 0.06);
+  color: #061B18;
+}
+
+.karriere-modal-options {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+}
+
+.karriere-modal-opt-btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0.9rem 1.15rem;
+  border-radius: 8px;
+  border: 1px solid rgba(6, 27, 24, 0.12);
+  background: #ffffff;
+  color: #061B18;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 200ms cubic-bezier(0.16, 1, 0.3, 1);
+  font-family: var(--font-body);
+  text-align: left;
+}
+
+.karriere-modal-opt-btn:hover {
+  border-color: #061B18;
+  background: rgba(6, 27, 24, 0.03);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(6, 27, 24, 0.06);
+}
+
+.karriere-modal-opt-btn.primary-mail-btn {
+  background: #061B18;
+  color: #ffffff;
+  border-color: #061B18;
+}
+
+.karriere-modal-opt-btn.primary-mail-btn:hover {
+  background: var(--color-transport-teal);
+  border-color: var(--color-transport-teal);
+  box-shadow: 0 8px 22px rgba(3, 90, 82, 0.25);
+}
+
+.karriere-modal-opt-btn.primary-mail-btn .karriere-opt-icon-circle {
+  background: rgba(255, 255, 255, 0.12);
+  color: var(--color-signature-lime);
+}
+
+.karriere-modal-opt-btn.primary-mail-btn .karriere-opt-hint {
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.karriere-modal-opt-btn.primary-mail-btn .karriere-opt-arrow {
+  color: var(--color-signature-lime);
+}
+
+.karriere-opt-left {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+}
+
+.karriere-opt-icon-circle {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(6, 27, 24, 0.06);
+  color: #061B18;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.karriere-opt-icon-circle.gmail-circle {
+  background: rgba(234, 67, 53, 0.12);
+  color: #ea4335;
+}
+
+.karriere-opt-icon-circle.outlook-circle {
+  background: rgba(0, 120, 212, 0.12);
+  color: #0078d4;
+}
+
+.karriere-opt-icon-circle.copy-circle {
+  background: rgba(189, 248, 6, 0.2);
+  color: #5c8800;
+}
+
+.karriere-opt-texts {
+  display: flex;
+  flex-direction: column;
+}
+
+.karriere-opt-name {
+  font-family: var(--font-display);
+  font-size: 0.9375rem;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.karriere-opt-hint {
+  font-size: 0.78125rem;
+  color: rgba(6, 27, 24, 0.58);
+  margin-top: 0.15rem;
+}
+
+.karriere-opt-arrow {
+  color: rgba(6, 27, 24, 0.4);
+  transition: transform var(--transition-fast);
+}
+
+.karriere-modal-opt-btn:hover .karriere-opt-arrow {
+  transform: translateX(3px);
+  color: #061B18;
+}
+
+.karriere-check-icon {
+  color: #7bb500;
+}
+
+.karriere-copied-badge {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: #5c8800;
+  background: rgba(189, 248, 6, 0.2);
+  padding: 0.3rem 0.65rem;
+  border-radius: 9999px;
+}
+
+.karriere-modal-footer {
+  text-align: center;
+  padding-top: 0.85rem;
+  border-top: 1px solid rgba(6, 27, 24, 0.06);
+}
+
+.karriere-modal-alt-link {
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-deep-forest);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+  transition: color var(--transition-fast);
+}
+
+.karriere-modal-alt-link:hover {
+  color: var(--color-transport-teal);
+}
+
+/* --------------------------------------------------------------------------
    4. RESPONSIVE BREAKPOINTS
    -------------------------------------------------------------------------- */
 @media (max-width: 1180px) {
   .karriere-hero-split {
     grid-template-columns: 1fr;
-    gap: 3.5rem;
+    gap: 3rem;
   }
 
   .karriere-jobs-grid {
@@ -478,19 +719,9 @@
     font-size: 2.2rem;
   }
 
-  .karriere-benefits-row {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem 1rem;
-    padding-top: 1.25rem;
-  }
-
-  .karriere-benefit-divider {
-    display: none;
-  }
-
-  .karriere-benefit-item {
-    padding: 0;
+  .karriere-benefits-compact {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
   }
 
   .karriere-jobs-grid {
@@ -499,14 +730,15 @@
   }
 
   .karriere-job-card {
-    height: 105px;
+    height: 115px;
     padding: 1rem 1.15rem;
   }
 
   .karriere-sustainability-panel {
     flex-direction: column;
     align-items: flex-start;
-    padding: 1.5rem 1.25rem;
+    padding: 1.25rem 1.15rem;
+    gap: 1.15rem;
   }
 
   .karriere-outline-cta {
@@ -516,7 +748,7 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .karriere-collage-photo {
+  .karriere-hero-photo {
     transition: none !important;
     animation: none !important;
   }

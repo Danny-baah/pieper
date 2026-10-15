@@ -175,7 +175,7 @@ export default function AboutSection() {
               <Warehouse className="stat-icon" size={36} strokeWidth={1.8} aria-hidden="true" />
             </div>
             <div className="stat-text-wrapper">
-              <span className="stat-highlight-title lime-accent">Effiziente Lagerlogistik</span>
+              <span className="stat-highlight-title">Effiziente Lagerlogistik</span>
               <span className="stat-subtitle">Moderne Lager- &amp; Umschlaglogistik</span>
             </div>
           </div>

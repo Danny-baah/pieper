@@ -97,6 +97,13 @@ const LAGER_SERVICES = [
   }
 ];
 
+const BRAND_VALUES = [
+  'SICHER',
+  'ORGANISIERT',
+  'EFFIZIENT',
+  'FLEXIBEL'
+];
+
 export default function LagerlogistikSection() {
   const [activeModalId, setActiveModalId] = useState(null);
   const cardRefs = useRef({});
@@ -150,82 +157,101 @@ export default function LagerlogistikSection() {
     <section 
       id="lagerlogistik" 
       className="pieper-lager-section"
-      aria-labelledby="lager-main-heading"
+      aria-labelledby="lager-heading"
     >
-      <div className="lager-main-container">
-        {/* ==================================================================
-            1. LEFT SIDE: WAREHOUSE PHOTOGRAPHY & DECORATIVE PANELS
-            ================================================================== */}
-        <div className="lager-visual-column">
-          <div className="lager-image-frame">
-            <span className="ki-badge lager-hero-ki-badge">KI-generiert</span>
-            <img 
-              src="./images/lager_warehouse_forklift.jpg" 
-              alt="Gabelstapler bei der Palettenlogistik im Hochregallager"
-              className="lager-forklift-photo"
-              loading="lazy"
-              width="960"
-              height="1150"
-            />
-            {/* Subtle atmospheric vignette */}
-            <div className="lager-photo-overlay" aria-hidden="true" />
+      {/* ====================================================================
+          1. UPPER SECTION: ASYMMETRIC SPLIT COMPOSITION (IMAGE ON LEFT, CONTENT ON RIGHT)
+          ==================================================================== */}
+      <div className="lager-hero-split-stage">
+        {/* Subtle Watermark '02' behind right content */}
+        <div className="lager-hero-watermark" aria-hidden="true">
+          <span>02</span>
+        </div>
 
-            {/* Upper-Left Decorative Dark Panel with Muted Brand Values */}
-            <div className="lager-upper-panel" aria-hidden="true">
-              <span className="lager-panel-lime-line" />
-              <ul className="lager-panel-words">
-                <li>SICHER</li>
-                <li>ORGANISIERT</li>
-                <li>EFFIZIENT</li>
-                <li>FLEXIBEL</li>
-              </ul>
+        <div className="lager-hero-container">
+          {/* Left Column: Prominent Angled Warehouse Photograph (Opposite of Transport) */}
+          <div className="lager-hero-image-col">
+            <div className="lager-image-frame">
+              <span className="ki-badge lager-hero-ki-badge">KI-generiert</span>
+              <img 
+                src="./images/lager_warehouse_forklift.jpg" 
+                alt="Gabelstapler bei der Palettenlogistik im Hochregallager"
+                className="lager-forklift-photo"
+                width="1440"
+                height="800"
+                loading="lazy"
+              />
+              <div className="lager-lighting-overlay" aria-hidden="true" />
             </div>
 
-            {/* Lower-Left Decorative Dark Panel */}
-            <div className="lager-lower-panel" aria-hidden="true">
-              <span className="lager-lower-lime-bar" />
-              <div className="lager-lower-text-group">
-                <span className="lager-lower-line">MEHR ALS</span>
-                <span className="lager-lower-line">NUR LAGERFLÄCHE</span>
-              </div>
+            {/* Editorial Angled Accent Blade on far-left edge */}
+            <div className="lager-far-left-blade" aria-hidden="true" />
+          </div>
+
+          {/* Right Column: Intro Copy, CTA & Brand Values */}
+          <div className="lager-hero-content-col">
+            {/* Eyebrow */}
+            <div className="lager-eyebrow-wrapper">
+              <span className="lager-eyebrow-line" aria-hidden="true" />
+              <span className="lager-eyebrow-text">LAGERLOGISTIK</span>
+            </div>
+
+            {/* Main Heading */}
+            <h2 id="lager-heading" className="lager-heading">
+              <span className="lager-heading-dark">Lagerlösungen,</span>
+              <br />
+              <span className="lager-heading-dark">die </span>
+              <span className="lager-heading-lime">weiterdenken.</span>
+            </h2>
+
+            {/* Supporting Copy */}
+            <p className="lager-supporting-text">
+              Von der Produktionsentsorgung bis zum Versand: Wir unterstützen 
+              effiziente Warenflüsse mit durchdachten Lagerprozessen und 
+              zuverlässiger Umsetzung.
+            </p>
+
+            {/* Bottom Row: CTA Button + Divider + Brand Values List */}
+            <div className="lager-action-brand-row">
+              {/* CTA Button */}
+              <a 
+                href="#lager-cards" 
+                className="lager-cta-button btn-slide-left"
+                aria-label="Zu unseren Lagerleistungen scrollen"
+              >
+                <span>Unsere Leistungen</span>
+                <ArrowRight size={16} strokeWidth={2.4} className="lager-btn-arrow" aria-hidden="true" />
+              </a>
+
+              {/* Vertical low-contrast divider */}
+              <div className="lager-brand-divider" aria-hidden="true" />
+
+              {/* Compact Brand Values List */}
+              <ul className="lager-brand-values-list" aria-label="Lagerlogistik Werte">
+                {BRAND_VALUES.map((val) => (
+                  <li key={val} className="lager-brand-value-item">
+                    {val}
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
         </div>
+      </div>
 
-        {/* ==================================================================
-            2. RIGHT SIDE: INTRODUCTION & 2×2 SERVICE PANELS GRID
-            ================================================================== */}
-        <div className="lager-content-column">
-          {/* Eyebrow */}
-          <div className="lager-eyebrow-wrapper">
-            <span className="lager-eyebrow-line" aria-hidden="true" />
-            <span className="lager-eyebrow-text">LAGERLOGISTIK</span>
-          </div>
-
-          {/* Main Heading */}
-          <h2 id="lager-main-heading" className="lager-heading">
-            <span className="lager-heading-dark">Lagerlösungen,</span>
-            <br />
-            <span className="lager-heading-dark">die </span>
-            <span className="lager-heading-lime">weiterdenken.</span>
-          </h2>
-
-          {/* Supporting Introductory Copy */}
-          <p className="lager-intro-paragraph">
-            Von der Produktionsentsorgung bis zum Versand: Wir unterstützen 
-            effiziente Warenflüsse mit durchdachten Lagerprozessen und 
-            zuverlässiger Umsetzung.
-          </p>
-
-          {/* 2×2 Service Panels Grid (Displays ONLY number, icon, title & arrow) */}
-          <div className="lager-services-grid" role="list" aria-label="Lagerlogistik Leistungsbereiche">
+      {/* ====================================================================
+          2. FOUR COMPACT SERVICE CARDS (4 COLUMNS, NO IMAGES AS REQUESTED)
+          ==================================================================== */}
+      <div id="lager-cards" className="lager-cards-section-wrapper">
+        <div className="lager-cards-container">
+          <div className="lager-cards-grid" role="list" aria-label="Lagerlogistik Dienstleistungen">
             {LAGER_SERVICES.map((service) => {
-              const IconComponent = service.icon;
+              const IconComp = service.icon;
               return (
                 <div
                   key={service.id}
                   ref={(el) => { cardRefs.current[service.id] = el; }}
-                  className={`lager-service-card card-${service.id}`}
+                  className={`lager-service-card lager-card-${service.id}`}
                   role="button"
                   tabIndex={0}
                   onClick={() => openModal(service.id)}
@@ -238,42 +264,34 @@ export default function LagerlogistikSection() {
                   aria-haspopup="dialog"
                   aria-label={`${service.title} Details anzeigen`}
                 >
-                  {/* Subtle Background Image Texture with Dark Overlay */}
-                  <div className="lager-card-bg-box" aria-hidden="true">
-                    <img 
-                      src={service.image} 
-                      alt=""
-                      className="lager-card-bg-img"
-                      loading="lazy"
-                      width="500"
-                      height="260"
-                    />
-                    <div className="lager-card-overlay" />
+                  {/* Subtle dark gradient overlay - NO background image as requested */}
+                  <div className="lager-card-dark-gradient" aria-hidden="true" />
+
+                  {/* Top-Right Number Indicator (01 —, 02 —, 03 —, 04 —) */}
+                  <div className="lager-card-index-indicator" aria-hidden="true">
+                    <span>{service.number}</span>
+                    <span className="lager-card-dash">—</span>
                   </div>
 
-                  {/* Card Content (Clean architectural presentation) */}
-                  <div className="lager-card-content">
-                    {/* Top Row: Number indicator on right */}
-                    <div className="lager-card-header-row">
-                      <div className="lager-card-num-group" aria-hidden="true">
-                        <span className="lager-card-number-line" />
-                        <span className="lager-card-number">{service.number}</span>
+                  {/* Card Interactive Content Area */}
+                  <div className="lager-card-foreground">
+                    <div className="lager-card-title-group">
+                      {/* Lime Line Icon */}
+                      <div className="lager-card-icon-box" aria-hidden="true">
+                        <IconComp size={32} strokeWidth={1.8} className="lager-card-icon" />
                       </div>
-                    </div>
 
-                    {/* Middle: Lime-Green Line Icon */}
-                    <div className="lager-card-icon-wrapper" aria-hidden="true">
-                      <IconComponent size={30} strokeWidth={1.8} className="lager-card-icon" />
-                    </div>
-
-                    {/* Bottom Row: White Title & Circular Arrow Control */}
-                    <div className="lager-card-bottom-row">
+                      {/* Card Title */}
                       <h3 className="lager-card-title">{service.title}</h3>
 
-                      <div className="lager-card-action" aria-hidden="true">
-                        <div className="lager-circle-arrow-btn">
-                          <ArrowRight size={17} strokeWidth={2} className="lager-arrow-icon" />
-                        </div>
+                      {/* Lime Accent Line */}
+                      <div className="lager-card-accent-line" aria-hidden="true" />
+                    </div>
+
+                    {/* Lower-Right Circular Arrow Button */}
+                    <div className="lager-card-action-box" aria-hidden="true">
+                      <div className="lager-card-circle-btn">
+                        <ArrowRight size={18} strokeWidth={2} className="lager-card-arrow-icon" />
                       </div>
                     </div>
                   </div>

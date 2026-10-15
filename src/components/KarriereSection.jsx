@@ -1,43 +1,25 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { 
-  Users, 
-  ShieldCheck, 
-  Settings, 
-  TrendingUp, 
   Truck, 
   Warehouse, 
   Wrench, 
   Briefcase, 
-  Sprout, 
-  ArrowRight, 
-  Quote
+  ArrowRight,
+  CheckCircle2,
+  Sprout,
+  Mail,
+  Copy,
+  Check,
+  ExternalLink,
+  X,
+  Send
 } from 'lucide-react';
 
-const EMPLOYEE_BENEFITS = [
-  {
-    id: 'team',
-    icon: Users,
-    heading: 'Starkes Team',
-    description: 'Gemeinsam mehr erreichen.',
-  },
-  {
-    id: 'arbeitsplatz',
-    icon: ShieldCheck,
-    heading: 'Sicherer Arbeitsplatz',
-    description: 'Langfristige Perspektiven.',
-  },
-  {
-    id: 'ausstattung',
-    icon: Settings,
-    heading: 'Moderne Ausstattung',
-    description: 'Effizient und zukunftsorientiert.',
-  },
-  {
-    id: 'chancen',
-    icon: TrendingUp,
-    heading: 'Entwicklung & Chancen',
-    description: 'Weiterbildung und neue Möglichkeiten.',
-  },
+const BENEFITS = [
+  'Teamgeist & faires Miteinander',
+  'Sicherer Arbeitsplatz mit Perspektive',
+  'Moderne Ausstattung & Fuhrpark',
+  'Pünktliche & faire Vergütung'
 ];
 
 const JOB_CATEGORIES = [
@@ -64,12 +46,61 @@ const JOB_CATEGORIES = [
 ];
 
 export default function KarriereSection() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [copied, setCopied] = useState(false);
+
+  const email = 'info@pieper-spedition.com';
+  const subject = 'Bewerbung bei Pieper Internationale Transporte';
+  const body = 'Sehr geehrte Damen und Herren,\n\nhiermit bewerbe ich mich für eine Position bei PIEPER Internationale Transporte.\n\nMit freundlichen Grüßen,\n';
+
+  const mailtoUrl = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${email}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  const outlookUrl = `https://outlook.live.com/mail/0/deeplink/compose?to=${email}&subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape' && isModalOpen) {
+        setIsModalOpen(false);
+      }
+    };
+    if (isModalOpen) {
+      document.body.style.overflow = 'hidden';
+      window.addEventListener('keydown', handleKeyDown);
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [isModalOpen]);
+
   const scrollToJobs = (e) => {
     e.preventDefault();
     const target = document.getElementById('stellenangebote');
     if (target) {
       target.scrollIntoView({ behavior: 'smooth' });
     }
+  };
+
+  const handleApplyClick = (e) => {
+    e.preventDefault();
+    // Attempt standard mailto protocol
+    try {
+      window.location.href = mailtoUrl;
+    } catch {
+      // Fallback
+    }
+    // Also open modal so webmail/Gmail users or users without desktop mail client can immediately compose
+    setIsModalOpen(true);
+  };
+
+  const handleCopyEmail = () => {
+    if (navigator.clipboard) {
+      navigator.clipboard.writeText(email);
+    }
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2500);
   };
 
   return (
@@ -80,10 +111,10 @@ export default function KarriereSection() {
     >
       <div className="karriere-main-container">
         {/* ==================================================================
-            1. UPPER HERO SPLIT: INTRO & BENEFITS (LEFT) + ASYMMETRIC COLLAGE (RIGHT)
+            1. UPPER HERO SPLIT: INTRO & CLEAN IMAGE
             ================================================================== */}
         <div className="karriere-hero-split">
-          {/* Left Column: Intro Copy, CTA, and Employee Benefits */}
+          {/* Left Column: Intro Copy, Benefits & Action */}
           <div className="karriere-left-column">
             {/* Eyebrow */}
             <div className="karriere-eyebrow-wrapper">
@@ -99,12 +130,21 @@ export default function KarriereSection() {
               <span className="karriere-heading-lime">bewegen.</span>
             </h2>
 
-            {/* Supporting Copy */}
+            {/* Supporting Copy - concise */}
             <p className="karriere-intro-paragraph">
-              Werde Teil eines starken Teams. Bei PIEPER Internationale Transporte erwarten 
-              dich sichere Perspektiven, ein modernes Arbeitsumfeld und die Möglichkeit, 
-              gemeinsam zu wachsen.
+              Werde Teil unseres Teams. Bei PIEPER erwarten dich sichere Perspektiven, 
+              ein moderner Fuhrpark und ein verlässliches Miteinander.
             </p>
+
+            {/* Compact Key Benefits */}
+            <div className="karriere-benefits-compact" aria-label="Ihre Vorteile">
+              {BENEFITS.map((benefit) => (
+                <div key={benefit} className="karriere-benefit-pill">
+                  <CheckCircle2 size={16} className="karriere-benefit-check" aria-hidden="true" />
+                  <span>{benefit}</span>
+                </div>
+              ))}
+            </div>
 
             {/* Primary CTA Button */}
             <div className="karriere-cta-wrapper">
@@ -113,80 +153,33 @@ export default function KarriereSection() {
                 onClick={scrollToJobs}
                 className="karriere-primary-cta btn-slide-left"
               >
-                <span>Unsere Stellenangebote</span>
+                <span>Offene Stellen entdecken</span>
                 <ArrowRight size={17} strokeWidth={2.2} className="karriere-cta-arrow" aria-hidden="true" />
               </a>
             </div>
-
-            {/* Four Employee Benefits with Vertical Dividers */}
-            <div className="karriere-benefits-row" role="list" aria-label="Mitarbeiter-Vorteile bei Pieper">
-              {EMPLOYEE_BENEFITS.map((benefit, idx) => {
-                const IconComponent = benefit.icon;
-                return (
-                  <React.Fragment key={benefit.id}>
-                    {idx > 0 && <span className="karriere-benefit-divider" aria-hidden="true" />}
-                    <div className="karriere-benefit-item" role="listitem">
-                      <div className="karriere-benefit-icon-box" aria-hidden="true">
-                        <IconComponent size={24} strokeWidth={1.8} className="karriere-benefit-icon" />
-                      </div>
-                      <h3 className="karriere-benefit-title">{benefit.heading}</h3>
-                      <p className="karriere-benefit-desc">{benefit.description}</p>
-                    </div>
-                  </React.Fragment>
-                );
-              })}
-            </div>
           </div>
 
-          {/* Right Column: Recruitment Imagery Collage */}
+          {/* Right Column: Clean, Authentic Single Image */}
           <div className="karriere-right-column">
-            <div className="karriere-collage-frame">
+            <div className="karriere-image-frame">
               <span className="ki-badge">KI-generiert</span>
-              {/* Primary Collage Composite Image (High-Res Pieper Driver, Truck, Quote Panel & Sub-Photos) */}
               <img 
-                src="./images/karriere_hero_collage.png" 
-                alt="Pieper Logistik-Team und Berufskraftfahrer vor Fuhrpark"
-                className="karriere-collage-photo"
+                src="./images/karriere_hero_simple.jpg" 
+                alt="Pieper moderner LKW Fuhrpark"
+                className="karriere-hero-photo"
                 loading="lazy"
-                width="644"
-                height="380"
+                width="1280"
+                height="720"
               />
-
-              {/* Accessible/Semantic Quote Panel */}
-              <div className="karriere-quote-panel" aria-label="Mitarbeiterzitat">
-                <Quote size={28} className="karriere-quote-symbol" aria-hidden="true" />
-                <p className="karriere-quote-text">
-                  Starke Menschen machen starke Logistik möglich.
-                </p>
-                <div className="karriere-quote-accent-line" aria-hidden="true" />
-                <div className="karriere-quote-values" aria-label="Unternehmenswerte">
-                  <span>TEAMGEIST.</span>
-                  <span>VERANTWORTUNG.</span>
-                  <span>GEMEINSAME ZUKUNFT.</span>
-                </div>
-              </div>
-
-              {/* Supporting Strip of 3 Photographs */}
-              <div className="karriere-supporting-strip" aria-hidden="true">
-                <div className="karriere-strip-thumb">
-                  <img src="./images/karriere_sub1_warehouse_back.jpg" alt="" loading="lazy" />
-                </div>
-                <div className="karriere-strip-thumb">
-                  <img src="./images/karriere_sub2_tablet_woman.jpg" alt="" loading="lazy" />
-                </div>
-                <div className="karriere-strip-thumb">
-                  <img src="./images/karriere_sub3_vest_driver.jpg" alt="" loading="lazy" />
-                </div>
-              </div>
+              <div className="karriere-photo-overlay" aria-hidden="true" />
             </div>
           </div>
         </div>
 
         {/* ==================================================================
-            2. JOB CATEGORIES: OFFENE STELLEN (CLEAN 4-CARD OVERVIEW)
+            2. OFFENE STELLEN (CLEAN 4-CARD OVERVIEW)
             ================================================================== */}
         <div id="stellenangebote" className="karriere-jobs-wrapper">
-          {/* Section Heading */}
           <div className="karriere-jobs-header">
             <div className="karriere-jobs-eyebrow-row">
               <span className="karriere-jobs-lime-line" aria-hidden="true" />
@@ -197,16 +190,17 @@ export default function KarriereSection() {
             </p>
           </div>
 
-          {/* Clean 4-Card Overview Grid - Static, No Expanding Panels or Modals */}
           <div className="karriere-jobs-grid" role="list" aria-label="Offene Stellen">
             {JOB_CATEGORIES.map((job) => {
               const IconComponent = job.icon;
 
               return (
-                <div
+                <a
                   key={job.id}
+                  href="#kontakt"
                   className="karriere-job-card"
                   role="listitem"
+                  aria-label={`${job.title} - Jetzt bewerben`}
                 >
                   <div className="karriere-card-content">
                     <div className="karriere-card-top-row">
@@ -220,19 +214,19 @@ export default function KarriereSection() {
 
                     <h4 className="karriere-card-title">{job.title}</h4>
                   </div>
-                </div>
+                </a>
               );
             })}
           </div>
         </div>
 
         {/* ==================================================================
-            3. SUSTAINABILITY & FINAL RECRUITMENT CTA PANEL
+            3. SUSTAINABILITY & DIRECT APPLICATION BANNER
             ================================================================== */}
         <div className="karriere-sustainability-panel">
           <div className="karriere-sustainability-left">
             <div className="karriere-sprout-icon-box" aria-hidden="true">
-              <Sprout size={28} strokeWidth={1.8} className="karriere-sprout-icon" />
+              <Sprout size={26} strokeWidth={1.8} className="karriere-sprout-icon" />
             </div>
             <div className="karriere-sustainability-text">
               <h4 className="karriere-sustainability-title">Nachhaltige Perspektiven.</h4>
@@ -243,13 +237,150 @@ export default function KarriereSection() {
           </div>
 
           <div className="karriere-sustainability-right">
-            <a href="#kontakt" className="karriere-outline-cta btn-slide-right">
+            <button 
+              type="button"
+              onClick={handleApplyClick}
+              className="karriere-outline-cta btn-slide-right"
+              aria-label="Jetzt per E-Mail bewerben"
+            >
               <span>Jetzt bewerben</span>
               <ArrowRight size={16} strokeWidth={2.2} className="karriere-outline-arrow" aria-hidden="true" />
-            </a>
+            </button>
           </div>
         </div>
       </div>
+
+      {/* Direct Application & Email Options Modal */}
+      {isModalOpen && (
+        <div 
+          className="karriere-modal-overlay" 
+          onClick={() => setIsModalOpen(false)}
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="karriere-modal-title"
+        >
+          <div 
+            className="karriere-modal-card" 
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Modal Header */}
+            <div className="karriere-modal-header">
+              <div className="karriere-modal-icon-wrap" aria-hidden="true">
+                <Mail size={22} className="karriere-modal-icon" />
+              </div>
+              <div className="karriere-modal-titles">
+                <h3 id="karriere-modal-title" className="karriere-modal-title">
+                  Bewerbung senden
+                </h3>
+                <p className="karriere-modal-subtitle">
+                  Direkt an <strong>{email}</strong>
+                </p>
+              </div>
+              <button 
+                type="button" 
+                onClick={() => setIsModalOpen(false)}
+                className="karriere-modal-close"
+                aria-label="Modal schließen"
+              >
+                <X size={18} />
+              </button>
+            </div>
+
+            {/* Email Launch Options */}
+            <div className="karriere-modal-options">
+              {/* Option 1: Standard Mail Client */}
+              <a 
+                href={mailtoUrl}
+                className="karriere-modal-opt-btn primary-mail-btn"
+              >
+                <div className="karriere-opt-left">
+                  <div className="karriere-opt-icon-circle">
+                    <Send size={18} />
+                  </div>
+                  <div className="karriere-opt-texts">
+                    <span className="karriere-opt-name">Standard E-Mail-Programm</span>
+                    <span className="karriere-opt-hint">Outlook, Apple Mail, Thunderbird</span>
+                  </div>
+                </div>
+                <ArrowRight size={16} className="karriere-opt-arrow" />
+              </a>
+
+              {/* Option 2: Gmail Webmail */}
+              <a 
+                href={gmailUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="karriere-modal-opt-btn"
+              >
+                <div className="karriere-opt-left">
+                  <div className="karriere-opt-icon-circle gmail-circle">
+                    <Mail size={18} />
+                  </div>
+                  <div className="karriere-opt-texts">
+                    <span className="karriere-opt-name">In Gmail öffnen</span>
+                    <span className="karriere-opt-hint">Öffnet neues Browser-Tab mit vorbereiteter E-Mail</span>
+                  </div>
+                </div>
+                <ExternalLink size={16} className="karriere-opt-arrow" />
+              </a>
+
+              {/* Option 3: Outlook Web */}
+              <a 
+                href={outlookUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="karriere-modal-opt-btn"
+              >
+                <div className="karriere-opt-left">
+                  <div className="karriere-opt-icon-circle outlook-circle">
+                    <Mail size={18} />
+                  </div>
+                  <div className="karriere-opt-texts">
+                    <span className="karriere-opt-name">In Outlook Web öffnen</span>
+                    <span className="karriere-opt-hint">outlook.live.com / office.com</span>
+                  </div>
+                </div>
+                <ExternalLink size={16} className="karriere-opt-arrow" />
+              </a>
+
+              {/* Option 4: Copy Email */}
+              <button 
+                type="button"
+                onClick={handleCopyEmail}
+                className="karriere-modal-opt-btn copy-btn"
+              >
+                <div className="karriere-opt-left">
+                  <div className="karriere-opt-icon-circle copy-circle">
+                    {copied ? <Check size={18} className="karriere-check-icon" /> : <Copy size={18} />}
+                  </div>
+                  <div className="karriere-opt-texts">
+                    <span className="karriere-opt-name">
+                      {copied ? 'E-Mail-Adresse kopiert!' : 'E-Mail-Adresse kopieren'}
+                    </span>
+                    <span className="karriere-opt-hint">{email}</span>
+                  </div>
+                </div>
+                {copied ? (
+                  <span className="karriere-copied-badge">Kopiert ✓</span>
+                ) : (
+                  <Copy size={16} className="karriere-opt-arrow" />
+                )}
+              </button>
+            </div>
+
+            {/* Footer / Alternate */}
+            <div className="karriere-modal-footer">
+              <a 
+                href="#kontakt" 
+                onClick={() => setIsModalOpen(false)}
+                className="karriere-modal-alt-link"
+              >
+                Oder direkt unser Kontaktformular nutzen →
+              </a>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 }
