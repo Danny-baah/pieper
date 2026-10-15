@@ -165,7 +165,7 @@ export default function KarriereSection() {
               <span className="ki-badge">KI-generiert</span>
               <img 
                 src="./images/karriere_hero_simple.jpg" 
-                alt="Pieper moderner LKW Fuhrpark"
+                alt="Vertrauensvoller Händedruck in der Logistik – Partnerschaft und Karriere bei Pieper"
                 className="karriere-hero-photo"
                 loading="lazy"
                 width="1280"

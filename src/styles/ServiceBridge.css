@@ -1,133 +1,179 @@
 /* ==========================================================================
-   SERVICE BRIDGE SECTION (SEPARATED FROM HERO WITH MARGINS & LEFT-ALIGNED)
-   Dark ribbon bar with margins from hero and sides, items aligned to the left
+   PIEPER INTERNATIONALE TRANSPORTE - SERVICE BRIDGE RIBBON (FULL WIDTH)
+   Full-width dark background band with two clickable service cards, lime icons,
+   titles, subtitles, central divider, and subtle PIEPER watermark.
    ========================================================================== */
 
 .pieper-service-bridge-section {
   position: relative;
   width: 100%;
-  background-color: #FCFAEE; /* Warm ivory page background creates clear separation from hero */
-  padding: clamp(24px, 3.5vw, 44px) clamp(1rem, 3.5vw, 3rem) clamp(12px, 1.8vw, 24px) clamp(1rem, 3.5vw, 3rem);
+  background-color: #061B18; /* Deep Forest covers 100% full width */
+  padding: clamp(1.6rem, 2.7vw, 2.35rem) 0;
   box-sizing: border-box;
   z-index: 10;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  overflow: hidden;
 }
 
-/* Contained Dark Ribbon Bar with Left & Right Margins and Rounded Corners */
+/* Centered Container for Content */
 .service-bridge-container {
+  position: relative;
   width: 100%;
-  max-width: 1400px;
+  max-width: 1440px;
   margin: 0 auto;
-  background-color: #061B18; /* Deep Forest dark ribbon */
-  border-radius: 14px;
-  border: 1px solid rgba(252, 250, 238, 0.1);
-  box-shadow: 
-    0 10px 30px rgba(6, 27, 24, 0.12),
-    0 2px 6px rgba(0, 0, 0, 0.08);
-  padding: clamp(24px, 3.2vw, 36px) clamp(24px, 4.5vw, 56px);
+  padding: 0 clamp(1.25rem, 4vw, 3.5rem);
   display: flex;
-  justify-content: flex-start; /* Aligned to the left */
+  justify-content: center;
   align-items: center;
-  gap: clamp(36px, 6vw, 84px);
-  flex-wrap: wrap;
+  gap: clamp(2.5rem, 6vw, 5.5rem);
   box-sizing: border-box;
 }
 
-/* Individual Item: No separate box around icon, sits directly inside dark ribbon */
-.service-ribbon-item {
+/* Watermark in background matching reference */
+.service-bridge-watermark {
+  position: absolute;
+  right: clamp(10px, 3vw, 50px);
+  top: 50%;
+  transform: translateY(-50%);
+  font-family: var(--font-display, 'Outfit', sans-serif);
+  font-size: clamp(4.5rem, 9.5vw, 7.5rem);
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.035);
+  pointer-events: none;
+  user-select: none;
+  z-index: 1;
+  line-height: 1;
+}
+
+/* Clickable Service Item Block */
+.service-bridge-item {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  text-decoration: none;
+  color: #ffffff;
+  cursor: pointer;
+  padding: 0.4rem 0.6rem;
+  border-radius: 8px;
+  user-select: none;
+  transition: transform 250ms cubic-bezier(0.16, 1, 0.3, 1), color 200ms ease;
+}
+
+.service-bridge-item:hover,
+.service-bridge-item:focus-visible {
+  transform: translateY(-2px);
+}
+
+.service-bridge-item:focus-visible {
+  outline: 2px solid var(--color-signature-lime, #BDF806);
+  outline-offset: 4px;
+}
+
+/* Icon Wrap & Signature Lime Glow */
+.service-bridge-icon-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.service-bridge-icon {
+  color: var(--color-signature-lime, #BDF806);
+  transition: transform 250ms cubic-bezier(0.16, 1, 0.3, 1), filter 250ms ease;
+}
+
+.service-bridge-item:hover .service-bridge-icon {
+  transform: scale(1.08);
+  filter: drop-shadow(0 0 12px rgba(189, 248, 6, 0.6));
+}
+
+/* Text Stack: Title & Subtitle */
+.service-bridge-text-wrap {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
-  color: #FFFFFF;
-  cursor: pointer;
-  padding: 8px 12px;
-  box-sizing: border-box;
-  background: transparent;
-  border: none;
-  user-select: none;
-  /* Tactile "big small" bounce animation transition */
-  transition: 
-    transform 0.28s cubic-bezier(0.34, 1.56, 0.64, 1),
-    color 0.22s ease,
-    filter 0.25s ease;
+  gap: 0.25rem;
 }
 
-/* "Big Small" Hover Micro-Interaction */
-.service-ribbon-item:hover {
-  transform: scale(1.12);
-  color: #BDF806;
-}
-
-.service-ribbon-item:active {
-  transform: scale(0.96);
-}
-
-.service-ribbon-item:focus-visible {
-  outline: 2px solid #BDF806;
-  outline-offset: 6px;
-  border-radius: 8px;
-}
-
-/* Enlarged Icon Wrap */
-.ribbon-item-icon-wrap {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #FCFAEE;
-  transition: transform 0.28s ease, color 0.25s ease, filter 0.25s ease;
-}
-
-.service-ribbon-item:hover .ribbon-item-icon-wrap {
-  color: #BDF806;
-  filter: drop-shadow(0 0 16px rgba(189, 248, 6, 0.5));
-}
-
-.ribbon-item-icon {
-  display: block;
-}
-
-/* Bold Uppercase Text Beneath Icon */
-.ribbon-item-title {
-  font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  font-size: clamp(14px, 1.25vw, 16px);
+.service-bridge-title {
+  font-family: var(--font-display, 'Outfit', sans-serif);
+  font-size: clamp(1.0625rem, 1.4vw, 1.3rem);
   font-weight: 800;
-  letter-spacing: 0.06em;
-  color: #FFFFFF;
-  margin-top: 14px;
-  line-height: 1.25;
-  text-align: center;
-  transition: color 0.22s ease;
-  white-space: nowrap;
+  color: #ffffff;
+  line-height: 1.22;
+  letter-spacing: -0.015em;
+  transition: color 200ms ease;
 }
 
-.service-ribbon-item:hover .ribbon-item-title {
-  color: #BDF806;
+.service-bridge-item:hover .service-bridge-title {
+  color: var(--color-signature-lime, #BDF806);
 }
 
-/* Responsive adjustments for mobile and tablets */
-@media (max-width: 580px) {
+.service-bridge-subtitle {
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: clamp(0.8125rem, 0.95vw, 0.925rem);
+  color: rgba(252, 250, 238, 0.72);
+  line-height: 1.38;
+}
+
+/* Central Divider Line */
+.service-bridge-divider {
+  width: 1px;
+  height: 48px;
+  background: rgba(255, 255, 255, 0.12);
+  flex-shrink: 0;
+  z-index: 2;
+}
+
+/* ==========================================================================
+   Responsive Breakpoints
+   ========================================================================== */
+@media (max-width: 900px) {
+  .service-bridge-container {
+    gap: clamp(1.5rem, 3.5vw, 2.5rem);
+    padding: 0 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
   .pieper-service-bridge-section {
-    padding: 16px 12px 8px 12px;
+    padding: 1.5rem 0;
   }
 
   .service-bridge-container {
-    padding: 20px 16px;
-    gap: 20px;
-    justify-content: flex-start;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.25rem;
+    padding: 0 1.25rem;
   }
 
-  .service-ribbon-item {
-    padding: 6px 8px;
+  .service-bridge-item {
+    width: 100%;
+    padding: 0;
   }
 
-  .ribbon-item-icon-wrap svg {
-    width: 48px;
-    height: 48px;
+  .service-bridge-divider {
+    width: 100%;
+    height: 1px;
+    margin: 0;
   }
 
-  .ribbon-item-title {
-    font-size: 12px;
-    margin-top: 8px;
+  .service-bridge-title {
+    font-size: 1.05rem;
+  }
+
+  .service-bridge-subtitle {
+    font-size: 0.8125rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .service-bridge-item,
+  .service-bridge-icon {
+    transition: none !important;
+    transform: none !important;
   }
 }
