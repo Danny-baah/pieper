@@ -32,11 +32,9 @@ export default function ServiceBridge() {
           <div className="service-bridge-icon-wrap" aria-hidden="true">
             <Truck size={36} strokeWidth={2} className="service-bridge-icon" />
           </div>
-          <div className="service-bridge-text-wrap">
-            <span className="service-bridge-title">Transportlogistik</span>
-            <div className="service-bridge-arrow-wrap" aria-hidden="true">
-              <ArrowDown size={14} strokeWidth={2.4} className="service-bridge-arrow" />
-            </div>
+          <span className="service-bridge-title">Transportlogistik</span>
+          <div className="service-bridge-arrow-wrap" aria-hidden="true">
+            <ArrowDown size={14} strokeWidth={2.4} className="service-bridge-arrow" />
           </div>
         </a>
 
@@ -53,11 +51,9 @@ export default function ServiceBridge() {
           <div className="service-bridge-icon-wrap" aria-hidden="true">
             <Warehouse size={36} strokeWidth={2} className="service-bridge-icon" />
           </div>
-          <div className="service-bridge-text-wrap">
-            <span className="service-bridge-title">Lagerlogistik</span>
-            <div className="service-bridge-arrow-wrap" aria-hidden="true">
-              <ArrowDown size={14} strokeWidth={2.4} className="service-bridge-arrow" />
-            </div>
+          <span className="service-bridge-title">Lagerlogistik</span>
+          <div className="service-bridge-arrow-wrap" aria-hidden="true">
+            <ArrowDown size={14} strokeWidth={2.4} className="service-bridge-arrow" />
           </div>
         </a>
       </div>

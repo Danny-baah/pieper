@@ -47,13 +47,13 @@
   line-height: 1;
 }
 
-/* Clickable Service Item Block */
+/* Clickable Service Item Block: Icon, Title, and Arrow on the same horizontal line */
 .service-bridge-item {
   position: relative;
   z-index: 2;
   display: flex;
   align-items: center;
-  gap: 1.25rem;
+  gap: clamp(0.75rem, 1.2vw, 1.15rem);
   text-decoration: none;
   color: #ffffff;
   cursor: pointer;
@@ -91,22 +91,15 @@
   filter: drop-shadow(0 0 12px rgba(189, 248, 6, 0.6));
 }
 
-/* Text Stack: Title & Clickable Arrow Indicator */
-.service-bridge-text-wrap {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 0.35rem;
-}
-
 .service-bridge-title {
   font-family: var(--font-display, 'Outfit', sans-serif);
   font-size: clamp(1.15rem, 1.55vw, 1.45rem);
   font-weight: 800;
   color: #ffffff;
-  line-height: 1.2;
+  line-height: 1;
   letter-spacing: -0.015em;
   transition: color 200ms ease;
+  white-space: nowrap;
 }
 
 .service-bridge-item:hover .service-bridge-title {
@@ -117,11 +110,12 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 22px;
-  height: 22px;
+  width: 24px;
+  height: 24px;
   border-radius: 50%;
   background: rgba(189, 248, 6, 0.12);
   border: 1px solid rgba(189, 248, 6, 0.28);
+  flex-shrink: 0;
   transition: all 250ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
