@@ -46,7 +46,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: 35% center;
+  object-position: 48% center;
   display: block;
   transition: transform 700ms cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -299,8 +299,9 @@
 }
 
 .lager-hero-ki-badge {
-  top: 10px;
-  left: 10px;
+  top: 14px;
+  right: 28px;
+  left: auto !important;
   z-index: 10;
 }
 

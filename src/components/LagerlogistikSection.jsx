@@ -161,7 +161,7 @@ export default function LagerlogistikSection() {
             <span className="ki-badge lager-hero-ki-badge">KI-generiert</span>
             <img 
               src="./images/lager_warehouse_forklift.jpg" 
-              alt="Pieper Gabelstapler bei der Palettenlogistik im Hochregallager"
+              alt="Gabelstapler bei der Palettenlogistik im Hochregallager"
               className="lager-forklift-photo"
               loading="lazy"
               width="960"
