@@ -96,11 +96,7 @@ export default function Footer() {
               <div className="footer-col-body">
                 <div className="footer-hours-group">
                   <span className="footer-hours-label">Montag – Freitag</span>
-                  <span className="footer-hours-val">auf Anfrage</span>
-                </div>
-                <div className="footer-hours-group">
-                  <span className="footer-hours-label">Samstag – Sonntag</span>
-                  <span className="footer-hours-val">auf Anfrage</span>
+                  <span className="footer-hours-val">08:00 – 16:00 Uhr</span>
                 </div>
               </div>
             </div>
