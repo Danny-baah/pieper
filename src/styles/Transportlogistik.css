@@ -192,6 +192,11 @@
   background-color: #061B18;
 }
 
+.v2-truck-frame .ki-badge {
+  left: calc(14% + 16px);
+  top: 14px;
+}
+
 .v2-truck-photo {
   width: 100%;
   height: 100%;
@@ -690,6 +695,10 @@
 
   .v2-truck-frame {
     clip-path: none;
+  }
+
+  .v2-truck-frame .ki-badge {
+    left: 14px;
   }
 
   .v2-far-right-blade {

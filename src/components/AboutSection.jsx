@@ -120,6 +120,7 @@ export default function AboutSection() {
           <div className="about-collage-grid">
             {/* Main Primary Image: Front 3/4 highway shot */}
             <div className="collage-item collage-item-main">
+              <span className="ki-badge">KI-generiert</span>
               <img 
                 src="./images/truck_highway_main.jpg" 
                 alt="Pieper IVECO S-WAY LKW im Straßentransport auf der Autobahn"
@@ -134,6 +135,7 @@ export default function AboutSection() {
             <div className="collage-sub-column">
               {/* Secondary Image: Trailer rear view */}
               <div className="collage-item collage-item-top">
+                <span className="ki-badge">KI-generiert</span>
                 <img 
                   src="./images/truck_trailer_rear.jpg" 
                   alt="Pieper Sattelzug Heckansicht mit Lathen Kontaktdaten"
@@ -146,6 +148,7 @@ export default function AboutSection() {
 
               {/* Third Image: Modern Warehouse Logistics Center */}
               <div className="collage-item collage-item-bottom">
+                <span className="ki-badge">KI-generiert</span>
                 <img 
                   src="./images/warehouse_interior.jpg" 
                   alt="Modernes Pieper Logistikzentrum und Hochregallager"

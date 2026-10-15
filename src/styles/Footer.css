@@ -1,44 +1,71 @@
 /* ==========================================================================
-   PIEPER INTERNATIONALE TRANSPORTE - FOOTER (MATCHING REFERENCE EXACTLY)
+   PIEPER INTERNATIONALE TRANSPORTE - FOOTER STYLES
+   Streamlined, minimalist corporate footer layout
    ========================================================================== */
 
 .pieper-footer {
-  position: relative;
   width: 100%;
   background-color: #061B18;
-  color: #FCFAEE;
+  color: var(--color-warm-ivory);
+  position: relative;
   overflow: hidden;
-  z-index: 20;
-  border-top: 1px solid rgba(6, 27, 24, 0.2);
+  border-top: 1px solid rgba(252, 250, 238, 0.08);
 }
 
 /* --------------------------------------------------------------------------
-   1. TOP & MIDDLE BANNER: BRAND / FACILITY SUNSET & CONTACT COLUMNS
+   1. MAIN BANNER & CONTENT
    -------------------------------------------------------------------------- */
 .footer-top-container {
   position: relative;
   max-width: 1440px;
   margin: 0 auto;
-  padding: clamp(2.5rem, 4vw, 3.5rem) clamp(1.25rem, 4vw, 3.5rem) clamp(2rem, 3.5vw, 3rem);
+  padding: clamp(2.5rem, 4.5vw, 4rem) clamp(1.25rem, 4vw, 3.5rem) clamp(2.5rem, 4vw, 3.5rem);
 }
 
-/* Panoramic Facility Sunset Photo with Dark Angle Overlay in Top-Right */
+/* Panoramic Office Desk & Dispatch Banner with Dark Angle Overlay in Top-Right */
 .footer-facility-banner-wrap {
   position: absolute;
   top: 0;
   right: 0;
-  width: 68%;
-  height: 235px;
+  width: 58%;
+  height: 240px;
   overflow: hidden;
-  pointer-events: none;
   z-index: 1;
+}
+
+.ki-badge {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  z-index: 5;
+  background: rgba(30, 35, 33, 0.72);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 6px;
+  padding: 4px 10px;
+  font-family: var(--font-body, system-ui);
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #ffffff;
+  letter-spacing: 0.4px;
+  line-height: 1.2;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+  pointer-events: none;
+  user-select: none;
+}
+
+.footer-facility-banner-wrap .footer-ki-badge {
+  left: auto;
+  right: 18px;
+  top: 14px;
 }
 
 .footer-facility-sunset-photo {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: right top;
+  object-position: right center;
   display: block;
 }
 
@@ -46,26 +73,25 @@
   position: absolute;
   inset: 0;
   background: 
-    linear-gradient(90deg, #061B18 0%, rgba(6, 27, 24, 0.85) 16%, rgba(6, 27, 24, 0.35) 45%, transparent 70%),
-    linear-gradient(180deg, transparent 40%, #061B18 100%);
+    linear-gradient(90deg, #061B18 0%, rgba(6, 27, 24, 0.92) 20%, rgba(6, 27, 24, 0.55) 50%, rgba(6, 27, 24, 0.2) 80%),
+    linear-gradient(180deg, rgba(6, 27, 24, 0.2) 0%, rgba(6, 27, 24, 0.8) 70%, #061B18 100%);
   pointer-events: none;
 }
 
-/* Main Content Grid (Brand Column on Left, 4 Contact Cols + Map on Right) */
+/* Main Content Grid (Brand Column on Left, Streamlined Contact Cols on Right) */
 .footer-main-content-grid {
   position: relative;
   z-index: 3;
   display: grid;
-  grid-template-columns: 280px 1fr;
-  gap: clamp(2rem, 3.5vw, 3.5rem);
-  align-items: stretch;
+  grid-template-columns: minmax(280px, 340px) 1fr;
+  gap: clamp(2.5rem, 6vw, 6rem);
+  align-items: flex-start;
 }
 
-/* Left Column: Brand Logo, Description & Cursive Script */
+/* Left Column: Brand Logo & Description */
 .footer-brand-column {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
 }
 
 .footer-brand-header {
@@ -97,58 +123,39 @@
 
 .footer-brand-description {
   font-family: var(--font-body);
-  font-size: 0.8125rem;
-  line-height: 1.6;
+  font-size: 0.875rem;
+  line-height: 1.65;
   color: rgba(252, 250, 238, 0.78);
   margin: 0;
-  max-width: 260px;
+  max-width: 300px;
 }
 
-/* Cursive Signature Script: "Mehr bewegen. Gemeinsam." */
-.footer-script-wrap {
-  margin-top: 2rem;
-}
-
-.footer-script-img {
-  width: 195px;
-  height: auto;
-  object-fit: contain;
-  display: block;
-  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.3));
-}
-
-/* Right Columns Wrapper (4 Contact Columns + European Logistics Map) */
+/* Right Columns: Streamlined Contact & Opening Hours */
 .footer-contact-row-wrapper {
   display: grid;
-  grid-template-columns: 1.15fr 0.95fr 1.1fr 1.05fr 185px;
-  gap: 1.25rem;
+  grid-template-columns: minmax(240px, 320px) minmax(200px, 260px);
+  gap: clamp(2rem, 5vw, 4.5rem);
   align-items: flex-start;
-  margin-top: 130px; /* Aligns neatly below the facility sunset horizon */
+  margin-top: clamp(20px, 3.5vw, 60px);
 }
 
-/* Individual Contact Column */
+/* Individual Column */
 .footer-contact-col {
-  border-right: 1px solid rgba(255, 255, 255, 0.08);
-  padding-right: 1.25rem;
   display: flex;
   flex-direction: column;
-}
-
-.footer-contact-col:last-of-type {
-  border-right: none;
 }
 
 /* Column Header (Lime Circle Icon + Title) */
 .footer-contact-col-header {
   display: flex;
   align-items: center;
-  gap: 0.65rem;
-  margin-bottom: 0.95rem;
+  gap: 0.75rem;
+  margin-bottom: 1.1rem;
 }
 
 .footer-col-icon-circle {
-  width: 32px;
-  height: 32px;
+  width: 34px;
+  height: 34px;
   border-radius: 50%;
   border: 1.5px solid var(--color-signature-lime);
   display: flex;
@@ -162,7 +169,7 @@
 
 .footer-col-title {
   font-family: var(--font-display);
-  font-size: 0.9375rem;
+  font-size: 1rem;
   font-weight: 700;
   color: #ffffff;
   margin: 0;
@@ -177,63 +184,56 @@
 
 .footer-col-company {
   font-family: var(--font-body);
-  font-size: 0.8125rem;
+  font-size: 0.875rem;
   font-weight: 700;
   color: #ffffff;
-  line-height: 1.35;
-  margin: 0;
-}
-
-.footer-col-company-sub {
-  font-family: var(--font-body);
-  font-size: 0.78125rem;
-  font-weight: 600;
-  color: rgba(252, 250, 238, 0.88);
-  line-height: 1.35;
-  margin: 0 0 0.35rem 0;
-}
-
-.footer-col-street,
-.footer-col-city,
-.footer-col-country {
-  font-family: var(--font-body);
-  font-size: 0.78125rem;
-  color: rgba(252, 250, 238, 0.72);
   line-height: 1.4;
-  margin: 0;
+  margin: 0 0 0.25rem 0;
 }
 
-/* Clickable Phone & Email Links */
-.footer-col-link {
+.footer-col-street {
   font-family: var(--font-body);
-  font-size: 0.84375rem;
-  font-weight: 700;
+  font-size: 0.8125rem;
+  color: rgba(252, 250, 238, 0.75);
+  line-height: 1.5;
+  margin: 0 0 0.85rem 0;
+}
+
+/* Direct Links (Phone & Email) */
+.footer-direct-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 0.35rem;
+}
+
+.footer-contact-inline {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-weight: 600;
   color: #ffffff;
   text-decoration: none;
-  display: inline-block;
-  line-height: 1.3;
-  margin-bottom: 0.45rem;
-  word-break: break-all;
-  transition: color var(--transition-fast);
+  transition: color var(--transition-fast), transform var(--transition-fast);
 }
 
-.footer-col-link:hover {
+.footer-contact-inline:hover {
   color: var(--color-signature-lime);
+  transform: translateX(2px);
 }
 
-.footer-col-subtext {
-  font-family: var(--font-body);
-  font-size: 0.75rem;
-  color: rgba(252, 250, 238, 0.62);
-  line-height: 1.45;
-  margin: 0;
+.footer-inline-icon {
+  color: var(--color-signature-lime);
+  flex-shrink: 0;
 }
 
-/* Öffnungszeiten */
+/* Opening Hours */
 .footer-hours-group {
   display: flex;
   flex-direction: column;
-  margin-bottom: 0.55rem;
+  margin-bottom: 0.75rem;
 }
 
 .footer-hours-group:last-of-type {
@@ -242,102 +242,27 @@
 
 .footer-hours-label {
   font-family: var(--font-body);
-  font-size: 0.8125rem;
-  font-weight: 700;
-  color: #ffffff;
-  line-height: 1.3;
-}
-
-.footer-hours-val {
-  font-family: var(--font-body);
-  font-size: 0.75rem;
-  color: rgba(252, 250, 238, 0.65);
-  line-height: 1.4;
-}
-
-/* European Route Map Graphic */
-.footer-europe-map-col {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.footer-europe-map-img {
-  width: 100%;
-  max-width: 185px;
-  height: auto;
-  object-fit: contain;
-  display: block;
-  border-radius: 6px;
-  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.25));
-}
-
-/* --------------------------------------------------------------------------
-   2. FEATURE BADGES BAR (FOUR ALIGNED COLUMNS WITH THIN DIVIDERS)
-   -------------------------------------------------------------------------- */
-.footer-features-bar {
-  width: 100%;
-  border-top: 1px solid rgba(189, 248, 6, 0.35); /* Characteristic lime divider */
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  background-color: #061B18;
-  padding: 1.35rem clamp(1.25rem, 4vw, 3.5rem);
-}
-
-.footer-features-container {
-  max-width: 1440px;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.footer-feature-item {
-  display: flex;
-  align-items: center;
-  gap: 0.85rem;
-  flex: 1;
-  justify-content: center;
-}
-
-.footer-feature-item:first-of-type {
-  justify-content: flex-start;
-}
-
-.footer-feature-item:last-of-type {
-  justify-content: flex-end;
-}
-
-.footer-feature-icon-wrap {
-  display: flex;
-  align-items: center;
-  color: var(--color-signature-lime);
-  filter: drop-shadow(0 0 6px rgba(189, 248, 6, 0.3));
-  flex-shrink: 0;
-}
-
-.footer-feature-text {
-  font-family: var(--font-body);
   font-size: 0.875rem;
-  font-weight: 600;
+  font-weight: 700;
   color: #ffffff;
   line-height: 1.35;
 }
 
-.footer-feature-divider {
-  width: 1px;
-  height: 38px;
-  background-color: rgba(255, 255, 255, 0.12);
-  align-self: stretch;
-  margin: 0 1rem;
+.footer-hours-val {
+  font-family: var(--font-body);
+  font-size: 0.8125rem;
+  color: rgba(252, 250, 238, 0.68);
+  line-height: 1.4;
 }
 
 /* --------------------------------------------------------------------------
-   3. BOTTOM COPYRIGHT & LEGAL BAR
+   2. BOTTOM COPYRIGHT & LEGAL BAR
    -------------------------------------------------------------------------- */
 .footer-bottom-bar {
   width: 100%;
   background-color: #03110f;
-  padding: 1.15rem clamp(1.25rem, 4vw, 3.5rem);
+  padding: 1.25rem clamp(1.25rem, 4vw, 3.5rem);
+  border-top: 1px solid rgba(252, 250, 238, 0.08);
 }
 
 .footer-bottom-container {
@@ -347,18 +272,21 @@
   align-items: center;
   justify-content: space-between;
   gap: 1.5rem;
+  /* Comfortable right padding on desktop so floating relock pill doesn't overlap legal links */
+  padding-right: clamp(0px, 8vw, 140px);
+  box-sizing: border-box;
 }
 
 .footer-copyright-text {
   font-family: var(--font-body);
-  font-size: 0.78125rem;
+  font-size: 0.8125rem;
   color: rgba(252, 250, 238, 0.65);
   margin: 0;
 }
 
 .footer-credit-text {
   font-family: var(--font-body);
-  font-size: 0.78125rem;
+  font-size: 0.8125rem;
   color: rgba(252, 250, 238, 0.65);
   margin: 0;
 }
@@ -382,7 +310,7 @@
 
 .footer-legal-link {
   font-family: var(--font-body);
-  font-size: 0.78125rem;
+  font-size: 0.8125rem;
   color: rgba(252, 250, 238, 0.75);
   text-decoration: none;
   transition: color var(--transition-fast);
@@ -398,71 +326,32 @@
 }
 
 /* --------------------------------------------------------------------------
-   4. RESPONSIVE BREAKPOINTS
+   3. RESPONSIVE BREAKPOINTS
    -------------------------------------------------------------------------- */
-@media (max-width: 1200px) {
+@media (max-width: 992px) {
   .footer-main-content-grid {
     grid-template-columns: 1fr;
     gap: 2.5rem;
   }
 
   .footer-facility-banner-wrap {
-    position: relative;
     width: 100%;
-    height: 200px;
-    margin-bottom: 2rem;
+    height: 180px;
+    position: relative;
+    margin-bottom: 1.5rem;
   }
 
   .footer-contact-row-wrapper {
     margin-top: 0;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
-  }
-
-  .footer-europe-map-col {
-    grid-column: span 3;
-    justify-content: flex-start;
-  }
-
-  .footer-features-container {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
-  }
-
-  .footer-feature-item {
-    justify-content: flex-start !important;
-  }
-
-  .footer-feature-divider {
-    display: none;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 640px) {
   .footer-contact-row-wrapper {
     grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
-
-  .footer-contact-col {
-    border-right: none;
-    padding-right: 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-    padding-bottom: 1.25rem;
-  }
-
-  .footer-contact-col:last-of-type {
-    border-bottom: none;
-  }
-
-  .footer-europe-map-col {
-    grid-column: auto;
-  }
-
-  .footer-features-container {
-    grid-template-columns: 1fr;
-    gap: 1.25rem;
+    gap: 1.75rem;
   }
 
   .footer-bottom-container {
@@ -470,6 +359,7 @@
     align-items: center;
     text-align: center;
     gap: 0.75rem;
+    padding-right: 0;
   }
 
   .footer-bottom-divider {

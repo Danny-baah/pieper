@@ -8,9 +8,9 @@
  */
 
 export const COMBINED_VIDEOS = {
-  desktop: './videos/pieper_combined_desktop.mp4',
-  mobile: './videos/pieper_combined_mobile.mp4',
-  duration: 27.9,
+  desktop: './videos/IMG_3144.MOV',
+  mobile: './videos/IMG_3145.MOV',
+  duration: 25.83,
 };
 
 export const SCENES = [
@@ -42,7 +42,7 @@ export const SCENES = [
     id: 'transport-b',
     index: 2,
     startTime: 20.0,
-    endTime: 27.9,
+    endTime: 25.83,
     serviceCategory: 'Transportlogistik',
     overline: 'PIEPER INTERNATIONALE TRANSPORTE',
     headlinePrefix: 'Transport,',

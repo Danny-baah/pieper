@@ -182,6 +182,7 @@ export default function TransportlogistikSection() {
           {/* Right Column: Prominent Angled Truck Photograph */}
           <div className="v2-hero-image-col">
             <div className="v2-truck-frame">
+              <span className="ki-badge">KI-generiert</span>
               <img 
                 src="./images/truck_highway_main.jpg" 
                 alt="Pieper IVECO S-WAY LKW im Straßentransport auf der Autobahn"
@@ -238,6 +239,9 @@ export default function TransportlogistikSection() {
                     <div className="v2-card-dark-gradient" aria-hidden="true" />
                   </div>
 
+                  {/* Top-Left AI Badge */}
+                  <span className="ki-badge">KI-generiert</span>
+
                   {/* Top-Right Number Indicator (01 —, 02 —, 03 —) */}
                   <div className="v2-card-index-indicator" aria-hidden="true">
                     <span>{service.number}</span>
@@ -292,6 +296,7 @@ export default function TransportlogistikSection() {
           >
             {/* Modal Hero Banner */}
             <div className="v2-modal-banner">
+              <span className="ki-badge">KI-generiert</span>
               <img 
                 src={activeService.image} 
                 alt={activeService.imageAlt}

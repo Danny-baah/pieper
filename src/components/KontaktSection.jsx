@@ -1,6 +1,5 @@
 import React from 'react';
 import { 
-  MapPin, 
   PhoneCall, 
   ArrowRight
 } from 'lucide-react';
@@ -16,83 +15,10 @@ export default function KontaktSection() {
     >
       <div className="kontakt-main-container">
         {/* ==================================================================
-            1. UPPER SPLIT: INTRO & BRAND VALUES (LEFT) + COMPANY BUILDING (RIGHT)
+            1. TOP ROW: DIRECT CONTACT CALL-TO-ACTION (LEFT) + TITLE & TEXT (RIGHT)
             ================================================================== */}
-        <div className="kontakt-hero-split">
-          {/* Left Column: Heading, Supporting Copy, Brand Values & Script */}
-          <div className="kontakt-left-column">
-            {/* Eyebrow */}
-            <div className="kontakt-eyebrow-wrapper">
-              <span className="kontakt-eyebrow-line" aria-hidden="true" />
-              <span className="kontakt-eyebrow-text">KONTAKT</span>
-            </div>
-
-            {/* Main Heading */}
-            <h2 id="kontakt-main-heading" className="kontakt-heading">
-              <span className="kontakt-heading-dark">Wir sind</span>
-              <br />
-              <span className="kontakt-heading-dark">für </span>
-              <span className="kontakt-heading-lime">Sie da.</span>
-            </h2>
-
-            {/* Supporting Paragraph */}
-            <p className="kontakt-intro-paragraph">
-              Ob Transport, Lagerlogistik oder individuelle Lösungen – wir freuen 
-              uns auf Ihre Anfrage. Unser Team steht Ihnen gerne persönlich zur 
-              Verfügung.
-            </p>
-
-            {/* Bottom Row of Left Col: Brand Values List & Script Statement */}
-            <div className="kontakt-values-script-row">
-              {/* Values List with Vertical Lime Line */}
-              <div className="kontakt-values-block">
-                <span className="kontakt-values-vertical-bar" aria-hidden="true" />
-                <ul className="kontakt-values-list" aria-label="Unsere Werte">
-                  <li>PERSÖNLICH</li>
-                  <li>KOMPETENT</li>
-                  <li>ZUVERLÄSSIG</li>
-                  <li>LEICHT ERREICHBAR</li>
-                </ul>
-              </div>
-
-              {/* Elegant Script Statement */}
-              <div className="kontakt-script-block">
-                <span className="kontakt-script-lime-dash" aria-hidden="true" />
-                <div className="kontakt-script-visual-wrap">
-                  <img 
-                    src="./images/kontakt_script.png" 
-                    alt="Ihr Partner in der Logistik."
-                    className="kontakt-script-img"
-                    loading="lazy"
-                    width="150"
-                    height="60"
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Right Column: Pieper Office Desk, Notepad & Pen */}
-          <div className="kontakt-right-column">
-            <div className="kontakt-building-frame">
-              <img 
-                src="./images/footer_desk_notepad.jpg" 
-                alt="PIEPER Internationale Transporte Schreibtisch mit Notizblock und Stift"
-                className="kontakt-building-photo"
-                loading="lazy"
-                width="634"
-                height="345"
-              />
-              <div className="kontakt-building-overlay" aria-hidden="true" />
-            </div>
-          </div>
-        </div>
-
-        {/* ==================================================================
-            2. CONTACT CALL-TO-ACTION WITH PHONE & LOCATION MAP
-            ================================================================== */}
-        <div className="kontakt-cta-map-grid" role="region" aria-label="Direktkontakt und Standort">
-          {/* Call to Action Card with Direct Phone Number */}
+        <div className="kontakt-top-grid">
+          {/* Left Column: Call to Action Card with Direct Phone Number */}
           <div className="kontakt-cta-panel">
             <div className="kontakt-cta-badge">
               <span className="kontakt-cta-badge-dot" aria-hidden="true" />
@@ -127,43 +53,63 @@ export default function KontaktSection() {
             </div>
           </div>
 
-          {/* Location Map Visual & Route Planen Link */}
+          {/* Right Column: Title, Eyebrow & Supporting Text */}
+          <div className="kontakt-title-col">
+            <div className="kontakt-eyebrow-wrapper">
+              <span className="kontakt-eyebrow-line" aria-hidden="true" />
+              <span className="kontakt-eyebrow-text">KONTAKT</span>
+            </div>
+
+            <h2 id="kontakt-main-heading" className="kontakt-heading">
+              <span className="kontakt-heading-dark">Wir sind</span>
+              <br />
+              <span className="kontakt-heading-dark">für </span>
+              <span className="kontakt-heading-lime">Sie da.</span>
+            </h2>
+
+            <p className="kontakt-intro-paragraph">
+              Ob Transport, Lagerlogistik oder individuelle Lösungen – wir freuen 
+              uns auf Ihre Anfrage. Unser Team steht Ihnen gerne persönlich zur 
+              Verfügung.
+            </p>
+          </div>
+        </div>
+
+        {/* ==================================================================
+            2. FULL-WIDTH CLEAN INTERACTIVE GOOGLE MAP EMBED & OVERLAY CARD
+            ================================================================== */}
+        <div className="kontakt-map-fullwidth-wrap" role="region" aria-label="Standortkarte Lathen">
           <div className="kontakt-map-card">
-            {/* Background Map Graphic */}
-            <div className="kontakt-map-bg-box" aria-hidden="true">
-              <img 
-                src="./images/kontakt_map.jpg" 
-                alt="Standortkarte Lathen"
-                className="kontakt-map-img"
-                loading="lazy"
-              />
-              <div className="kontakt-map-overlay" />
-            </div>
+            {/* Crisp, Wide Interactive Google Map Embed centered at Lathen */}
+            <iframe 
+              title="Standortkarte PIEPER Internationale Transporte Lathen"
+              src="https://maps.google.com/maps?q=52.8647,7.3185&t=&z=14&ie=UTF8&iwloc=&output=embed"
+              className="kontakt-map-iframe"
+              loading="lazy"
+              allowFullScreen=""
+              referrerPolicy="no-referrer-when-downgrade"
+            />
 
-            {/* Pin Badge Overlay */}
-            <div className="kontakt-map-badge">
-              <div className="kontakt-map-badge-pin" aria-hidden="true">
-                <MapPin size={20} className="kontakt-map-pin-icon" />
+            {/* Clean Location Info Card Overlay matching reference screenshot */}
+            <div className="kontakt-map-info-card">
+              <div className="kontakt-map-info-dot-row">
+                <span className="kontakt-map-info-dot" aria-hidden="true" />
+                <span className="kontakt-map-info-title">PIEPER INTERNATIONALE TRANSPORTE</span>
               </div>
-              <div className="kontakt-map-badge-text">
-                <strong>PIEPER</strong>
-                <span>Internationale Transporte GmbH &amp; Co. KG</span>
-              </div>
+              <p className="kontakt-map-info-address">
+                Mühlentannen 11–13, 49762 Lathen, Deutschland
+              </p>
+              <a 
+                href={directionsUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="kontakt-map-info-route-btn"
+                aria-label="Route zu PIEPER auf Google Maps planen"
+              >
+                <span>Route planen</span>
+                <ArrowRight size={14} strokeWidth={2.4} aria-hidden="true" />
+              </a>
             </div>
-
-            {/* Route planen Action Button */}
-            <a 
-              href={directionsUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="kontakt-route-btn btn-slide-right"
-              aria-label="Route zu PIEPER Internationale Transporte auf Google Maps planen"
-            >
-              <div className="kontakt-route-circle-arrow" aria-hidden="true">
-                <ArrowRight size={13} strokeWidth={2.2} />
-              </div>
-              <span>Route planen</span>
-            </a>
           </div>
         </div>
       </div>

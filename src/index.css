@@ -224,3 +224,36 @@ button {
   }
 }
 
+/* AI-Generated Badge Utility (matches user's reference screenshot) */
+.ki-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  z-index: 10;
+  background: rgba(30, 35, 33, 0.75);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 6px;
+  padding: 3px 8px;
+  font-family: var(--font-body, system-ui);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  color: #ffffff;
+  letter-spacing: 0.25px;
+  line-height: 1.2;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+  pointer-events: none;
+  user-select: none;
+  white-space: nowrap;
+}
+
+.ki-badge.ki-badge-inline {
+  position: static;
+  display: inline-flex;
+  align-items: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+}
+
+
+

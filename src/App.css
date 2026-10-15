@@ -653,19 +653,46 @@
 @media (max-width: 768px) {
   .contact-bar {
     height: auto;
-    padding: 0.45rem 0;
+    padding: 0.5rem 0;
   }
-  .contact-bar-right {
-    display: none;
-  }
+
   .contact-bar-container {
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
+    gap: 0.35rem;
+    padding: 0 1rem;
   }
-  .address-item .contact-text {
-    max-width: 200px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+
+  .contact-bar-left,
+  .contact-bar-right {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+  }
+
+  /* On mobile: leave only phone number and email one on top of the other */
+  .address-item,
+  .contact-divider {
+    display: none !important;
+  }
+
+  .contact-bar-right {
+    display: flex !important;
+  }
+
+  .phone-item,
+  .email-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    font-size: 0.8125rem;
+  }
+
+  .contact-link {
+    font-weight: 600;
+    letter-spacing: 0.2px;
   }
   .navbar-links-right {
     display: none;

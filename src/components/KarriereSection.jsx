@@ -141,6 +141,7 @@ export default function KarriereSection() {
           {/* Right Column: Recruitment Imagery Collage */}
           <div className="karriere-right-column">
             <div className="karriere-collage-frame">
+              <span className="ki-badge">KI-generiert</span>
               {/* Primary Collage Composite Image (High-Res Pieper Driver, Truck, Quote Panel & Sub-Photos) */}
               <img 
                 src="./images/karriere_hero_collage.png" 

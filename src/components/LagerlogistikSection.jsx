@@ -158,6 +158,7 @@ export default function LagerlogistikSection() {
             ================================================================== */}
         <div className="lager-visual-column">
           <div className="lager-image-frame">
+            <span className="ki-badge lager-hero-ki-badge">KI-generiert</span>
             <img 
               src="./images/lager_warehouse_forklift.jpg" 
               alt="Pieper Gabelstapler bei der Palettenlogistik im Hochregallager"
@@ -252,10 +253,13 @@ export default function LagerlogistikSection() {
 
                   {/* Card Content (Clean architectural presentation) */}
                   <div className="lager-card-content">
-                    {/* Top Row: Number indicator with lime divider line */}
-                    <div className="lager-card-header-row" aria-hidden="true">
-                      <span className="lager-card-number-line" />
-                      <span className="lager-card-number">{service.number}</span>
+                    {/* Top Row: KI-generiert badge on left, Number indicator on right */}
+                    <div className="lager-card-header-row">
+                      <span className="ki-badge ki-badge-inline">KI-generiert</span>
+                      <div className="lager-card-num-group" aria-hidden="true">
+                        <span className="lager-card-number-line" />
+                        <span className="lager-card-number">{service.number}</span>
+                      </div>
                     </div>
 
                     {/* Middle: Lime-Green Line Icon */}
@@ -300,6 +304,7 @@ export default function LagerlogistikSection() {
           >
             {/* Modal Header Banner */}
             <div className="lager-modal-banner">
+              <span className="ki-badge">KI-generiert</span>
               <img 
                 src={activeService.image} 
                 alt={activeService.imageAlt}

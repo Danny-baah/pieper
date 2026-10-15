@@ -284,11 +284,24 @@
   justify-content: space-between;
 }
 
-/* Number Indicator Row */
+/* Number Indicator Row & Header */
 .lager-card-header-row {
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.lager-card-num-group {
+  display: flex;
+  align-items: center;
   gap: 8px;
+}
+
+.lager-hero-ki-badge {
+  top: 14px;
+  left: 14px;
+  z-index: 10;
 }
 
 .lager-card-number-line {
