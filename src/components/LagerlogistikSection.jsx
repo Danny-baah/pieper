@@ -253,9 +253,8 @@ export default function LagerlogistikSection() {
 
                   {/* Card Content (Clean architectural presentation) */}
                   <div className="lager-card-content">
-                    {/* Top Row: KI-generiert badge on left, Number indicator on right */}
+                    {/* Top Row: Number indicator on right */}
                     <div className="lager-card-header-row">
-                      <span className="ki-badge ki-badge-inline">KI-generiert</span>
                       <div className="lager-card-num-group" aria-hidden="true">
                         <span className="lager-card-number-line" />
                         <span className="lager-card-number">{service.number}</span>

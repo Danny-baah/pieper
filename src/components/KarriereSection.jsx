@@ -183,14 +183,14 @@ export default function KarriereSection() {
         </div>
 
         {/* ==================================================================
-            2. JOB CATEGORIES: UNSERE EINSATZBEREICHE (CLEAN 4-CARD OVERVIEW)
+            2. JOB CATEGORIES: OFFENE STELLEN (CLEAN 4-CARD OVERVIEW)
             ================================================================== */}
         <div id="stellenangebote" className="karriere-jobs-wrapper">
           {/* Section Heading */}
           <div className="karriere-jobs-header">
             <div className="karriere-jobs-eyebrow-row">
               <span className="karriere-jobs-lime-line" aria-hidden="true" />
-              <h3 className="karriere-jobs-headline">Unsere Einsatzbereiche</h3>
+              <h3 className="karriere-jobs-headline">Offene Stellen</h3>
             </div>
             <p className="karriere-jobs-subtitle">
               Vielfältige Aufgaben. Starke Perspektiven.
@@ -198,7 +198,7 @@ export default function KarriereSection() {
           </div>
 
           {/* Clean 4-Card Overview Grid - Static, No Expanding Panels or Modals */}
-          <div className="karriere-jobs-grid" role="list" aria-label="Offene Einsatzbereiche">
+          <div className="karriere-jobs-grid" role="list" aria-label="Offene Stellen">
             {JOB_CATEGORIES.map((job) => {
               const IconComponent = job.icon;
 
