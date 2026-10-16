@@ -335,12 +335,7 @@
   }
 }
 
-@media (max-width: 640px) {
-  .footer-contact-row-wrapper {
-    grid-template-columns: 1fr;
-    gap: 1.75rem;
-  }
-
+@media (max-width: 768px) {
   .footer-bottom-container {
     flex-direction: column;
     align-items: center;
@@ -351,5 +346,25 @@
 
   .footer-bottom-divider {
     display: none;
+  }
+
+  .footer-legal-links {
+    order: 1;
+    justify-content: center;
+  }
+
+  .footer-copyright-text {
+    order: 2;
+  }
+
+  .footer-credit-text {
+    order: 3;
+  }
+}
+
+@media (max-width: 640px) {
+  .footer-contact-row-wrapper {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
   }
 }

@@ -116,7 +116,7 @@ export default function Footer() {
           <span className="footer-bottom-divider" aria-hidden="true" />
 
           <p className="footer-credit-text">
-            Webdesign von{' '}
+            Webdesign by{' '}
             <a
               href="https://emancopys.com/"
               target="_blank"
